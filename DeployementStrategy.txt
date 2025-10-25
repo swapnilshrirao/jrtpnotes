@@ -1,0 +1,264 @@
+1. Recreate Deployment (a.k.a. Rolling Restart)
+===============================================
+->What: Stops the old version and then deploys the new one.
+->Use Case: Simple applications with short downtime tolerance.
+->Drawback: Causes downtime — not suitable for live production apps.
+✅ Not ideal for microservices.
+
+
+2. Rolling Deployment ✅ (Most used with Microservices)
+==========================================================
+->What: Gradually replaces old pods/containers with new ones.
+->How it works:For example, in Kubernetes, it replaces a few pods at a time with the new version.
+If anything goes wrong, it can roll back.
+
+->Benefits:No downtime.Real users test the new version incrementally.
+
+->Use Case: Microservices with continuous deployment (CD).
+->Example (Kubernetes YAML):
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 1
+    maxSurge: 1
+
+->Recommended strategy for most microservices-based applications.
+
+
+3. Blue-Green Deployment
+=========================
+->What: Two identical environments – Blue (old), Green (new).
+->You deploy the new version to Green, and once tested, switch traffic to Green.
+->Benefits:Zero downtime.Easy rollback (just switch traffic back to Blue).
+Use Case: Mission-critical services.
+->Implementation Example:
+Two versions deployed behind a load balancer (e.g., AWS ALB).
+DNS or traffic shifting can swap environments.
+
+4. Canary Deployment
+======================
+->What: Release the new version to a small subset of users (say 10%).
+->If no issues, gradually increase to 100%.
+->Benefits:Early feedback.
+Prevents large-scale failures.
+
+->Use Case: Risk-sensitive microservices, real-time monitoring.
+->Example in AWS:Using AWS CodeDeploy + Lambda or ECS with weighted traffic shifting.
+
+✅ Ideal for microservices with frequent updates.
+✅ Common in CI/CD pipelines and cloud environments.
+
+5. Shadow Deployment
+====================
+->What: New version runs in parallel, receives real traffic, but responses are not sent to users.
+->Used to validate the new version in production silently.
+->Use Case: Testing critical microservices without exposing users to risk.
+
+✅ Used with A/B testing, ML models, or database-heavy apps.
+
+6. A/B Testing
+================
+->What: Different versions are deployed to users based on some rules (like region, user ID, etc.).
+->Used more in frontend or feature-driven microservices.
+
+
+As a 7-Year Java Microservices Developer, You Should Know:
+========================================================
+Rolling Deployment – most common and easy with Docker + Kubernetes
+Blue-Green – for zero downtime and fast rollback
+Canary – for progressive releases
+
+Tools to use:
+Docker, Kubernetes, Helm
+Jenkins, GitHub Actions, GitLab CI/CD
+AWS CodeDeploy, Azure DevOps, Spinnaker, ArgoCD
+
+
+If you're deploying your Java (WAR/JAR) application on an AWS-hosted server (like EC2) without Docker or Kubernetes,
+ but want to automate the process via CI/CD (e.g., using Jenkins), 
+you can still achieve this by setting up a classic Jenkins pipeline that performs the following steps:
+=====================================================================================================================
+
+
+Overview: CI/CD Deployment Flow (WAR/JAR to AWS Webapps folder)
+=================================================================
+Code is pushed to Git (e.g., GitHub/GitLab/Bitbucket)
+Jenkins pulls the code
+Builds the project using Maven or Gradle
+Generates WAR/JAR file
+Securely copies WAR/JAR file to your AWS EC2 server
+Moves file to /webapps folder of Tomcat (for WAR) or runs java -jar for JAR
+Restarts service (if needed)
+
+What You Need
+==============
+AWS EC2 Linux instance (Ubuntu/CentOS)
+Jenkins running on your CI server (can be local or another EC2)
+Tomcat installed (for WAR) or Java (for JAR)
+SSH Key (to access EC2 from Jenkins)
+Maven/Gradle for build
+
+Jenkins Pipeline Script Example (Declarative Pipeline)
+=======================================================
+pipeline {
+    agent any
+
+    environment {
+        EC2_HOST = "ec2-user@your-ec2-public-ip"
+        SSH_KEY = "/path/to/private-key.pem"
+        WAR_FILE = "target/yourapp.war"
+        REMOTE_WEBAPPS_PATH = "/opt/tomcat/webapps/"
+    }
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/your-repo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to AWS') {
+            steps {
+                sh """
+                chmod 400 ${SSH_KEY}
+                scp -i ${SSH_KEY} ${WAR_FILE} ${EC2_HOST}:${REMOTE_WEBAPPS_PATH}
+                ssh -i ${SSH_KEY} ${EC2_HOST} 'sudo systemctl restart tomcat'
+                """
+            }
+        }
+    }
+}
+
+Folder Structure (WAR deployment)
+==================================
+WAR file goes to: /opt/tomcat/webapps/
+Tomcat will auto-deploy it
+To restart: sudo systemctl restart tomcat
+
+
+For JAR Application:
+=====================
+Modify the pipeline:
+
+stage('Deploy JAR to EC2') {
+    steps {
+        sh """
+        scp -i ${SSH_KEY} target/yourapp.jar ${EC2_HOST}:/home/ec2-user/
+        ssh -i ${SSH_KEY} ${EC2_HOST} 'pkill -f yourapp.jar || true'
+        ssh -i ${SSH_KEY} ${EC2_HOST} 'nohup java -jar /home/ec2-user/yourapp.jar > app.log 2>&1 &'
+        """
+    }
+}
+
+ Security Notes
+==============
+Use SSH keys (no password-based login)
+Make sure the EC2 instance has the correct IAM role (if accessing S3, RDS, etc.)
+Limit port access using security groups (e.g., allow 22, 8080, etc.)
+
+
+Diagrammatic View (WAR Deployment)
+==================================
+
+        [GitHub Repo]
+              |
+              V
+         [Jenkins CI]
+              |
+        +-----------+
+        |  Build    |  --> mvn clean package
+        |  WAR/JAR  |
+        +-----------+
+              |
+              V
+     SCP to EC2 using SSH Key
+              |
+              V
+    [EC2 Instance with Tomcat]
+              |
+              V
+   /opt/tomcat/webapps/yourapp.war
+              |
+              V
+     Tomcat auto-deploys WAR
+              |
+              V
+         App is live
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

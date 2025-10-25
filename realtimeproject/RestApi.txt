@@ -1,0 +1,320 @@
+Creating a simple REST API using Java Spring Boot for the backend, Angular for the frontend, and deploying it using a CI/CD pipeline (Jenkins) to an AWS server involves multiple steps. Below is the detailed, step-by-step guide to help you set this up.
+
+Overview of Steps:
+Set up Spring Boot backend (REST API)
+Set up Angular frontend
+Set up AWS EC2 instance
+Set up Jenkins CI/CD pipeline
+Configure GitHub repository and Jenkins webhook
+Configure automatic deployment on AWS EC2
+Step 1: Set up the Spring Boot Backend (Java)
+Create Spring Boot Project
+
+Go to Spring Initializr, select:
+Project: Maven
+Language: Java
+Spring Boot Version: Latest stable version
+Dependencies: Spring Web, Spring Data JPA, H2 Database (or any database of your choice)
+Download the project and unzip it.
+Import the project into your IDE (IntelliJ IDEA, Eclipse, etc.).
+Create Entity (Product Model)
+
+Create a model class that represents the data (e.g., Product).
+java
+Copy
+package com.example.demo.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private double price;
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}
+Create a Repository Interface
+This interface will be used to interact with the database.
+java
+Copy
+package com.example.demo.repository;
+
+import com.example.demo.model.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProductRepository extends JpaRepository<Product, Long> {
+}
+Create Controller to Expose REST API
+The controller will handle the HTTP requests (GET, POST, PUT, DELETE) for the products.
+java
+Copy
+package com.example.demo.controller;
+
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    @PostMapping
+    public Product createProduct(@RequestBody Product product) {
+        return productRepository.save(product);
+    }
+
+    @PutMapping("/{id}")
+    public Product updateProduct(@PathVariable Long id, @RequestBody Product productDetails) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        product.setName(productDetails.getName());
+        product.setPrice(productDetails.getPrice());
+        return productRepository.save(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable Long id) {
+        productRepository.deleteById(id);
+    }
+}
+Configure Database
+In application.properties or application.yml, configure your database connection. For example, using H2 (in-memory database) for testing:
+properties
+Copy
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+Alternatively, use MySQL or PostgreSQL for a production environment.
+Run the Application
+Run the Spring Boot application using your IDE or by using the command line:
+bash
+Copy
+mvn spring-boot:run
+Now, the API should be accessible at http://localhost:8080/api/products.
+
+Step 2: Set up Angular Frontend
+Install Angular CLI
+Install Angular CLI globally if you haven't:
+bash
+Copy
+npm install -g @angular/cli
+Create a New Angular Project
+bash
+Copy
+ng new product-app
+cd product-app
+Install HTTP Client Module
+In your Angular project, open app.module.ts and import HttpClientModule to make HTTP requests to the backend.
+typescript
+Copy
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, HttpClientModule],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+Create a Service to Handle API Calls
+bash
+Copy
+ng generate service product
+In product.service.ts:
+
+typescript
+Copy
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+interface Product {
+  id?: number;
+  name: string;
+  price: number;
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ProductService {
+  private apiUrl = 'http://localhost:8080/api/products';
+
+  constructor(private http: HttpClient) {}
+
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product);
+  }
+
+  updateProduct(id: number, product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrl}/${id}`, product);
+  }
+
+  deleteProduct(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}
+Create Component to Display and Manage Products
+In app.component.ts:
+
+typescript
+Copy
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from './product.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent implements OnInit {
+  products = [];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.productService.getAllProducts().subscribe((data) => {
+      this.products = data;
+    });
+  }
+
+  // Methods to handle add, update, delete products can be added here
+}
+Build and Serve the Angular Application
+bash
+Copy
+ng build --prod
+After the build, the static files will be in the dist/ folder.
+
+Step 3: Set up AWS EC2 Instance
+Launch EC2 Instance
+
+Go to AWS EC2, create a new instance (Amazon Linux 2 or Ubuntu).
+Make sure the security group allows HTTP (port 80) and SSH (port 22).
+Connect to your EC2 instance using SSH.
+Install Java, Node.js, and Nginx on EC2
+
+bash
+Copy
+sudo yum install java-11-openjdk
+sudo yum install nodejs
+sudo yum install nginx
+Start Nginx:
+
+bash
+Copy
+sudo service nginx start
+Step 4: Set up Jenkins CI/CD Pipeline
+Install Jenkins on EC2
+bash
+Copy
+sudo amazon-linux-extras install java-openjdk11
+sudo yum install jenkins
+sudo service jenkins start
+sudo systemctl enable jenkins
+Configure GitHub Webhook
+
+Create a GitHub repository for both the backend and frontend projects.
+Set up a Webhook in GitHub to notify Jenkins of new pushes.
+Create Jenkins Pipeline
+
+Open Jenkins in your browser (http://<ec2-public-ip>:8080).
+Install required plugins (Git, Maven, NodeJS, etc.).
+Create a Pipeline job and configure it to build and deploy your app.
+Jenkinsfile Example:
+
+groovy
+Copy
+pipeline {
+    agent any
+    environment {
+        BACKEND_DIR = 'spring-boot-backend'
+        FRONTEND_DIR = 'angular-frontend'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/your-username/repo.git'
+            }
+        }
+        stage('Build Backend') {
+            steps {
+                dir("${BACKEND_DIR}") {
+                    sh './mvnw clean install'
+                }
+            }
+        }
+        stage('Build Frontend') {
+            steps {
+                dir("${FRONTEND_DIR}") {
+                    sh 'npm install'
+                    sh 'ng build --prod'
+                }
+            }
+        }
+        stage('Deploy to AWS EC2') {
+            steps {
+                sh '''
+                    scp -i /path/to/your-key.pem target/*.jar ec2-user@<your-ec2-ip>:/home/ec2-user/
+                    ssh -i /path/to/your-key.pem ec2-user@<your-ec2-ip> "java -jar /home/ec2-user/*.jar"
+                    scp -i /path/to/your-key.pem -r dist/* ec2-user@<your-ec2-ip>:/usr/share/nginx/html/
+                '''
+            }
+        }
+    }
+}
+Configure Jenkins Webhook with GitHub
+Add the GitHub webhook to your repository. Jenkins will automatically build and deploy the code whenever you push to GitHub.
+Conclusion
+You've now set up a simple Spring Boot REST API backend with Angular frontend.
+AWS EC2 hosts the application, and Jenkins is used for automatic deployment with CI/CD.
+Whenever code is pushed to GitHub, Jenkins will automatically build, test, and deploy the application on the AWS EC2 instance.

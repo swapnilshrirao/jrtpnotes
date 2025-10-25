@@ -1,0 +1,67 @@
+===========================
+Load Balancing
+=========================
+
+->Load balancing is the process of distributing load to multiple servers
+
+->If we deploy our application in single server then that server is responsible to handle all the requests
+
+->If too many requests comes at a time then burden will increase on server.
+
+->If burden is increase on server
+
+    *server may not handle that load
+     *Request processing will take more time
+*User need to wait for response
+*server might crash
+*we will losse customers & business
+
+
+=>To overcome all the above problems we will use load balancer
+
+
+
+
+->Application will be deployed to multiple servers
+->End users request will be received by load balancer
+->LBR will distribute the load to servers in round robbin fashion
+-> If any one server got crashed still request will be handled by others server which are up & running
+->In all servers same application will be deployed.
+
+
+
+==========================
+changes in controoller
+================================
+
+
+@RestController
+public class GreetRestController {
+
+	
+
+	@Autowired
+	private Environment env;
+
+	@GetMapping("/greet")
+	public String getGreetMsg() {
+
+		string port=env.getProperty("server.port");
+ 
+                 string msg ="Good Evening..!! (from server :: "+ port +")";
+
+		return msg;
+	}
+}
+
+
+->remove port no of greet api from yml file
+
+
+->RUN THE APPLICATION  RUN AS->RUN CONFIGURATION
+
+go to arguments..In VM arguments type(Vm arguments are nothing but the arguments which are sending to jvm)
+
+-Dserver.port=9090
+
+->run application   localhost:3333/greet

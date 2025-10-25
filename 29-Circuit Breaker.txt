@@ -1,0 +1,203 @@
+++++++++++++++++++++++++++++++
+Circuit Breaker
++++++++++++++++++++++++++++++++
+->CB is used to develop fault tolerence system
+->Fault tolerance is also called as Resillence system
+->Fault tolerence means handling failure scenerios
+
+public Data getData () { 
+
+		try {
+			// logic to get data from redis
+		} catch(Exception e){
+			// logic to get data from database
+		}
+
+}
+
+-> The above logic is not at all recommended because everytime redis logic will execute if it failed then database logic will execute.
+
+Note: Continuosly requests are coming and redis server is down from 2 hours,... for every request try block executing and failing then control going to catch block then fallback logic executing .
+
+(it will increase execution time of program) hence it is not good solution to implement like this.
+
+-> To handle this situation we will use 'Circuit Breaker'
+
+-> Using Circuit Breaker we can execute fallback logic when there is a failure in main logic
+
+-> If main logic is failed for 5 requests continuosly then execute only fallback logic for next 15 minutes
+
+-> After 15 minutes try to execute main logic for 5 requests, if it successful then execute main logic otherwise execute only fallback logic for next 15 minutes
+
+
+==============
+Dependencies
+===============
+           <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	
+		<dependency>
+			<groupId>io.pivotal.spring.cloud</groupId>
+			<artifactId>spring-cloud-services-starter-circuit-breaker</artifactId>
+		</dependency>
+
+
+================
+Start Class
+===============
+
+@SpringBootApplication
+@EnableHystrix
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}
+
+===============
+RestController
+===============
+@RestController
+public class DataRestController {
+
+	@GetMapping("/data")
+	@HystrixCommand(
+			fallbackMethod="getDataFromDB",
+			commandProperties= {
+				@HystrixProperty(name="circuitBreaker.requestVolumeThreshold", value="5"),
+				@HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds",value="10000")
+			}
+	)
+	public String getDataFromRedis() {
+		System.out.println("**Redis() method called**");
+		
+		if (new Random().nextInt(10) <= 10) {
+			throw new RuntimeException("Redis Server Is Down");
+		}
+		// logic to access data from redis
+		return "data accessed from redis (main logic) ....";
+	}
+
+	public String getDataFromDB() {
+		System.out.println("**DB() method called**");
+		// logic to access data from db
+		return "data accessed from database (fall back logic) ....";
+	}
+}
+
+=====================================================
+===================================
+Behavior of the Circuit Breaker
+===================================
+=>Closed State (Normal Operation):
+
+Requests go to the primary method (getDataFromRedis).
+If all requests succeed, the Circuit Breaker remains in the closed state.
+
+=>Open State (Circuit Breaker Tripped):
+
+When the failure rate exceeds the threshold (5 failures in the rolling window), the Circuit Breaker opens.
+All subsequent requests bypass the primary method and go directly to the fallback method (getDataFromDB).
+
+=>Half-Open State (Recovery Testing):
+
+After the sleep window (10000 ms), the Circuit Breaker allows a limited number of requests to test if the primary method has recovered.
+If these requests succeed, the Circuit Breaker closes.
+If they fail, the Circuit Breaker remains open.
+
+===================
+Explanations
+===================
+=>The provided code demonstrates a Circuit Breaker implementation using Spring Cloud Netflix Hystrix.
+
+=>The Circuit Breaker is a resilience pattern designed to improve system fault tolerance by preventing cascading failures when a service or component is down or unresponsive.
+
+=>spring-boot-starter-web: Enables REST API development in the Spring Boot application.
+
+=>spring-cloud-services-starter-circuit-breaker: Adds support for Circuit Breaker using Hystrix.
+
+=>@EnableHystrix Enables Hystrix functionality in the Spring Boot application. Hystrix monitors the performance of methods and applies the Circuit Breaker pattern.
+
+=>Circuit Breaker Logic in @HystrixCommand
+
+Primary Method (getDataFromRedis):
+
+This is the main method where the primary logic resides.
+If this method encounters an error or exceeds a threshold of failures, the Circuit Breaker will trip and redirect calls to the fallback method.
+
+Fallback Method (getDataFromDB):
+This method provides a backup logic when the primary method fails or the Circuit Breaker is open.
+
+=>circuitBreaker.requestVolumeThreshold:
+Sets the minimum number of requests that must fail within a rolling window before the Circuit Breaker trips.
+Value: 5 → The Circuit Breaker will consider tripping only if 5 or more requests fail.
+
+=>circuitBreaker.sleepWindowInMilliseconds:
+Defines the time (in milliseconds) for which the Circuit Breaker remains open before transitioning to a half-open state to test recovery.
+Value: 10000 → After 10 seconds, Hystrix will attempt to allow requests to the primary method.
+
+
+===============
+Execution Flow
+===============
+1. Primary Logic (getDataFromRedis):
+The method tries to access data from Redis.
+It contains logic to throw a RuntimeException when certain conditions are met (in this example, the random condition always causes a failure).
+2. Fallback Logic (getDataFromDB):
+When the primary logic fails, the Circuit Breaker redirects the call to this fallback method.
+This fallback method accesses data from an alternative source (e.g., a database).
+
+
+==================
+Example Scenario
+==================
+Initial State:
+The Circuit Breaker is closed.
+getDataFromRedis is invoked, but it throws an exception because of the random condition.
+
+Failure Threshold Reached:
+After 5 failed requests within the rolling window, the Circuit Breaker trips and becomes open.
+
+Fallback Kicks In:
+All subsequent requests are handled by getDataFromDB, avoiding further load on the Redis service.
+
+Recovery Testing:
+After 10 seconds, the Circuit Breaker enters a half-open state and allows limited requests to getDataFromRedis.
+If these succeed, the Circuit Breaker closes, and traffic is routed back to the Redis service.
+
+
+===============================
+Advantages of Circuit Breaker
+=============================
+Prevents Cascading Failures:
+Stops requests to a failing service, protecting the system from overloading.
+
+Improves Resilience:
+Ensures the system can still function by providing fallback logic.
+
+Recovery Testing:
+Automatically tests the primary logic after a set interval.
+
+Enhanced User Experience:
+Provides a graceful fallback instead of complete failure.
+
+=====================
+Real-World Use Cases
+======================
+Microservices Architecture:
+Prevent failures in one service (e.g., payment) from impacting the entire system.
+
+APIs with High Latency:
+Use fallback logic to handle requests when an API becomes unresponsive.
+
+External Service Dependencies:
+E.g., retrieving data from third-party services like Redis, databases, or APIs.
+
+
+=>This implementation ensures system robustness and enhances fault tolerance, making the application more resilient to failures.
+
+
+

@@ -1,0 +1,563 @@
+====================
+Apache Kafka
+================
+->Msg broker
+->To exchange msg from one app to another app
+->To develope event driven microservices we are using apache kafka
+
+
+Zookeeper
+KafkaServer
+Topic (Msg will be stored in topics)
+Publisher
+Subscriber
+
+->DC module will publish msg to kafka topic regarding citizen pending or missing document
+->ED module will publish msg to kafka topic regarding citizen plan end date or plan closed date
+->CO module will consume msgs from kafka  topic & will generate notices based on the received msg & will send notices to citizens
+
+
+->Apache kafka is distributed streaming platform
+->Apache kaka is used to process real time data feeds with high throughput & low latency
+ex.flights data,sensors data,stocks data,news data,user activities etc
+-> High throughput indicates that the system can process a large volume of data or requests within a specific time frame.
+->Latency, in the context of computing, is the time it takes for a system to respond to a stimulus or the time it takes for data to travel from the source to the destination. 
+Low latency means that the system can quickly respond to requests or that data can be transferred rapidly from one point to another.
+->Kafka works based on publisher & subscriber model
+->Kaka was originally developed at linkdin in 2011
+
+
+=================
+Kafka Terminology
+=================
+Zookeeper
+Kafka server
+Kafka topic
+Message
+Publisher
+Subscriber
+
+
+=========
+Kafka APIS
+============
+Connector API
+Publisher API
+Subscriber API
+Stream API
+
+============================================
+SB + Apache Kafka Application
+============================================
+
+1)Download Zookeeper from below URL
+http://mirrors.estointernet.in/apache/zookeeper/stable/
+
+
+2)Download apache kafka from below url
+
+
+3)Set path to zookeeper in environment varianbles upto the bin folder
+
+4)Start zookeeper server using below command from kafka folder
+
+zookeeper-server-start.bat zookeeper.properties
+
+Note:above comamand will available in kafka/bin/windows folder
+
+zookeeper.properties file will be available in config folder.You can copy zookeeper.properties & server.properties file from kafka/config folder to kafka/bin/windows folder 
+
+
+5)Start kafka server using below command from kafka folder
+
+kafka-server-start.bat server.properties
+
+
+======================================================================
+
+relication factor:- how many copies of msg u want to create
+================
+Apache Kafka
+================
+->Kafka is a distributed event-streaming platform designed for high throughput and fault tolerance.
+
+->Uses:
+Event sourcing and log aggregation.
+Real-time analytics and stream processing.
+Communication between microservices in a highly scalable manner.
+
+->Advantages:
+Handles high-volume data streams.
+Distributed and fault-tolerant.
+Ideal for event-driven architectures.
+
+Why Use Kafka?
+==============
+High throughput – can handle millions of messages per second
+Fault-tolerant – even if a node/server fails, data isn't lost
+Real-time streaming – perfect for analytics, microservices, IoT, etc.
+
+Kafka in Simple Terms:
+========================
+Think of Kafka as a real-time messaging system — like a live radio station.
+You (Producer) send messages (songs/news) to a channel (Kafka Topic).
+Listeners (Consumers) tune into that channel and get messages as they are broadcasted.
+Kafka makes sure the messages are not lost, even if a listener joins later.
+
+
+ Summary
+===========
+Kafka is perfect when you want to handle huge real-time data (like GPS tracking, logs, or stock prices).
+
+In Java, you use Spring Boot with KafkaTemplate for Producers and @KafkaListener for Consumers.
+
+Config classes manage connection, serialization, and setup.
+
+===========
+Comparison
+=============
+Feature	                  RabbitMQ	                          Apache Kafka
+Throughput	        Low to Medium	                               High
+Message Retention	Short-term (queues)	                 Long-term (log-based)
+Use Case	        Task queues, workflows	                 Event streaming, analytics
+Ease of Use	        Easier for small setups	                 Requires more setup effort
+
+
+==============================================================================================
+
+How to implement it
+----------------------
+
+1)01-sb-apache-kafka-producer
+==============================
+
+pom.xml
+=======
+<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+
+application.properties
+======================
+server.port=9090
+
+In Util package
+==============
+
+public class KafkaConstants {
+
+	public static final String TOPIC = "customer";
+	public static final String GROUP_ID = "group_customer";
+	public static final String HOST = "localhost:9092";
+
+}
+
+In Config package
+=================
+
+package com.klinnovations.config;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonSerializer;
+
+import com.klinnovations.model.Customer;
+import com.klinnovations.util.KafkaConstants;
+
+@Configuration
+public class KafkaProduceConfig {
+	
+	/**
+	 * This method is used to Kafka Producer Config details
+	 * @return
+	 */
+
+	@Bean
+	public ProducerFactory<String, Customer> producerFactory() {
+		Map<String, Object> configProps = new HashMap<String, Object>();
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaConstants.HOST);
+		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		return new DefaultKafkaProducerFactory<String, Customer>(configProps);
+	}
+
+	/**
+	 * This method is used to create KafkaTemplate bean obj
+	 * @return
+	 */
+	@Bean(name = "kafkaTemplate")
+	public KafkaTemplate<String, Customer> kafkaTemplate() {
+		return new KafkaTemplate<>(producerFactory());
+	}
+
+}
+
+
+In Model package
+================
+
+package com.klinnovations.model;
+public class Customer {
+
+	private Integer customerId;
+	private String customerName;
+	private String customerEmail;
+
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Customer(Integer customerId, String customerName, String customerEmail) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+	}
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail="
+				+ customerEmail + "]";
+	}
+
+}
+
+
+In controller package
+======================
+
+package com.klinnovations.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.klinnovations.model.Customer;
+import com.klinnovations.service.CustomerService;
+
+@RestController
+public class CustomerRestController {
+
+	@Autowired
+	private CustomerService customerService;
+
+
+	@PostMapping(value = "/addCustomer")
+	public String addCustomer(@RequestBody List<Customer> customers) {
+		return customerService.add(customers);
+	}
+}
+
+In Service Package
+==================
+
+
+package com.klinnovations.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import com.klinnovations.model.Customer;
+import com.klinnovations.util.KafkaConstants;
+
+@Service("customerService")
+public class CustomerService {
+
+	@Autowired
+	private KafkaTemplate<String, Customer> kafkaTemplate;
+
+	
+	public String add(List<Customer> customers) {
+
+		if (!customers.isEmpty()) {
+			for (Customer c : customers) {
+				kafkaTemplate.send(KafkaConstants.TOPIC, c);
+				System.out.println("************Msg published to Kafka topic***************");
+			}
+		}
+		return "Customer Record Added To Kafka Queue Successfully";
+	}
+}
+
+
+Main class
+===========
+
+package com.klinnovations;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * 
+ * @author Ashok
+ *
+ */
+@SpringBootApplication
+public class SpringBootApacheKafkaPocApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootApacheKafkaPocApplication.class, args);
+	}
+}
+
+
+cuatomer json
+=============
+
+[
+	{
+		"customerId": 101,
+		"customerName": "Ashok",
+		"customerEmail": "ashok@gmail.com"
+	},
+	{
+		"customerId": 102,
+		"customerName": "Raj",
+		"customerEmail": "raj@gmail.com"
+	},
+	{
+		"customerId": 103,
+		"customerName": "John",
+		"customerEmail": "john@gmail.com"
+	}
+]
+
+
+
+02-sb-apache-kafka-consumer
+============================
+
+In pom.xml
+===========
+	<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+
+In application.properties
+=========================
+
+server.port=7070
+
+In config package
+=================
+
+package com.klinnovations.config;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
+import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
+
+import com.klinnovations.model.Customer;
+import com.klinnovations.util.KafkaConstants;
+
+@Configuration
+@EnableKafka
+public class KafkaListenerConfig {
+
+	@Bean
+	public ConsumerFactory<String, Customer> consumerFactory() {
+		Map<String, Object> props = new HashMap();
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaConstants.HOST);
+		props.put(ConsumerConfig.GROUP_ID_CONFIG, KafkaConstants.GROUP_ID);
+		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+
+		return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(),
+				new JsonDeserializer<>(Customer.class));
+	}
+
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, Customer> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, Customer> factory = new ConcurrentKafkaListenerContainerFactory<String, Customer>();
+		factory.setConsumerFactory(consumerFactory());
+		return factory;
+	}
+
+}
+
+In Util package
+===============
+
+package com.klinnovations.util;
+
+public class KafkaConstants {
+
+	public static final String TOPIC = "customer";
+	public static final String GROUP_ID = "group_customer";
+	public static final String HOST = "localhost:9092";
+
+}
+
+Customer.json
+==============
+
+[
+	{
+		"customerId": 101,
+		"customerName": "Ashok",
+		"customerEmail": "ashok@gmail.com"
+	},
+	{
+		"customerId": 102,
+		"customerName": "Raj",
+		"customerEmail": "raj@gmail.com"
+	},
+	{
+		"customerId": 103,
+		"customerName": "John",
+		"customerEmail": "john@gmail.com"
+	}
+]
+
+
+In Model package
+=================
+package com.klinnovations.model;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement(name = "customer")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Customer {
+
+	private Integer customerId;
+	private String customerName;
+	private String customerEmail;
+
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Customer(Integer customerId, String customerName, String customerEmail) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+	}
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail="
+				+ customerEmail + "]";
+	}
+
+}
+
+
+In Controller package
+======================
+
+package com.klinnovations.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerRestController {
+
+}
+
+In service package
+==================
+
+@Service("customerService")
+public class CustomerService {
+
+	
+	@KafkaListener(topics = KafkaConstants.TOPIC, groupId = KafkaConstants.GROUP_ID)
+	public Customer listener(Customer c) {
+		System.out.println("***Msg recieved from Kafka Topic ::" + c);
+		return c;
+	}
+
+}
+
+

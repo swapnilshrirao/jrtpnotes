@@ -1,0 +1,1496 @@
+####################
+Design Patterns
+###################
+1)Creational Design patterns
+->Singleton Pattern  **
+->Factory Method Pattern **
+->Abstract Factory Pattern**
+->Builder Pattern **
+->prototype Pattern
+
+2)Structurel design pattern
+->Adapter Pattern**
+->Bridge Pattern
+->Composite Pattern
+->Decorator Pattern**
+->Facade Pattern **
+->Proxy Pattern**
+->Flyweight Pattern
+
+3)Behavioural Design Patterns
+->Observer Pattern **
+->Strategy Pattern **
+->State Pattern**
+->Command Pattern
+->Chain of Responsibility**
+->Template Pattern**
+->Interpreter Pattern
+->Visitor Pattern
+->Mediator Pattern
+->Memento Pattern
+->Iterator Pattern
+->Front controller Pattern
+
+->LTI mindtree:-Should have  good design pattern knowledge on Singleton Pattern, Factory Pattern, Abstract Factory Pattern, Facade Pattern, Decorator Pattern, Adapter Pattern, Strategy Pattern and Front Controller Pattern. 
+
+=======================
+Design pattern
+================
+Design patterns are reusable solutions to common software design problems. 
+They serve as templates for solving recurring issues in software development and provide a standardized approach to designing robust, flexible, and maintainable systems.
+
+============================
+Purposes of Design Patterns
+=============================
+->Code Reusability:Patterns provide tried-and-tested solutions, reducing the need to "reinvent the wheel."
+Developers can reuse established practices instead of creating custom solutions for every problem.Improved Code Quality:Patterns ensure adherence to design principles like SOLID and DRY (Don’t Repeat Yourself), leading to better-organized and maintainable code.
+->Easier Collaboration:Design patterns create a common language for developers. Teams can discuss and implement solutions more effectively by referring to familiar patterns (e.g., "Let's use the Singleton here").
+->Scalability and Flexibility:Patterns help structure code in a way that makes it easy to extend and modify without introducing bugs or affecting existing functionality.
+->Problem Solving:They offer a roadmap for solving specific design challenges, ensuring that solutions are optimized for the problem.
+->Standardization Across Projects:Using patterns ensures consistency in design across different modules or projects, making it easier for new developers to understand the codebase.
+
+========================
+Uses of Design Patterns
+=======================
+->Simplifying Complex Designs:Patterns like Facade and Adapter simplify complex systems by providing unified interfaces or converting incompatible interfaces into ones that can work together.
+->Managing Object Creation:Patterns like Singleton and Factory manage object creation to ensure proper instantiation, control over object lifecycle, and efficient resource use.
+->Enhancing System Behavior:Patterns like Observer and Strategy allow dynamic changes in system behavior at runtime without modifying existing code.
+->Supporting Structural Integrity:Patterns like Composite and Bridge help in creating complex structures or connecting disparate components.
+->Handling Communication Between Objects:Patterns like Mediator and Command manage object communication to reduce coupling and enhance modularity.
+
+
+======================
+Real-Time Scenarios
+======================
+Singleton:Ensures only one instance of a database connection pool is created, preventing unnecessary resource usage.
+Factory:Used in applications where the type of object to create depends on runtime parameters (e.g., payment gateway creation: PayPal, Stripe, etc.).
+Observer:Used in event-driven architectures, like notifying multiple subscribers when stock prices change.
+Strategy:Allows dynamic switching between different algorithms (e.g., choosing between bubble sort and quicksort based on dataset size).
+Adapter:Converts a legacy system's output to work with a new API.
+
+
+===================================
+Benefits of Using Design Patterns
+==================================
+Reduced Development Time:Faster problem-solving by leveraging existing, proven solutions.
+Improved Readability:Code becomes more intuitive as patterns are recognizable to experienced developers.
+Increased Maintainability:Changes can be made easily without affecting the entire system.
+Reduced Technical Debt:Patterns prevent poor design choices that can lead to maintenance issues later.
+Facilitates Testing:Patterns like Builder and Prototype make it easier to isolate and test specific parts of the application.
+In conclusion, design patterns are essential for creating clean, efficient, and scalable software. 
+They provide a shared vocabulary for developers, making collaboration more effective and ensuring that codebases remain maintainable and adaptable over time.
+
+
+When to Use Design Patterns in Java
+===================================
+->For Reusability:
+Solve known problems with proven solutions (e.g., Singleton for config).
+->In Complex Systems:
+Improve structure, scalability (e.g., MVC in web apps).
+->To Ensure Consistency:
+Team uses standard approaches (e.g., Factory for object creation).
+->To Add Flexibility:
+Modify behavior without changing code (e.g., Decorator).
+->When Designing Frameworks:
+Provide extension points (e.g., Template Method).
+->For Readability & Maintenance:
+Clearer intent (e.g., Observer in event systems).
+->To Solve Specific Issues:
+Memory/threading (e.g., Flyweight for memory efficiency).
+
+When Not to Use Design Patterns
+===============================
+->Problem is Simple:
+Don’t overcomplicate (e.g., no need for Singleton for static utility).
+->No Clear Benefit:
+Avoid unnecessary patterns that don’t improve code.
+->Performance Critical Code:
+Some patterns add overhead (e.g., Proxy, Decorator).
+->Lack of Understanding:
+Misuse leads to bugs (e.g., Observer leaks if not handled well).
+->One-time Use Code:
+Skip patterns for quick scripts or throwaway logic.
+->Overengineering ("Pattern Addiction"):
+Use patterns only when they solve real design needs.
+->Better Alternatives Exist:
+Prefer built-in Java features (e.g., use Supplier<T> instead of Factory).
+================================================================================================
+===========================
+1. Singleton Pattern:
+==========================
+->Intent: Ensures a class has only one instance and provides a global point of access to it.
+->code example(Thread-Safe with Double-Checked Locking):
+
+public class Singleton {
+    private static volatile Singleton instance; // volatile for thread safety
+
+    private Singleton() {
+        // Private constructor to prevent external instantiation
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) { // Synchronize on the class object
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public void doSomething() {
+        System.out.println("Singleton is working!");
+    }
+}
+------------------------------------------------------------OR--------------------------------------
+class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+        // Private constructor prevents instantiation
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+    public void showMessage() {
+        System.out.println("Hello from Singleton!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Singleton singleton = Singleton.getInstance();
+        singleton.showMessage();
+    }
+}
+-----------------------------------------------------------------
+============
+Explanation:
+============= 
+->The constructor is private, preventing direct instantiation. getInstance() provides access, creating the instance only if it doesn't exist. 
+->The volatile keyword and double-checked locking ensure thread safety.
+->Private Constructor: Prevents direct instantiation.or Private constructor prevents external instantiation.
+->Static Instance: Holds the single instance of the class. or A static method provides controlled access to the instance.
+->Global Access: Accessed through getInstance() or The instance is lazily initialized (created on demand).
+
+==============
+Where to Use:
+==============
+Logging
+Configuration settings
+Database connection pool
+When only one object should control a resource
+
+===================
+Where Not to Use:
+==================
+When multiple instances are needed
+If it causes tight coupling or test difficulties
+
+=======================
+Real-Time Scenario
+======================
+-Logger: Only one instance writes logs
+Config Manager: Shares one config across the app
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+===============================
+2. Factory Method Pattern:
+===============================
+->The Factory Method Pattern is a creational design pattern that lets you create objects without exposing the actual class names to the client.
+->Instead of calling new directly, you use a factory method to decide which class object to return based on conditions.
+
+Purpose
+========
+To hide object creation logic from the client.
+To delegate object creation to a factory class.
+To follow the Open/Closed Principle — you can introduce new types without changing client code.
+
+ Real-World Analogy
+=====================
+Imagine a vehicle showroom:
+If a customer wants a bike, you don’t hand-build it in front of them.
+You simply call the BikeFactory, and it delivers a ready-made Bike.
+Same for CarFactory.
+Client doesn’t know how it’s made — they just get the right product.
+
+ Code Explanation (Step by Step)
+=================================
+Let’s walk through a simple Animal example:
+
+->1. Product Interface
+This defines a general type — Animal:
+
+interface Animal {
+    void makeSound();
+}
+
+->2. Concrete Products
+These are actual classes that implement the Animal interface:
+
+
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+
+class Cat implements Animal {
+    public void makeSound() {
+        System.out.println("Meow!");
+    }
+}
+
+->3. Factory Interface
+This defines the blueprint to create Animal objects:
+
+interface AnimalFactory {
+    Animal createAnimal();  // factory method
+}
+
+->4. Concrete Factories
+These implement the interface and decide which object to create:
+
+class DogFactory implements AnimalFactory {
+    public Animal createAnimal() {
+        return new Dog();
+    }
+}
+
+class CatFactory implements AnimalFactory {
+    public Animal createAnimal() {
+        return new Cat();
+    }
+}
+
+->5. Client Code (Main Method)
+Client uses factories without knowing which class is being created:
+
+public class FactoryMethodDemo {
+    public static void main(String[] args) {
+        AnimalFactory dogFactory = new DogFactory();
+        Animal dog = dogFactory.createAnimal();
+        dog.makeSound(); // Woof!
+
+        AnimalFactory catFactory = new CatFactory();
+        Animal cat = catFactory.createAnimal();
+        cat.makeSound(); // Meow!
+    }
+}
+
+->Output:Woof!
+Meow!
+
+How It Works Internally
+=======================
+Role	                     Responsibility
+Product (Animal)	Common interface for all animal types
+Concrete Products	Dog, Cat – implement the Animal interface
+Factory Interface	Provides a createAnimal() method
+Concrete Factories	DogFactory or CatFactory – return instances of Dog/Cat
+Client	                Calls factory, not new — so it’s decoupled from the object
+
+ Benefits of Using Factory Method
+===================================
+✅ Loose Coupling – Client code doesn’t depend on concrete classes
+✅ Easy to Extend – Add a new TigerFactory, Tiger class without touching old code
+✅ Single Responsibility – Creation logic is isolated in one place
+✅ Improves Readability and Maintenance
+
+
+ When Not to Use It
+=====================
+When there are only 1–2 fixed object types
+If there’s no need to hide object creation logic
+For simple cases, where direct new is fine
+
+ When to Use It
+==================
+When the exact type of object to create is determined at runtime
+When object creation is complex or conditional
+When using dependency injection frameworks (like Spring)
+When creating different behaviors without changing client code
+
+
+Real-Time Use Cases
+===================
+Scenario	                     Description
+UI Components	               Creating different UI elements depending on platform (Mac, Win)
+Notification System	       EmailFactory, SMSFactory, PushFactory
+Database Connection	       MySQLFactory, OracleFactory, MongoFactory
+Payment Gateway Integration	PayPalFactory, StripeFactory, RazorpayFactory
+
+
+How to Explain in Interview
+============================
+The Factory Method pattern allows me to delegate the object creation logic to specific factory classes.
+So instead of writing new in the client, I use a factory like DogFactory or CatFactory to get the required object.
+This helps in maintaining loose coupling, makes the code easy to extend, and follows best design principles like the Open/Closed Principle.
+For example, in a notification system, based on user choice, I can return either an EmailNotification, SMSNotification, or PushNotification using respective factories — all without modifying the client logic.”
+
+
+Summary Table
+================
+Feature	        Factory Method Pattern
+Type	            Creational Pattern
+Goal	        Delegate object creation to subclasses or logic
+Promotes	Loose coupling, easier extension
+Avoid When	Object creation is simple and fixed
+Real Use	UI toolkit, payment gateways, logging handlers
+
+
+---------------------------------------------------------------------------------
+################################
+ABSTRACT FACTORY PATTERN
+################################
+->The Abstract Factory Pattern is a creational design pattern used to create families of related objects (like buttons and checkboxes) without specifying their concrete classes
+->It’s like a factory of factories — it provides a way to create multiple related objects (UI components, database connections, etc.) that should work well together.
+
+Why Use It?
+==============
+When you want to ensure that related objects (like a button and a checkbox) belong to the same theme or OS (like Windows or Mac).
+To decouple the client code from the specific classes being used.
+To make the code easily extendable for new platforms or families of objects.
+
+Real-World Analogy
+=====================
+Imagine you're building a UI library for two platforms: Windows and Mac.
+Each platform has its own version of Button and Checkbox.
+You don’t want to write different code in the client for each OS. Instead:
+You create a GUIFactory that can produce both button and checkbox.
+Based on the OS, you use the correct factory.
+The client doesn’t care if it’s a Mac button or a Windows button—it just works.
+
+Step-by-Step Code Breakdown
+============================ 
+->Step 1: Abstract Product Interfaces
+
+These define what a Button and a Checkbox can do:
+
+interface Button {
+    void click();
+}
+
+interface Checkbox {
+    void check();
+}
+
+->Step 2: Concrete Products
+These are platform-specific implementations:
+
+
+// Windows versions
+class WindowsButton implements Button {
+    public void click() {
+        System.out.println("Windows Button clicked!");
+    }
+}
+
+class WindowsCheckbox implements Checkbox {
+    public void check() {
+        System.out.println("Windows Checkbox checked!");
+    }
+}
+
+// Mac versions
+class MacButton implements Button {
+    public void click() {
+        System.out.println("Mac Button clicked!");
+    }
+}
+
+class MacCheckbox implements Checkbox {
+    public void check() {
+        System.out.println("Mac Checkbox checked!");
+    }
+}
+
+->Step 3: Abstract Factory Interface
+Defines methods to create a family of objects:
+
+interface GUIFactory {
+    Button createButton();
+    Checkbox createCheckbox();
+}
+
+->Step 4: Concrete Factories
+Create platform-specific products:
+
+class WindowsFactory implements GUIFactory {
+    public Button createButton() {
+        return new WindowsButton();
+    }
+
+    public Checkbox createCheckbox() {
+        return new WindowsCheckbox();
+    }
+}
+
+class MacFactory implements GUIFactory {
+    public Button createButton() {
+        return new MacButton();
+    }
+
+    public Checkbox createCheckbox() {
+        return new MacCheckbox();
+    }
+}
+-> Step 5: Client Code
+The client doesn’t care which platform it’s using:
+
+public class Client {
+    public static void main(String[] args) {
+        GUIFactory factory;
+
+        String os = "Windows"; // This could be dynamically detected
+
+        if (os.equalsIgnoreCase("Windows")) {
+            factory = new WindowsFactory();
+        } else {
+            factory = new MacFactory();
+        }
+
+        Button button = factory.createButton();
+        Checkbox checkbox = factory.createCheckbox();
+
+        button.click();    // Output depends on the factory used
+        checkbox.check();  // Output depends on the factory used
+    }
+}
+
+Key Takeaways
+===============
+Concept	Meaning
+Abstract Products	Interfaces like Button, Checkbox
+Concrete Products	Platform-specific implementations (WindowsButton, MacButton, etc.)
+Abstract Factory	GUIFactory interface that defines methods to create each product
+Concrete Factories	WindowsFactory, MacFactory that implement the abstract factory
+Client           	Uses only abstract types – does NOT care about the actual classes
+
+When to Use Abstract Factory
+==============================
+When your system needs to create families of related objects.
+When you want to enforce consistency among products.
+When your app supports multiple platforms or themes (e.g., Dark theme vs Light theme).
+When you want to decouple object creation from usage.
+
+❌ When Not to Use
+===================
+When you only need to create a single object.
+When your system doesn’t have multiple product families.
+When the extra complexity is not justified.
+If using a single simple factory is enough.
+
+ Real-Time Examples
+======================
+Scenario	           Description
+🌐 Cross-platform UI	  Creating UI elements (buttons, menus) for Windows/Mac/Linux
+🧾 Report Generator	  Generating reports in PDF, Excel, or HTML using different factories
+💻 Theme Support	          Creating Light/Dark theme components (button, background, etc.)
+📦 Database Access Layer  	Different factories for MySQL, Oracle, PostgreSQL connection objects
+
+📝 Summary
+===========
+Element	                          Role
+Purpose      	To create families of related objects
+Advantage	Ensures compatibility among related objects, and makes code flexible
+Real Use	UI toolkits, DB drivers, multi-theme UI components
+Avoid When	You don’t have multiple related products or only one object is needed
+
+🗣 How to Explain to Interviewer
+===============================-
+->Abstract Factory pattern is used when we need to create families of related objects without specifying their concrete classes.
+->For example, in a UI system that supports Windows and Mac, each with its own button and checkbox, the abstract factory lets us create these objects via a factory – keeping client code clean and independent of the platform.
+->This approach promotes consistency, supports scalability, and allows adding new platforms easily without modifying existing code.”
+
+######################
+BUILDER DESIGN PATTERN
+######################
+->The Builder Pattern is a creational design pattern that is used to build complex objects step-by-step, especially when there are many optional parameters.
+-> Goal: Make object creation more readable, flexible, and maintainable by separating the construction logic from the actual object.
+
+
+Why Use It?
+===========
+When a class has many fields, and some are optional.
+To avoid long constructors with too many arguments (called telescoping constructors).
+To make the object immutable after construction.
+To improve readability and maintainability.
+
+Real-World Analogy
+=================
+Imagine you're ordering a custom pizza:
+You must choose crust and size (mandatory).
+You can optionally add toppings, cheese, sauce, etc.
+
+With builder pattern:
+
+PizzaBuilder("Large", "Thin Crust")
+   .addCheese()
+   .addToppings("Mushrooms")
+   .build();
+
+->Same logic applies when creating Java objects.
+
+
+ Step-by-Step Code Explanation
+==============================
+
+-> Step 1: Define the Product Class
+
+class Computer {
+    private String cpu;
+    private String ram;
+    private String storage;
+
+    private Computer(ComputerBuilder builder) {
+        this.cpu = builder.cpu;
+        this.ram = builder.ram;
+        this.storage = builder.storage;
+    }
+
+    // Getters
+    public String getCpu() { return cpu; }
+    public String getRam() { return ram; }
+    public String getStorage() { return storage; }
+
+->Step 2: Define the Builder Class (Static Inner Class)
+
+    public static class ComputerBuilder {
+        private String cpu;
+        private String ram;
+        private String storage;
+
+        public ComputerBuilder(String cpu, String ram) {
+            this.cpu = cpu;
+            this.ram = ram;
+        }
+
+        public ComputerBuilder storage(String storage) {
+            this.storage = storage;
+            return this; // Method chaining
+        }
+
+        public Computer build() {
+            return new Computer(this);
+        }
+    }
+}
+
+->Step 3: Client Code – Using the Builder
+public class BuilderDemo {
+    public static void main(String[] args) {
+        Computer computer = new Computer.ComputerBuilder("Intel i7", "16GB")
+                                        .storage("1TB SSD")
+                                        .build();
+
+        System.out.println("CPU: " + computer.getCpu());
+        System.out.println("RAM: " + computer.getRam());
+        System.out.println("Storage: " + computer.getStorage());
+    }
+}
+
+->Output:-
+CPU: Intel i7
+RAM: 16GB
+Storage: 1TB SSD
+
+
+ Key Concepts Recap
+===================
+Concept	                  Explanation
+Builder Class	  Contains methods to set attributes.
+Method Chaining	  Each method returns the builder itself (return this).
+Build Method	  Returns the final, fully built object.
+Immutability	  The object is created once and cannot be changed later.
+
+When to Use
+==============
+Creating objects with lots of optional parameters.
+Readability and maintainability are important.
+Object should be immutable once built.
+Complex construction logic is involved.
+
+
+When NOT to Use
+================
+If the class has few parameters or very simple construction.
+If immutability or flexibility isn't required.
+If you can use constructor or setters without any problem.
+
+
+ Real-Time Use Cases
+=====================
+Use Case	              Explanation
+📨 Email Builder	           Set subject, body, cc, attachments... then send.
+🍔 Meal Order	           Base meal + optional drink, dessert, toppings.
+🌐 HTTP Request	           Headers, query params, timeouts, cookies.
+🧾 Report Builder	   Title, footer, charts, tables – optional parts.
+
+How to Explain in Interview (Script Style)
+=============================================
+"Builder Pattern is ideal when we want to construct complex objects step-by-step, especially when there are many optional parameters.
+Instead of writing a constructor with 10 parameters, which is hard to read and maintain, the Builder allows you to construct the object using meaningful methods like storage(), cpu(), and then build().
+It’s commonly used in creating HTTP requests, email messages, or even immutable DTOs.
+I’ve used Builder Pattern in my project where we built a report object step-by-step – adding title, summary, graphs, footers – only if they’re needed."
+
+Summary Table
+==================
+Pattern	                    Use Case	                   Avoid When	                               Example Use Case
+Singleton	   One single instance globally	         You need multiple objects	          Logger, Config Manager
+Factory Method	   Centralized object creation logic	 Simple object creation	                  Notification (SMS, Email) Factory
+Abstract Factory   Creating families of related objects	 Only one type of object needed	          UI toolkit (buttons, menus, etc.)
+Builder	           Complex objects with optional parts	 Few parameters, simple creation	  HTTP request, email builder, Pizza order
+
+
+
+######################
+DECORATOR DESIGN PATTERN
+######################
+->The Decorator Pattern is a structural design pattern that allows you to add new features to an object at runtime — without changing its original code.
+->Think of it as "wrapping" the original object with extra behavior.
+
+Real-Life Analogy
+==================
+Imagine you order a plain coffee at a coffee shop.
+Then you say:
+"Add milk"
+"Add sugar"
+"Add cream"
+You’re decorating the base coffee with extras one by one, dynamically — without changing the base coffee class.
+
+Purpose
+=========
+Dynamically add extra functionality to objects without changing their code.
+Avoid creating too many subclasses.
+Follows Open/Closed Principle — open for extension, closed for modification.
+
+ When to Use It
+================
+Use Decorator Pattern when:
+You want to add extra features to specific objects (not all).
+You want to avoid a large number of subclasses.
+You need to combine features in different ways.
+
+When NOT to Use
+===============
+Avoid it when:
+You only have 1-2 fixed features (simple inheritance will do).
+It adds too much complexity with many small classes.
+
+Java Example: Coffee Shop
+=========================
+->Step 1: Define the base interface
+public interface Coffee {
+    String getDescription();
+    double getCost();
+}
+
+->Step 2: Create the base implementation
+public class PlainCoffee implements Coffee {
+    public String getDescription() {
+        return "Plain Coffee";
+    }
+
+    public double getCost() {
+        return 5.0;
+    }
+}
+
+
+->Step 3: Abstract Decorator
+public abstract class CoffeeDecorator implements Coffee {
+    protected Coffee coffee;
+
+    public CoffeeDecorator(Coffee coffee) {
+        this.coffee = coffee;
+    }
+
+    public String getDescription() {
+        return coffee.getDescription();
+    }
+
+    public double getCost() {
+        return coffee.getCost();
+    }
+}
+
+->Step 4: Concrete Decorators (Add-ons)
+Milk
+public class MilkDecorator extends CoffeeDecorator {
+    public MilkDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    public String getDescription() {
+        return coffee.getDescription() + ", Milk";
+    }
+
+    public double getCost() {
+        return coffee.getCost() + 1.5;
+    }
+}
+
+
+Sugar
+
+public class SugarDecorator extends CoffeeDecorator {
+    public SugarDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    public String getDescription() {
+        return coffee.getDescription() + ", Sugar";
+    }
+
+    public double getCost() {
+        return coffee.getCost() + 0.5;
+    }
+}
+
+
+->Step 5: Client Code (Putting it all together)
+
+public class CoffeeShop {
+    public static void main(String[] args) {
+        Coffee coffee = new PlainCoffee();
+        System.out.println(coffee.getDescription() + " -> $" + coffee.getCost());
+
+        coffee = new MilkDecorator(coffee);
+        System.out.println(coffee.getDescription() + " -> $" + coffee.getCost());
+
+        coffee = new SugarDecorator(coffee);
+        System.out.println(coffee.getDescription() + " -> $" + coffee.getCost());
+    }
+}
+
+
+->op:-Plain Coffee -> $5.0
+Plain Coffee, Milk -> $6.5
+Plain Coffee, Milk, Sugar -> $7.0
+
+Real-World Java Usage (Interview Tip)
+======================================
+Tell the interviewer:“Java uses the Decorator pattern in IO Streams — like BufferedReader, FileReader, etc.”
+BufferedReader br = new BufferedReader(new FileReader("data.txt"));
+This is decorating a FileReader with BufferedReader.
+
+Benefits (Easy to Explain)
+=========================
+Benefit	                               Description
+✅ Flexible	                Add features at runtime without modifying code
+✅ Reusable	                Reuse decorators across objects
+✅ Avoid subclass explosion	No need to create class for every combination
+
+ Drawbacks
+===========
+Drawback	             Description
+❌ Many small classes	Can make code harder to follow
+❌ Debugging	        Tracing through multiple layers may be difficult
+
+Summary for Interview
+=====================
+->The Decorator Pattern helps me add features to individual objects dynamically, without touching the original class.
+->I’ve used it in scenarios like logging enhancements or custom UI elements. Java also uses this pattern in IO classes.
+->This helps follow the Open/Closed Principle and makes the code flexible and maintainable.”
+
+
+================================================================================================================================
+
+######################
+FACADE DESIGN PATTERN
+#######################
+
+->The Facade Pattern is a Structural Design Pattern.
+->It provides a simplified interface (a "facade") to a complex subsystem.
+->Instead of exposing all the complexity of multiple classes, we give clients one entry point (the facade).
+->Think of it like a receptionist in a hospital:
+You don’t directly go to each department (billing, doctor, pharmacy).
+The receptionist (facade) handles your request and internally coordinates with departments.
+
+Key Idea
+========
+Hide system complexity.
+Provide a unified and easy-to-use API.
+Reduce dependency between client code and subsystems.
+
+UML diagram
+===========
+   Client
+     |
+     v
+   Facade  --->  Subsystem1
+             --->  Subsystem2
+             --->  Subsystem3
+
+Example Code in Java
+======================
+1. Subsystem Classes (complex system)
+======================================
+class CPU {
+    public void freeze() { System.out.println("CPU freezing..."); }
+    public void jump(long position) { System.out.println("CPU jumping to " + position); }
+    public void execute() { System.out.println("CPU executing instructions..."); }
+}
+
+class Memory {
+    public void load(long position, String data) {
+        System.out.println("Loading data into memory at position " + position + ": " + data);
+    }
+}
+
+class HardDrive {
+    public String read(long lba, int size) {
+        return "OS Boot Data";
+    }
+}
+
+
+2. Facade Class (simplified API)
+=================================
+class ComputerFacade {
+    private CPU cpu;
+    private Memory memory;
+    private HardDrive hardDrive;
+
+    public ComputerFacade() {
+        this.cpu = new CPU();
+        this.memory = new Memory();
+        this.hardDrive = new HardDrive();
+    }
+
+    public void startComputer() {
+        cpu.freeze();
+        String bootData = hardDrive.read(0, 1024);
+        memory.load(0, bootData);
+        cpu.jump(0);
+        cpu.execute();
+        System.out.println("Computer started successfully!");
+    }
+}
+
+3. Client Code
+==============
+public class FacadePatternDemo {
+    public static void main(String[] args) {
+        // Client doesn't need to know about CPU, Memory, HardDrive
+        ComputerFacade computer = new ComputerFacade();
+        computer.startComputer();
+    }
+}
+
+🔹 Output
+=========
+CPU freezing...
+Loading data into memory at position 0: OS Boot Data
+CPU jumping to 0
+CPU executing instructions...
+Computer started successfully!
+
+Where to Use (Real-time Scenarios)
+====================================
+->Banking System – A single banking service (BankFacade) can internally handle account verification, balance check, fund transfer, notifications.
+Client just calls transferMoney() on the facade.
+
+->E-commerce Checkout – Instead of calling payment, inventory, invoice, shipping separately, use OrderFacade.placeOrder().
+
+->Spring Framework / Hibernate – They use facades heavily:
+JdbcTemplate in Spring is a facade over JDBC (hides connection, statement, resultset handling).
+Hibernate’s Session acts as a facade to interact with persistence layer.
+
+->Home Automation – A SmartHomeFacade can control lights, AC, TV, music, instead of you controlling each device separately.
+
+Where NOT to Use
+=================
+->When system is already simple – no need to add extra abstraction.
+->When client needs full control over subsystem – facade may limit flexibility.
+->If the facade becomes too big (God object) – handling everything, it can turn into an anti-pattern.
+
+Advantages
+==========
+->Simplifies complex system for clients.
+->Reduces dependency between clients and subsystems.
+->Improves readability and maintainability.
+
+Disadvantages
+==============
+->Can hide important functionalities of subsystems.
+->May lead to performance issues if facade tries to handle too much.
+->Risk of becoming a God object if not designed carefully.
+
+
+In short:
+============
+Facade pattern = single simplified API to access complex subsystems.
+Great for simplifying client interaction, but don’t overuse it when you need flexibility.
+
+
+
+
+########################
+PROXYDESIGN PATTERN
+########################
+->The Proxy Pattern is a structural design pattern that provides a substitute or placeholder for another object.
+->The proxy controls access to the original object, adding extra logic like security, logging, caching, or lazy loading without changing the actual object.
+
+Why Use Proxy?
+=============
+To control access to the real object (e.g., restrict access based on user role).
+To delay creation of heavy objects until needed (lazy initialization).
+To add logging, monitoring, or security transparently.
+To access remote objects in a distributed system.
+
+ Real-Life Example (Simple Analogy)
+=====================================
+Imagine you want to visit a VIP section of an office building.
+You (client) go to the reception desk (proxy).
+The receptionist checks your ID or role.
+If authorized, you are allowed inside (real object).
+If not, access is denied.
+The receptionist (proxy) controls access to the VIP area (real object).
+
+Real-Time Scenarios
+==================
+Scenario	            Description
+🖼️ Lazy Loading	       Delay loading a large image in a viewer until it’s visible.
+🔒 Security	       Allow only authorized users to perform sensitive operations.
+🛰️ Remote Access	       Access objects on another server (e.g., RMI in Java).
+💾 Caching	       Cache results of expensive operations.
+
+
+Types of Proxy
+=============
+Type	                       Purpose
+🔹 Virtual Proxy	              Delay creation of resource-heavy objects.
+🔹 Protection Proxy	      Add access control/security.
+🔹 Remote Proxy	              Represent remote objects in local JVM.
+🔹 Cache Proxy	              Store and reuse previous results.
+🔹 Smart Proxy	              Add logging, monitoring, etc.
+
+Java Example: Bank Account with Role-Based Access
+=================================================
+
+->Step 1: Common Interface
+
+public interface BankAccount {
+    void withdraw(double amount);
+}
+
+
+->Step 2: Real Bank Account (Actual Business Logic)
+
+public class RealBankAccount implements BankAccount {
+    private double balance;
+
+    public RealBankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal successful. Remaining: " + balance);
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+}
+
+->Step 3: Proxy with Role-Based Access
+
+public class BankAccountProxy implements BankAccount {
+    private RealBankAccount realBankAccount;
+    private String userRole;
+
+    public BankAccountProxy(double initialBalance, String userRole) {
+        this.realBankAccount = new RealBankAccount(initialBalance);
+        this.userRole = userRole;
+    }
+
+    public void withdraw(double amount) {
+        if ("ADMIN".equals(userRole)) {
+            realBankAccount.withdraw(amount);
+        } else {
+            System.out.println("Access Denied: Only ADMIN can withdraw.");
+        }
+    }
+}
+
+->Step 4: Client Code (Using the Proxy)
+public class ProxyPatternDemo {
+    public static void main(String[] args) {
+        BankAccount admin = new BankAccountProxy(1000, "ADMIN");
+        admin.withdraw(200);  // ✅ Allowed
+
+        BankAccount user = new BankAccountProxy(1000, "USER");
+        user.withdraw(200);  // ❌ Denied
+    }
+}
+
+->Output:Withdrawal successful. Remaining: 800.0
+Access Denied: Only ADMIN can withdraw.
+
+
+Benefits (In Simple Words)
+==========================
+Benefit	                       Explanation
+✅ Access Control	   Decide who can access what
+✅ Lazy Loading	           Create object only when needed
+✅ Extra Features	   Add logging, security, etc., without touching original class
+✅ CleanerCode	           Separation of concern — Proxy handles extra logic
+
+
+Drawbacks
+===========
+   Issue	                        Explanation
+❌ More Classes	           You need extra classes for proxies
+❌ Performance Overhead	   Slight delay because of indirection
+❌ Hard to Debug	           More layers to trace errors through
+
+
+Interview Explanation Summary
+=================================
+If asked in an interview:
+
+“The Proxy Pattern is useful when we want to add extra behavior like security or delay object creation without modifying the original class.
+I’ve seen this in scenarios like access control (e.g., role-based withdrawal), lazy initialization, or logging.
+Java RMI and libraries like Hibernate also internally use proxies for lazy loading.”
+
+Diagram
+========
+Client → Proxy → Real Object
+
+########################
+STRATEGY DESIGN PATTERN
+########################
+
+->Instead of writing if-else or switch-case for choosing logic, we define multiple classes (strategies), and we switch between them dynamically at runtime
+
+Purpose of Strategy Pattern
+============================
+To allow flexibility in choosing different algorithms without changing client code.
+It follows the Open-Closed Principle: open for extension, closed for modification.
+Makes your code cleaner, more readable, and easier to maintain.
+
+Structure of Strategy Pattern
+=============================
+Strategy Interface – defines common behavior
+Concrete Strategies – different implementations
+Context Class – uses the strategy, doesn’t care what strategy is used
+
+ Real-time Example 1: Payment System
+=======================================
+Imagine an app where users can pay by:
+Credit Card
+PayPal
+Google Pay
+
+You can write different strategies for each payment method.
+
+->Step 1: Strategy Interface
+public interface PaymentStrategy {
+    void pay(int amount);
+}
+
+All payment methods will implement this interface.
+
+->Step 2: Concrete Strategies
+public class CreditCardPayment implements PaymentStrategy {
+    public void pay(int amount) {
+        System.out.println("Paid " + amount + " using Credit Card.");
+    }
+}
+
+public class PayPalPayment implements PaymentStrategy {
+    public void pay(int amount) {
+        System.out.println("Paid " + amount + " using PayPal.");
+    }
+}
+
+->Step 3: Context Class
+This class uses the strategy interface and allows you to change the payment method dynamically.
+Each payment method has its own logic, and it follows the same interface.
+
+public class PaymentContext {
+    private PaymentStrategy paymentStrategy;
+
+    // Constructor-based strategy injection
+    public PaymentContext(PaymentStrategy paymentStrategy) {
+        this.paymentStrategy = paymentStrategy;
+    }
+
+    // Setter-based strategy change
+    public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
+        this.paymentStrategy = paymentStrategy;
+    }
+
+    // Method that delegates to the strategy
+    public void payAmount(int amount) {
+        paymentStrategy.pay(amount);
+    }
+}
+
+->Step 4: Client Code (Main Class)
+public class Main {
+    public static void main(String[] args) {
+        // Pay using Credit Card
+        PaymentContext context = new PaymentContext(new CreditCardPayment());
+        context.payAmount(500);
+
+        // Switch to PayPal payment
+        context.setPaymentStrategy(new PayPalPayment());
+        context.payAmount(800);
+    }
+}
+
+->op:-Paid 500 using Credit Card.
+Paid 800 using PayPal.
+
+
+
+Real-time Example 2: File Compression Utility
+===============================================
+User wants to compress a file in ZIP or RAR format.
+So we create different compression strategies and switch them dynamically.
+(Same structure — just different context: compression instead of payment.)
+
+->Step 1: Strategy Interface
+// Compression strategy interface
+public interface CompressionStrategy {
+    void compress(String fileName);
+}
+
+->Step 2: Concrete Strategies
+// ZIP compression
+public class ZipCompressionStrategy implements CompressionStrategy {
+    @Override
+    public void compress(String fileName) {
+        System.out.println("Compressing " + fileName + " using ZIP format...");
+        // Actual ZIP logic would go here
+    }
+}
+
+// RAR compression
+public class RarCompressionStrategy implements CompressionStrategy {
+    @Override
+    public void compress(String fileName) {
+        System.out.println("Compressing " + fileName + " using RAR format...");
+        // Actual RAR logic would go here
+    }
+}
+
+
+->Step 3: Context Class
+public class CompressionContext {
+    private CompressionStrategy strategy;
+
+    // Constructor injection
+    public CompressionContext(CompressionStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    // Setter injection (to change strategy later)
+    public void setStrategy(CompressionStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    // Delegates the compression task
+    public void createArchive(String fileName) {
+        strategy.compress(fileName);
+    }
+}
+
+->Step 4: Client Code (Main)
+public class Main {
+    public static void main(String[] args) {
+        // Compress file as ZIP
+        CompressionContext context = new CompressionContext(new ZipCompressionStrategy());
+        context.createArchive("document.txt");
+
+        // Change strategy to RAR
+        context.setStrategy(new RarCompressionStrategy());
+        context.createArchive("photo.png");
+    }
+}
+
+
+When to Use Strategy Pattern
+============================
+Use it when:
+You have multiple behaviors or algorithms to choose from.
+You want to replace if-else or switch-case logic.
+Behavior may change frequently in future (e.g., new payment type or compression format).
+You want to make code cleaner and testable.
+
+When NOT to Use It
+====================
+Avoid it when:
+There’s only one fixed behavior.
+The logic is simple, and you don't expect changes.
+You don't want to create too many small classes.
+
+✅ Advantages
+=================
+✔️ Easy to add new behaviors without touching old code
+✔️ Follows Open-Closed Principle
+✔️ Each strategy can be tested independently
+✔️ Removes complex if-else blocks
+
+Disadvantages
+==============
+❌ Creates many classes
+❌ Client must know which strategy to use
+❌ Can be overkill for very simple logic
+
+
+Summary for Interview
+=======================
+The Strategy Pattern allows me to encapsulate algorithms or behaviors into different classes and switch them at runtime.
+I’ve used it in projects like a payment system where we supported multiple gateways like PayPal, Credit Card, and Wallets.
+Instead of using if-else blocks, I used the Strategy pattern to make the code flexible and maintainable."
+-------------------------------------------------------------------------------------------------------------------------
+
+#########################
+Observer Design Pattern
+#########################
+->Observer Pattern is used when one object (Subject) needs to notify other objects (Observers) automatically whenever its state changes.
+->Think of YouTube:You (the user) subscribe to a channel.When the channel uploads a new video (i.e., state changes), you get notified.That’s the Observer Pattern.
+
+Purpose
+============
+To build a one-to-many relationship between objects.
+When one object changes, all dependent objects are automatically notified.
+Useful in event-driven systems.
+
+How It Works
+===============
+1. Subject (Publisher):
+Maintains a list of observers.
+Has methods to add, remove, and notify observers.
+
+2. Observer (Subscribers):
+Registers with the subject.
+Gets updated automatically when the subject changes.
+
+
+ Real-Time Examples
+=====================
+📈 Stock Market App:
+Subject: Stock
+Observers: Investor dashboards
+When the stock price changes → Dashboards are updated in real time.
+
+📲 Social Media App:
+Subject: A celebrity account
+Observers: Followers
+When the celebrity posts something new → All followers see the update.
+
+
+ Java Code Example (Easy to Understand)
+=======================================
+
+->Step 1: Define the Observer
+interface Observer {
+    void update(String news);
+}
+
+
+->Step 2: Create the Subject Interface
+
+interface Subject {
+    void attach(Observer observer);
+    void detach(Observer observer);
+    void notifyObservers();
+}
+
+
+->Step 3: Implement the Subject
+import java.util.*;
+
+class NewsAgency implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private String news;
+
+    public void attach(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers() {
+        for (Observer o : observers) {
+            o.update(news);
+        }
+    }
+
+    public void setNews(String news) {
+        this.news = news;
+        notifyObservers();  // Notify all observers
+    }
+}
+
+
+-> Step 4: Implement Observers
+class NewsChannel implements Observer {
+    private String channelName;
+
+    public NewsChannel(String name) {
+        this.channelName = name;
+    }
+
+    public void update(String news) {
+        System.out.println(channelName + " received: " + news);
+    }
+}
+
+class MobileApp implements Observer {
+    private String appName;
+
+    public MobileApp(String name) {
+        this.appName = name;
+    }
+
+    public void update(String news) {
+        System.out.println(appName + " shows: " + news);
+    }
+}
+
+->Step 5: Main Method (Execution)
+
+public class Main {
+    public static void main(String[] args) {
+        NewsAgency agency = new NewsAgency();
+
+        Observer tv = new NewsChannel("Aaj Tak");
+        Observer mobile = new MobileApp("DailyNews App");
+
+        agency.attach(tv);
+        agency.attach(mobile);
+
+        // Publish news
+        agency.setNews("Breaking: India wins the match!");
+    }
+}
+
+->Output
+Aaj Tak received: Breaking: India wins the match!
+DailyNews App shows: Breaking: India wins the match!
+
+
+Advantages
+=============
+  Feature	                           Benefit
+Loose Coupling	        Subject doesn’t know internal logic of observers
+Dynamic Behavior	Can add/remove observers at runtime
+Reusability          	Observers and subjects can be reused separately
+Testability	        Easy to test components independently
+
+Disadvantages
+===============
+  Issue	                     Why it’s a Problem
+Too Many Updates	If lots of observers, performance may drop
+Complex Dependencies	Hard to debug when many observers/subjects
+Cascading Changes	One change can trigger too many updates
+
+When to Use
+============
+When one object needs to automatically notify others about changes.
+When building real-time or event-driven applications.
+When you want to decouple components (publisher/subscriber model).
+
+When Not to Use
+==================
+When there are very few observers.
+When performance is critical and update overhead matters.
+When a simple direct method call can do the job.
+
+
+
+
+
+Pattern	                    Use (One Line)	                                  Real-Time Use in Spring Boot
+
+Singleton Pattern	 Ensures only one instance of a class exists.	                        Spring Beans are Singleton by default — shared service or config classes.
+Factory Method Pattern	 Creates objects without exposing the creation logic to the client.	Used in Spring's FactoryBean or when creating beans dynamically.
+Abstract Factory	 Creates families of related objects without specifying concrete classes.	 For creating UI components or multiple related beans (e.g., different DB types).
+Builder Pattern	         Constructs complex objects step by step.	                         Used in RestTemplateBuilder, WebClient.builder() for building HTTP clients.
+Decorator Pattern	 Adds behavior to objects dynamically.	                                  Spring @Transactional, @Cacheable — use proxies to decorate beans.
+Proxy Pattern	         Provides a placeholder to control access to an object.          	Spring AOP (Aspect-Oriented Programming) uses proxies for method interception.
+Observer Pattern	 Notifies multiple objects when one object changes state.	        Spring ApplicationEventPublisher and @EventListener.
+Strategy Pattern	 Enables selecting an algorithm at runtime. 	                     AuthenticationProvider, PaymentStrategy — switch logic based on user/input.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

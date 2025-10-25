@@ -1,0 +1,124 @@
++++++++++++++++++++++++
+Monlith Vs Microservices
++++++++++++++++++++++++
+
+Application can be developed in 2 ways monolithic & microservices
+
+1) Monolith Architecture
+=>In a monolith architecture, all the functionalities of the application are developed and deployed as a single cohesive unit.
+=>If we develop all the functionalities in one single application then it is called as Monolith Application
+=> This approach means the application runs as a single executable or package, where all modules (e.g., UI, business logic, data access) are tightly integrated.
+=>eg.A traditional web application where all features (authentication, user management, order processing) are part of one codebase and deployed on a single server.
+
+
+++++++++++
+Advantages
+++++++++++
+1) Development is easy:-All developers work on the same codebase, simplifying collaboration,There’s no need for complex integrations between services.
+2) Deployment is easy:-A single deployment package makes deployment straightforward,No need for orchestrating multiple services.
+3) Performance:-Communication between modules occurs within the same process, reducing latency.
+4) Easy Testing:-Testing a single application is simpler because all functionalities are in one place.
+5) Easy Debugging:-Debugging is streamlined since developers can trace issues across the entire codebase.
+6) KT is easy:-New developers only need to understand one codebase instead of multiple independent services.
+
+++++++++++++++
+Dis-Advantages
+++++++++++++++
+1) Single point of failure:-If one module fails, the entire application might go down.
+2) Whole Application Re-Deployment:-Any change (even minor) requires redeploying the entire application, increasing downtime.
+3) Scalability ( Increasing & Decreasing resources based on demand ):-It is challenging to scale specific parts of the application. The entire application must scale, even if only one module experiences high demand.
+4) Reliability (Strong):-A bug in one part of the application can potentially crash the entire system.
+5) Availability (Zero Downtime):-Achieving zero downtime is difficult because deployments affect the entire system.
+
+
+2)Microservices  Architecture
+
+=>In microservices architecture, the application is broken down into smaller, independent services or APIs.
+=>Each service is responsible for a specific functionality and can be developed, deployed, and scaled independently.
+=> If we develop the functionalities in multiple services/apis then it is called as Microservices Architecture Based Application.
+=> Every Microservice will have its own goal
+
+Examples:
+An e-commerce application where:
+The Order Service manages orders.
+The Payment Service handles payments.
+The Inventory Service tracks stock.
+
+++++++++++
+Advantages
+++++++++++
+
+1) Loosely coupled:-Each service operates independently, reducing dependencies and improving flexibility.
+2) Fast Development:-Teams can develop and deploy different services simultaneously.
+3) Quick Releases:-Changes to one service do not affect others, enabling faster release cycles.
+4) Flexibility:-Each service can be built using different technologies based on its requirements.
+5) Scalability:-Individual services can be scaled independently, optimizing resource usage.
+6) No Single Point of failure:-If one service fails, the rest of the application can still function.
+7) Technology independence:-Different services can use different programming languages or frameworks.
+
+++++++++++++++
+Challenges
+++++++++++++++
+
+1) Bounded context (identifying no.of services to develop):-Identifying and defining the boundaries of each service can be complex.
+2) Lot of configurations:-Each service requires its own deployment and configurations, increasing complexity.
+3) Visibility:-Monitoring and tracking the performance of numerous services is challenging.
+4) Testing is difficult:-Testing interactions between services (integration testing) is more complicated than testing a single monolithic application.
+5) Debugging:-Tracing issues across multiple services requires sophisticated logging and monitoring tools.
+
+++++++++++++++++++++++++++++++
+When to Use Each Architecture
++++++++++++++++++++++++++++++
+Monolith:
+
+Small applications with less complexity.
+Limited resources for development and maintenance.
+Projects with tight deadlines that require quick implementation.
+
+Microservices:
+Large, complex applications requiring high scalability.
+Teams working on different parts of the application.
+Projects needing flexibility in technology and rapid feature development.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Tracing issues across multiple services requires sophisticated logging and monitoring tools.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Comparison Table
+Feature	                         Monolith	                                                        Microservices
+Development	    Simple, single codebase                                 	Distributed, requires coordination
+Deployment	    One deployment unit	                                        Independent deployments for each service
+Performance	    High due to in-process communication	                       May involve network latency
+Scalability	    Difficult (scale the entire app)	                       Easy (scale individual services)
+Reliability	    A bug can crash the whole app	                               Isolated failure in a single service
+Testing	            Easier	                                                               More complex
+Debugging	    Easier (single codebase)	                               Harder (distributed logs/traces)
+Technology	    Limited to a single tech stack	                               Freedom to use different tech stacks
+Team Independence	Single team	                                       Independent teams for each service
+
+
++++++++++++++++++++
+Real-World Examples
+++++++++++++++++++++++
+Monolith Application Example:
+A startup builds an MVP for an e-commerce platform where all features (user login, product catalog, checkout) are part of a single codebase.
+
+Microservices Application Example:
+Netflix:
+Uses microservices for its video streaming, recommendations, user profiles, and billing.
+
+Amazon:
+Manages services like product catalog, order processing, and shipping independently.
+
+
+
+++++++++++
+Conclusion
+++++++++++
+Both architectures have their strengths and weaknesses. 
+Monolith is simpler and suitable for small-scale applications, while microservices offer flexibility and scalability for large-scale, dynamic systems.
+ The choice depends on the project's size, complexity, and future needs.
+
+
+
+

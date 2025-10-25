@@ -1,0 +1,165 @@
+Tell me about yourself.
+==========================
+✅ Purpose: To understand your background, experience, and key skills.
+
+
+->I am Swapnil Shrirao, a Senior Java Developer with 7 years of experience in designing and developing enterprise applications. 
+->Currently, I am working at Nividous, where I handle backend development, AWS infrastructure, and BPM automation for projects like Maruti Suzuki. 
+->I have expertise in Java, Spring Boot, REST APIs, and cloud-based solutions. 
+->I enjoy problem-solving and optimizing application performance. 
+->My recent work involves automating claim assignment using Java and BPM.
+-> I am always keen to learn new technologies and improve business efficiency through automation.
+🔹 Tip: Keep it professional and relevant to the role.
+
+
+What are your strengths and weaknesses?
+=======================================
+✅ Purpose: To evaluate your self-awareness and adaptability.
+
+
+->Strengths: I have strong problem-solving skills and the ability to debug and optimize complex applications.
+
+-> I am also proficient in AWS infrastructure management, ensuring application stability and performance.
+
+-> Additionally, I am proactive in learning and taking ownership of tasks.
+
+->Weaknesses: Sometimes, I focus too much on details, which can slow me down. However, I am working on balancing attention to detail with efficiency.
+
+🔹 Tip: Choose a real weakness and show how you're improving it.
+
+
+How do you handle tight deadlines and pressure?
+===================================================
+✅ Purpose: To see how you manage workload and stress.
+
+
+->I prioritize tasks based on urgency and impact. 
+
+->I use Agile methodologies, breaking down tasks into manageable sprints. 
+
+->For example, in my Maruti Suzuki project, we had a strict deadline for automating claim bonuses. 
+
+->I coordinated with the team, focused on high-impact issues first, and ensured continuous testing to avoid last-minute errors. 
+
+->I also stay calm under pressure by taking short breaks and maintaining a clear focus on objectives.
+
+🔹 Tip: Provide real examples to show how you handle pressure.
+
+
+Have you handled conflicts in a team? How did you resolve them?
+============================================================
+✅ Purpose: To check leadership and problem-solving skills.
+
+
+->Yes, once, there was a disagreement between a UI developer and a backend developer regarding API response format. 
+
+->The UI team wanted a JSON structure that differed from the backend design. 
+
+->I stepped in, arranged a quick meeting, and facilitated a discussion where both sides explained their concerns. 
+
+->We analyzed the feasibility and agreed on a middle-ground solution that met both teams’ needs. This ensured smooth integration without delays.
+
+🔹 Tip: Show diplomacy and a problem-solving mindset.
+
+
+Why should we hire you?
+=======================
+✅ Purpose: To check your confidence and suitability for the role.
+
+
+->With 7 years of Java development experience, expertise in AWS infrastructure, and BPM automation, I can contribute significantly to your team. 
+
+->My ability to optimize applications, automate workflows, and troubleshoot complex issues aligns with this role's requirements. 
+
+->Moreover, my experience in working with clients like Maruti Suzuki has sharpened my ability to deliver high-quality solutions within deadlines. 
+
+->I am confident that my technical and problem-solving skills will add value to your organization.
+
+🔹 Tip: Link your skills directly to the job requirements.
+
+
+===============================
+HR Round Questions & Answers
+===============================
+This round focuses on behavioral aspects, salary discussion, company fit, and long-term goals
+
+
+Why are you looking for a job change?
+=======================================
+✅ Purpose: To check if you have valid reasons for switching.
+
+
+->I have learned a lot in my current role at Nividous, especially in Java, AWS, and BPM automation. 
+
+->However, I am looking for new challenges that allow me to expand my expertise in cloud computing and system architecture. 
+
+->I also want to work on larger-scale applications with more responsibilities. 
+
+->I believe your company offers great opportunities for growth, and I am eager to contribute my skills here."
+
+🔹 Tip: Keep it positive and growth-oriented.
+
+
+Where do you see yourself in five years?
+=========================================
+✅ Purpose: To check long-term commitment and career vision.
+
+->In five years, I see myself in a technical leadership role, mentoring teams and contributing to large-scale projects.
+
+-> I aim to deepen my expertise in cloud computing, microservices architecture, and DevOps practices.
+
+-> I am also keen on improving my leadership skills to guide teams efficiently and deliver high-quality solutions."
+
+🔹 Tip: Align your goals with the company’s growth.
+
+
+8️⃣ What are your salary expectations?
+========================================
+✅ Purpose: To check negotiation skills.
+
+
+->Based on my experience, skills, and industry standards, I am looking for a compensation package in the range of ₹X - ₹Y LPA.
+
+-> However, I am open to discussing this further based on the role, responsibilities, and overall benefits your company offers."
+
+🔹 Tip: Always research salary trends before answering
+
+
+What if you get a better offer from another company?
+===================================================
+✅ Purpose: To check commitment.
+
+
+->While salary is important, I prioritize learning opportunities, career growth, and company culture. 
+
+->If I see a strong alignment between my career goals and your company's vision, I would prefer to stay and grow here."
+
+🔹 Tip: Show commitment beyond salary.
+
+
+ Do you have any questions for us?
+====================================
+✅ Purpose: To check your interest in the company.
+
+
+🔹 "What are the immediate challenges that the team is facing, and how can I contribute to solving them?"
+🔹 "What is the career growth path in this role?"
+
+🔹 Tip: Always ask meaningful questions to show engagement.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

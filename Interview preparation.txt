@@ -1,0 +1,1585 @@
+=============================
+Introduce yourself
+=====================
+
+
+->Hi My name is swapnil & I am having total 5.5 years of exp as a java developer & currently i am working for Nividous software solution pvt ltd
+
+->In the last 5 years of time I got the opportunity to work with several technologies like java,j2ee,spring,springboot,rest api,microservices,aws cloud ,oracle database,mongo db and several deveops tools git maven jenkins sonar nexus docker kubernetes etc
+
+->I am having good experience with java,j2ee technologies      
+
+->I am having good experience  microservices architecture implementation
+
+->I am having good experience with unit testings for our application & I am having good experience on the application deployement processusing jenkins cicd pipelines 
+
+->I am having good experience with aws cloud services like ec2,s3,rds,route 53,vpc etc
+
+->Currently i am working for banking sector project so we have several modules in this project & i am part of credit servicing layer .
+
+->In this module we are going to determine citizens eligibility for the credit card & our system will perform all the credit card operations like bill generations,transactions,statement generations due reminder sending notices the citizens all these steps
+
+->My project is following agile methodology so i am responsible for builder activities in my project .We participate in backlog grroming session to understand what are the pending items in the project I will participate in sprint planning session to prioritize the stories of my project & i am going to get the functional design document from the functional team .
+
+->My project functional team is at client location I will go through the functional design document I will understand the requirement if any queries are there on the requirement then i will setup meeting with my functional team I will get the clarifications for them
+
+->Once all my queries got clarified then i will start design part of my project design part of requirement basically .I am going to design database tables which are required for my developement.
+
+->Once design is completed then i will start the development part I am responsible to develop the front end as well as back end of my application 
+
+->Once my development is completed  I will perform unit testing is my code working as expected or not   
+
+->Once unit testing is completed I will perform code review to identify any mistakes that i have done in that .Code review issues  will identify and  i will fix them 
+
+->Once code review issues got fixed the  i will integrate my code with others team members code in the git repositoty.
+
+->Once the code is integrated then i will interact with devops team to create the cicd pipelins for my project to automate build & deployemnt process.I will execute those pipelines to deploy a code 
+
+->Once code is deployed i will test that code in the integrated environment like dev env if any issues identified i will fix those issues then i will inform SIT team about the developement completed related stuff.
+
+->testing team will test the functionality of the complete project will identify any issue anu bugs they will report if the bugs are reported then i will fix those bugs & I will give the bug free code to the testing team
+
+->Our project UAT will happen at the client location   if any issues identified in the uat we will analyse the issue is valid or invalid if it is valid issue then we will fix that issue & we will give bug free code for uat team as well & i am also responsible to participate in the production release calls & I am responsible for fixing any production issues also so these are the roles & resposnibilities of me in my current project 
+                                         
+                                          =========================================
+                                                         alternate answer
+                                           =======================================
+
+=>Hi, my name is Swapnil, and I have a total of 5.5 years of experience as a Java developer.
+
+=> Currently, I am working with Nividous Software Solutions Pvt. Ltd. 
+
+=>Over the years, I have gained expertise in various technologies, including Java, J2EE, Spring, Spring Boot, REST API, Microservices, AWS Cloud, Oracle Database, MongoDB, and several DevOps tools like Git, Maven, Jenkins, Sonar, Nexus, Docker, and Kubernetes.
+
+=>In my current role, I am working on the MSIL project, which consists of seven modules: ISL, RSL, Discrepancy, ECA (Exchange Claim Automation), Commercial Bulk, Commercial Acquisition, and Direct Buying. 
+
+=>My primary responsibilities revolve around the Discrepancy module and supporting other modules where required.
+
+My Key Roles and Responsibilities Include:
+==============================================
+
+=>Requirement Analysis:
+I actively participate in backlog grooming sessions to understand pending tasks and requirements.
+During sprint planning sessions, I help prioritize tasks and review the functional design documents provided by the client’s functional team.
+If there are any ambiguities in the requirements, I schedule meetings with the functional team at the client location to resolve them.
+
+=>Design and Development:
+Based on the finalized requirements, I design the necessary database schemas, tables, and relationships for implementation.
+I develop both the frontend and backend functionalities for the modules assigned to me.
+My role also involves implementing microservices-based architecture for modular and scalable solutions.
+
+=>Unit Testing and Code Reviews:
+After development, I perform unit testing to ensure the code meets the functional requirements.
+I conduct code reviews to identify and resolve issues, adhering to coding standards and best practices.
+
+=>Integration and Deployment:
+I integrate my code with other team members' contributions using Git and resolve any conflicts during the merge process.
+I collaborate with the DevOps team to set up and execute CI/CD pipelines for automated builds and deployments.
+
+=>Issue Resolution:
+In the Discrepancy module, I implemented a process for notifying logistics service providers (LSP) and transport providers via automated email alerts when discrepancies are reported.
+For other modules, I resolve issues related to claim processes, document uploads, or performance bottlenecks.
+I ensure all reported bugs are fixed promptly and provide a bug-free solution to the SIT and UAT teams.
+
+=>Testing and Support:
+I support system integration testing (SIT) by addressing issues raised during the integrated environment testing phase.
+I work closely with the UAT team to analyze and resolve issues identified during testing at the client location.
+
+=>Production Deployment and Support:
+I participate in production release calls and oversee deployments to ensure a smooth transition.
+I am responsible for fixing any production issues that arise, ensuring minimal downtime for the application.
+
+=>Automation Initiatives:
+In the ECA module, I developed automation workflows for early claim processing, reducing manual intervention and improving efficiency.
+For the Commercial Bulk and Acquisition modules, I optimized the application performance by fine-tuning database queries and improving the response time.
+
+=>Collaboration and Agile Practices:
+I actively collaborate with cross-functional teams, including business analysts, QA teams, and the client’s functional team.
+By following the Agile methodology, I ensure the timely delivery of tasks within each sprint.
+
+==========================================================
+If HR asked what is r roles & responsbility n r project
+===========================================================
+
+In my previous role as a Java developer, I played a key role in improving our company's Customer Relationship Management (CRM) system. The goal of this project was to make the system more efficient and scalable to meet the company’s growing needs.
+
+I was responsible for designing and implementing backend solutions using Java, along with technologies like Spring Framework, Hibernate, and microservices architecture. My work involved understanding business requirements and turning them into detailed technical plans. I developed scalable and maintainable code, using best practices and design patterns to ensure the system could be easily improved in the future.
+
+Using my expertise in the Spring Framework, I built modular and independent components that were easier to maintain and upgrade. Beyond writing code, I focused heavily on ensuring quality by creating unit tests, reviewing code thoroughly, and setting up CI/CD pipelines. These practices helped us deliver reliable software quickly and efficiently.
+
+One of my key achievements was optimizing important database queries, which improved the system’s response time by 30%. I used my knowledge of MySQL to simplify complex queries and improve indexing strategies, achieving this performance boost while maintaining data accuracy.
+
+I also took on a leadership role during the integration phase, where I guided and supported junior developers. I ensured smooth collaboration within the team and helped integrate the new system with existing tools. My ability to communicate technical ideas clearly helped me work closely with business analysts, QA engineers, and other teams. This teamwork ensured we met project deadlines and stayed within the budget.
+
+This experience has strengthened my skills in Java backend development, Spring Framework, microservices, MySQL, and AWS. I am confident that I can bring this expertise to your team and contribute to the success of your projects.
+
+===============================================================================
+==============================
+alternate of above
+===========================
+
+=>Backend Development:
+I was a key member of the development team and took charge of designing and implementing solutions using Java and frameworks like Spring and Hibernate.
+I worked on every part of the software development process, from understanding business needs to writing detailed technical plans.
+
+=>Writing Quality Code:
+I wrote clean and efficient code that was easy to maintain and followed best practices.
+ I designed the system in a way that made it flexible for future upgrades or changes. 
+Using the Spring Framework, I created components that worked independently, which made the system easier to manage
+
+=>Testing and Deployment:
+I didn’t just write code; I also ensured its quality. 
+I created detailed unit tests, reviewed code from team members, and used tools to automate the deployment process.
+ This helped us deliver reliable software faster.
+
+
+=>Database Optimization:
+One of my significant achievements was improving the performance of the system. 
+I optimized important database queries, which reduced system response time by 30%. 
+Using MySQL, I simplified complex queries and improved database indexing, ensuring faster performance without affecting data accuracy
+
+=>Team Leadership:
+I also took on a leadership role by mentoring junior developers during the integration phase. 
+I guided them through challenges and helped ensure that our systems worked well with existing ones.
+
+=>Collaboration with Other Teams:
+I worked closely with different teams like business analysts and quality assurance engineers.
+ By explaining technical details in simple terms, I made sure everyone was on the same page, and we met deadlines and stayed within the budget.
+
+===============
+Key Achievement
+================
+By improving the system and working efficiently with the team, we successfully delivered the project on time and within budget. 
+A highlight was reducing system delays and improving the performance of critical features by applying my skills in Java, databases, and system design.
+
+==========================================
+What This Means for Future Opportunities
+========================================
+This experience gave me a strong foundation in backend development using Java, Spring Framework, MySQL, and even AWS.
+ It also showed my ability to lead teams, solve performance issues, and deliver high-quality software. 
+I’m confident I can bring the same level of dedication and expertise to new projects at your company.
+
+
+=>In my current role, I have been working on a dealer claims management application for Maruti Suzuki. 
+The platform facilitates the automation of claim submissions, document management, bonus calculations, and approval workflows for dealers
+	
+=>As a Senior Java Developer, I am responsible for designing and implementing critical backend components and ensuring the smooth integration of the frontend with the backend
+
+=>Backend Development: Developed microservices using Java 8, Spring Boot, and Hibernate to handle business logic and integrate with the database.
+
+=>API Design: Designed and deployed REST APIs to enable seamless communication between various modules.
+
+=>Database Management: Designed relational database schemas using MySQL and optimized queries for better performance.
+
+=>Code Quality and Testing: Wrote unit test cases using JUnit and conducted peer code reviews to ensure high-quality deliverables.
+
+=>Performance Optimization: Used profiling tools like JProfiler to identify and fix memory leaks and improve response times.
+
+=>DevOps Integration: Automated deployment pipelines using Jenkins and ensured containerized deployments with Docker.
+
+=>Team Collaboration: Mentored junior developers, conducted knowledge-sharing sessions, and worked closely with the QA team to resolve issues.
+
+=>Achievements:
+"I optimized a critical microservice, reducing its response time by 40%, and implemented caching mechanisms that improved overall system performance. 
+I also led the migration of legacy monolithic components into microservices architecture.
+
+
+=>Collaboration:
+"I regularly interact with cross-functional teams, including frontend developers, business analysts, and clients, to gather requirements and ensure deliverables align with expectations. 
+Additionally, I take part in daily standups and sprint planning meetings to contribute to project progress.
+
+
+===================================
+ best practices while writing code
+====================================
+
+=>Following best practices while writing code ensures that your code is clean, maintainable, and efficient
+
+=>Write Readable Code
+Use Meaningful Names: Name variables, methods, and classes clearly to describe their purpose (e.g., calculateTax instead of ct).
+Use Comments Wisely: Add comments where necessary, especially for complex logic, but avoid over-commenting. Well-written code often explains itself.
+Maintain Consistent Formatting: Follow consistent indentation, spacing, and line breaks to make the code visually organized.
+
+=>Follow Coding Standards
+Adhere to established coding guidelines for your programming language (e.g., Java’s Oracle Code Conventions).
+Use consistent naming conventions, like camelCase for variables and PascalCase for classes.
+
+
+=>Write Modular Code
+Single Responsibility Principle: Ensure each class or function has a single purpose.
+Reusable Components: Break your code into smaller, reusable functions or methods.
+Avoid large methods or functions; aim for 20–30 lines per method.
+
+=>Avoid Hardcoding
+Use constants or configuration files for values that might change, like database connection strings or URLs.
+Example: Instead of hardcoding 10 for tax, define it as private static final int TAX_RATE = 10;.
+
+
+=>Error Handling and Logging
+Handle exceptions gracefully using try-catch blocks. Never ignore exceptions with empty catch blocks.
+Use proper logging frameworks (e.g., SLF4J, Log4j) instead of System.out.println() for debugging and monitoring.
+Provide meaningful error messages to help debug issues quickly.
+
+=>Optimize for Performance
+Avoid nested loops and large computations inside loops when possible.
+Use appropriate data structures (e.g., HashMap for quick lookups, LinkedList for sequential access).
+Avoid premature optimization; focus on writing clean and correct code first.
+
+=>Ensure Code is Secure
+Validate all inputs to avoid SQL Injection or XSS attacks.
+Avoid storing sensitive information (e.g., passwords) in plain text.
+Use parameterized queries or ORM tools like Hibernate for database operations.
+
+=>Test Your Code
+Write unit tests to verify individual pieces of functionality.
+Use testing frameworks like JUnit (for Java) or PyTest (for Python).
+Write integration tests to ensure different modules work together correctly.
+
+=> Use Version Control
+Use Git or other version control systems to manage your codebase.
+Write clear commit messages describing the changes.
+Create feature branches for new features or bug fixes to keep the main branch stable.
+
+=>Use Design Patterns
+Leverage design patterns like Singleton, Factory, or Observer to solve common programming problems efficiently.
+Choose patterns based on the requirements of your application.
+
+=>Document Your Code
+Add documentation for complex modules or APIs using tools like Javadoc.
+Maintain a README file to explain the purpose and usage of your project
+
+=>Refactor Regularly
+Regularly revisit your code to remove redundancy and improve structure.
+Follow the DRY principle (Don’t Repeat Yourself) to eliminate duplicate code
+
+=>Peer Review
+Have your code reviewed by peers for feedback and to catch issues you might have missed.
+Use code review tools like GitHub Pull Requests or Bitbucket.
+
+=> Automate and Use Tools
+Use linters (e.g., Checkstyle for Java, ESLint for JavaScript) to enforce coding standards.
+Use CI/CD pipelines to automate testing and deployment.
+
+=> Learn and Adapt
+Stay updated with new practices and tools in the industry.
+Learn from experienced developers and adapt your style to improve continuously.
+
+=>By following these practices, you can write professional, maintainable, and efficient code that not only works but also contributes to long-term project success
+
+=============================
+Topics need to be covered for intrview
+==================================
+core java                          50questions
+Springboot                         50questions
+Microservices                      50questions
+Spring MVC & patterns              20questions       IOC /DI patterns
+java patterns                                          factory design pattern/spring MVC/singleton
+Java 8 features                     20qestions
+Spring security                     20questions
+Mysql                              50questions
+Hibernate/JPA                         20questions
+Exception handling                     20questions 
+junit+Mocking+code coverage              20questions
+Docker notes                           50questions
+maven notes/genkins notes               20questions
+Multithreading                           20questions
+Batch Processing                          20questions
+Solid OOPs                           20questions
+circuit breaker                        20questions
+github                                 20questions
+apache kafka                            20questions
+spring batch                   ashok it video
+kubernetes notes
+Redis cache
+Apache tomcat setup in AWS cloud
+Anguler notes
+Code quality tools like sonar qube notes
+AWS services
+
+
+===============================
+Questions regarding projects
+===============================
+1.Can you walk me through one of your recent projects? or Can you describe a recent project you worked on?
+2.What was the most challenging aspect of the project, and how did you tackle it?
+3.Can you discuss a project where you had to integrate multiple technologies or systems?
+4.How do you ensure the quality and maintainability of your code?
+5.Have you ever faced a situation where a project requirement changed midway? How did you adapt to it?
+6.Can you share an example of a project where you implemented performance optimizations or scalability improvements?
+7.How do you stay updated with new technologies and industry trends?
+8.Can you discuss a project where you collaborated with cross-functional teams or external stakeholders? or Can you provide examples of how you collaborated with other team members or departments during the project?
+9.What was your specific contribution to the project?
+10.What technologies did you use in the project, and why were they chosen?-----done
+11.How did you prioritize tasks and manage your time during the project?
+12.Did you encounter any obstacles while working with your team or stakeholders? How did you handle them?
+13.What did you learn from this project, and how have you applied those lessons to subsequent projects?
+14.What would you do differently if you could go back and start the project again?
+
+===============
+Answers
+==================
+
+
+10...
+->In my recent project, we primarily used Java for backend development due to its robustness, scalability, and extensive ecosystem of libraries and frameworks.
+->Java is a tried-and-tested language in the enterprise world, known for its performance, reliability, and cross-platform compatibility
+->We chose Java for its strong support for building enterprise-grade applications that can handle complex business logic and high traffic loads.
+->In addition to Java, we utilized Spring Framework extensively for building the application's core components such as RESTful APIs, dependency injection, and data access layer
+-Spring offers a comprehensive suite of features that simplifies development, promotes best practices, and enhances productivity. 
+->We opted for Spring because of its lightweight nature, modularity, and excellent support for building loosely coupled and testable code.
+->For database management, we used Hibernate ORM (Object-Relational Mapping) framework along with MySQL
+->Hibernate provided seamless integration with Java objects and relational databases, allowing us to work with database entities using object-oriented paradigms
+->MySQL was chosen for its reliability, performance, and ease of use, making it a suitable choice for storing and managing our application's data.
+->In terms of frontend development, we utilized technologies such as HTML, CSS, and JavaScript for building responsive user interfaces.
+->We also leveraged popular JavaScript libraries and frameworks like AngularJS for dynamic web application development
+->These frontend technologies were selected for their versatility, extensive community support, and ability to create modern and intuitive user experiences.
+->Overall, the technologies chosen for the project were carefully evaluated based on factors such as project requirements, scalability, performance, developer expertise, and industry best practices
+->By leveraging Java, Spring, Hibernate, MySQL, and frontend technologies, we were able to deliver a robust, scalable, and user-friendly application that met the needs of our stakeholders."
+
+==========================================
+3+ years exp
+===========================
+1.why functional interace introduced in java 8
+2.why java is  not pure object oriented language
+3.why these wrappers introduces .any reason ,,why dpo u want to convert these primitives to object..any reason specific reason
+4.internal working of hashmap..any changes that has been done in hashmap in java 8
+5.any clue what changes were done in java 8 with garbage collection with any heap araea mempory area any changes that wrere done
+6.why was default methods were introduces in java 8
+7.any way java try to implement multiple inheritence..why u are able to do multiple inheritence with interfaces and why not able to do with classes
+8.diamond problem-----------------------done
+9.super keyword java 8------------------------done
+10.any clues why optional was used in java 8
+11.microservices--swiggy application..if payment fails how u can handle distributed transactions
+12.how many types of saga design pattern...drwabacks of orchestration design pattern--------------Done
+13.whats in choreography design pattern..disadvantages
+14.now if u have one single application then how u can manage transaction inside that standalone microservices
+
+Ans:If u r having two tables inside one perticuler microservice & after one transaction you are adding into the second table you got some exception & u want to rollback transcation which is happened in first table as well over method level u have annotation called @Transactional based on this annotation automatically transaction will be rolled backed from ur database tables.
+15.any clue about propagation levels & isolation levels-------------done
+16.suppose i have 10 microservices & i have to hit this microservices from frontend so how will u manage this 10urls who can dynamically change continuously so u will give this headche to frontend guy or u will try to resolve it as a backend perosn-------------done
+17.have u done logging in ur application..we used zipkin & sleuth.diff between trace id & span id
+18.now my application is on prod env or another env..where we do u see all these logs
+19.any alerting sysytem u have integrated with it that as soon as prod error is coming continusly  that the system is low on memory or continuously the exception is coming ..how do u alert urself
+20.how kibana is integrate to ur application  how do u make sure that yes you are writing in your source code reaches to that
+21.suppose i have 10 microservices .I have many properties which are common so how do u place all these common properties do u replicate it in all 10 microservices or do u keep it safely at some places & refer it from there----------done
+22.how will u managing branching in git
+23.In docker we have two microservices like 2 containers then how will interact two containers each other----done
+24.what changes did u see in springboot 3 compared to legacy
+
+25.I dont want tomcat how will i change it-----------Done
+26.Any profiling u have done in your application----------------Done
+27any design pattern u have used in your code as of now
+28.why we have used singleton design pattern
+29.one problem if we make a whole method synchronized so u r loosing the performance so any other way rather than synchronized--------Done
+30.how many types of scope there is bean in the spring
+31.how the singleton in java is diffrent from singleton in spring
+32.how do u unit test ur code..bdd and tdd means
+33.diffrence bewtwwen before each & before all
+34.what is tear down method used for unit testing
+35.any clue what is test suit----------done
+36.can u give me real time example how u r working with solid principle & implementing that in ur code
+37.what is jpa and how do u write queries for connecting DS with jpa
+38.There are some inbuild queries in JPA & then u can write your own queries so how you do like how many ways  u can do that..named queries & native queries
+39.U have an application ok what is happening ur current application is that ur DB call is taking very long so verall performance of ur production application is getting down so how will u make this better
+40.How do u do the shredding & how do u do the partioning
+41.Types of mapping in JPA hibernate
+42.Architecture of kafka
+43.what kind of token u have used for your security implementation in ur project
+44.have u faced CORS issue while connectig from frontend to backend and how u resolve this-----------Done
+45.how that custom class intercept each & every request....means this question about how to secure ur api
+46.any knowledge abot CICD 
+====================
+32lkh package interview questions
+===========================
+1.java 8 features
+2.immutable class
+3 diff between comparator & comparable
+4.what is hashcollision
+5.diff between hashmap & hashtable
+6.diffence bewtwwen stack & quee
+7.In ur program if null pointer exception shows,,how to handle that 
+8.in serialisation,,what is transient variable
+9.can we serialises static variables
+10 what is volatile keyword
+11.what are the design pattern u worked on..how to create singleton class
+12.what is solid principle
+13.garbage collection
+14.what is the use of finalized method
+15.what are the scopes of spring bean
+16.what is the use of @qualifier annotation
+17.what is the use of actuator
+18.what is the diff between constructor & ssetter injection
+19.suppose ur working on SB application &the requirement is to use spring data jpa so how u integrate
+20.how to read properties from properties file
+21.use of @value annotation
+22.what is spring profile--------------Done
+23.benefits of microservices
+24.how two microservices communicates
+25.how catelog services ammunicate with payment service in MS
+26.what is circuit breaker
+27.have u worked on any messaging service like kafka
+28.how u do authentication & authoriation
+29.I which scenerio we will go for microservices rather than monolithic..why we go for microservices.
+30.do u also perform junit testing.
+
+
+===========================
+5+ YEARS EXP EPAM INTERVIEW
+===========================
+
+
+->ABOT PROJECT-WHAT ALL PROJECTS U WORKED UPON,WHAT ALL FUNCTIONALITIES U IMPLEMENTED,HAVE U WORKED UPON CHANGE REQUEST OR END TO END,WHAT ALL TECH STACK U MADE USE OF,WHAT ALL MAPPING U MADE USE OF,WHAT CLOD TECH MADE USE OF
+->HAVE U WORKED ON RESOLVING BUGS & MIGRATION
+->WHICH VERSION OF SB U USED IN UR PROJECT
+->WHICH MINIMUM JAVA VERSION SUPPORTS IN SB3
+->WHAT CHANGES CAME WITH JAVA 17WHILE UPGRADATION(NOTABLE CHNMAGES FROM JAVA 11 TO JAVA 17)
+->HOW WILL U HELP UR TEAMMATES TO GAIN KNOWLEDGE RELATED TO YOUR PROJECT AND TECHNICALLY
+->WHY JAKARTA CAME INTO PICTURES WHEN JAVA X WAS ALREADY THERE
+->USE OF SPRING JPA
+->LAZY VS EAGER INITIALISATION
+->CONTROLLER VS REST CONTROLLER
+->HOW TO CREATE OUR OLD SINGLETON CLASS & HOW WILL IT WORK IN MULTITHREADED ENVIRONMENT?ASKED FOR IMPLEMENTATION
+->HOW WILL U VALIDATE REQUEST & HANDLE CUSTOM EXCEPTIONS FOR THE REQUIREMENT
+->DIFF BETWEEN DI & IOC
+->TYPES OF DEPENDENCY INJECTIONS?SETTER VS CONSTRUCTER INJECTION
+->WHAT IS DISPATECHER SERVLET OR FRONT END CONTROLLER
+->WHAT ARE STEREO TYPE ANNOTATIONS?CAN WE REPLACE ANY ONE OF THEM WITH ANOTHER
+->WHAT IS SPRING-BOOT-STARTER-PARENT
+->WHAT IS @SPRINGBOOTAPPLICATION.WHAT IS AUTOCONFIGURATION FEATURE
+->DIFF BETWEEN JPA,PAGING & SORTING REPO & CRUD REPO?
+->SOLID PRINCIPLES AND MAIN IS LISCOV
+->WHAT ARE SCOPES IN SB?TYPES OF SCOPES?
+->HOW TO MAKE A CUSTOM IMMUTABLE CLASS
+->SHALLOW COPY VS DEEP COPY
+->ANY BEHAVIOUR DESIGN PATTERN U KNOW
+->WHAT IS DISTRIBUTED TRANSACTION & WHAT IS IMPORTANCE OF SAGA DESIGN PATTERNS & IN WHICH SCENERIOS WE CAN USE IT?
+->WORKED ON CLOUD TECHNOLOGIES?
+->ADVANTAGE OF MONOLITHIC APPLICATION
+->HAVE U MADE USE OF KIBANA?HOW DO U TRACE LOGS IN MS?
+->WHAT IS CIRCUITE BEARKER DESIG PATTERN
+->WHAT IS HALF OPEN,OPEN & CLOSE CIRCUITS IN CIRCUIT BREAKER DESIGN PATTERN
+->MAPPING QUESTION
+1 CART  -MANY BOOKS
+CUSTOMER CAN BUY BOOKS OF ANY AMOUNT
+FIND BOOKBY NAME
+
+=============================================
+3 years exp EPAM
+=======================
+1)ARE U AWARE ABOUT MS DESIGN PATTERNA
+2)CAN U EXPLAIN SAGA DESIGN PATTERN
+3)HOW THE COMMUNICATION HAPPENS BETWEEN THE MICROSWERVICEIN UR PROJECT
+4)CAN U EXPLAIN THE PROCESS OF REST API CALL BETWEEN THE MICROSERVICES SO DOES IT HAPPEN DIRECTLY,MEANS SUPPOSE MS A WANTS TO COMMUNICATE WITH MS B SO DOES IT COMMUNICATE DIRECTLY THROIGH REST API
+
+5)WHAT ARE THE ANNOTATION U ARE AWARE IN SPRINGBOOT
+6)SUPPOSE UR MICROSERVICES RUNNING SLOW IN PRODUCTION ENVIRONMENT SO HOW DO U FIX IT SO WHAT ARE THE STEPS U FOLLOW
+7)WHAT IS SERVERLESS ARCHITECTRE
+8)WHAT IS BEAN AND HOW U USE IT SO HOW DO U HANDLE MULTIPLE BEANS
+9)WHAT IS AOP IN SPRINGBOOT
+10)HOW DO U INTEGRATE THE DATABASE TO SPRINGBOOT
+11)SUPPOSE U HAVE STORED PROCEDURE IN UR DATABASE IN UR RELATIONAL DATABASE & U WANT TO CALL IT THROUGH UR SPRINGBOOT APPICATION SO USING SPRING DATA JPA SO DO U KNOW HOW YOU CAN DO THAT
+12)WHAT IS THE DIFFERENCE BETWEEN UNION & JOIN
+13)WHAT ARE THE LATEST VERSION OF JAVA U HAVE WORKED ON
+14)WHAT ARE THE FEATRES U R AWARE ON JAVA 11
+15)CAN U EXPLAIN GARBAGE COLLECTION AND HOW IT WORKS IN JAVA
+16)DO U KNOW OLD GENERATION AND YOUNG GENERATION WITH RESPECT TO GARBAGE COLECTION
+17)IN JAVA DO U KNOW ANY ALGORITHM IS USED NEHIND SCENES WHILE GARBAGE COLECTION
+18)DOES FINALIZE() PLAYS ANY ROLE IN GARBAGE COLLECTION
+19)
+=============
+6 years exp1
+=============
+how do u handle distributed transaction in microservices & saga design pattern
+pr reviews
+
+=======================
+hcl toghest interview
+=====================
+1.life cycle of thread
+2.diff bet sleep & wait...yeild method...join method
+3.concurrent hasmap
+4.diff bet concurren pre & hastable
+5.what is garbage collection
+6.heap memory have diff diff parts..can u explain that
+7.java 8 features
+8.singltone class & how to create
+9.Factory design pattern
+10.what is default scope of the bin & how many types of scope
+11.what is DI
+12.way of dependency injection
+13.assume we have 1 interface and 3 classes a,b & c..i would like to define the polymerphism and DI..how we can achieve this i mean i am creating the object of a  and i am giving the ref as i & b object & i am giving ref as i so this is like a polymerphism u r achieving right  so how we can does a spring support for the polymerphism feature & if yes how we can do it
+14.advan tage of using microservices & monolith 
+15.how will u acheive auto scaling in microservices
+ 16.docker
+ 17.kafka & role of kafka
+ 18.what is diff between powermock & mock
+ 19.no of methods stream api supports
+ 20.we have list of integers and we have to find second largest no //how can do that
+ 21.avg salary of department using this string
+ 22.how to call static method using method reference
+ 23.executor framework
+24.how to remove duplicates element from array-----------------------done
+25.how to reverse singly linked list.suppose we have unsorted nodes so how we can reverse that
+26.Employee table having id,name and salary.write the query to find second higest salary--------------------done.
+27.git commands asking..rebase comamnds
+28.diff between stack & stash in git
+
+==========================================
+13 years exp interview questions--AT&T
+==========================================
+==========
+core java
+===========
+1.what is static initialzer blocked
+2.where the static block gets stored inside memory
+3.Externalization on java
+4.what is heap memory in java
+5.garbage collection in java
+6.system.gc()
+7.how to avoid deadlock
+8.ways to create threads
+9.can we synchronize process(not threads)
+10.what is Re-Entrant lock
+11.use of generics in core jva
+12.what is type erasor in generics
+13.wht is functional interfaces and how it is related to lambda
+14.what is Obfuscation(making jar  not to decompile) & how to do it
+
+
+======
+JSP
+======
+15.diff between jsp include action & directive
+16.how to pass paramaetrs from one jsp to another
+17.what is the jsp usebean
+
+==============
+Springboot
+===============
+18.advantages of springboot
+19.how security is provided by springboot
+20.what is the default server provided by springboot
+21.how to change the server port in spring boot
+22.how to secure rest api
+23.what is oauth nd how it functions
+24.diff beetween @restcontroller & @controller
+==========
+SQL
+=========
+
+25.wht are views ..can we perform crud operations on views
+26.what is cartesian product
+27.what is outer join
+
+28.why to use indexes?
+29.diffrence between clustered & non clustered indexes.
+
+==========================================================
+30.project architecture(microservices)interview uestions
+===========================================================
+
+explain about ur project architecture
+how request mapping done in aws(from domain name to IP address) ------------ vimp********************************
+explain the working functionality of kubernetes
+how to load balancer works
+
+================
+31.Unix
+=================
+how is the unix file structure
+how to find multiple words in multiple files at the same time
+how to find all words
+how to find the count of occurrances in group of files
+how to connect to linux machines
+In putty,using same ppk file how to connect to two systems at a time
+
+
+====================================================
+5+ years exp java developers--TCS
+================================================
+1.ways to create threds
+2.diff between runnable & collable interface
+3.how we can create immutable class like string
+4.wjhat are the scopes of a spring bean
+4,spring batch & its implementations
+5.In SB how we can monitor the health of yor applications--------Done
+6.how we can read properties from application.properties
+7.how we can integrate JPA with SB & I mean why are the configuration  dependencies are reqired
+8 do u think microservices is agood approach and when we shold go for microservices architecture
+9.how two microservices communicate with each other
+10.what is circuit breaker
+11.how many microservices in your project
+12.do u use any type of messeaging tool
+13.in microservices how u do authentication & authorisation
+14.i want to create new api which will return the list of employee so how we can create----------done
+15.what are the status code that can be used---------Done
+16.when we should use for custome exception
+17.have u worked on kafka
+18 do u follow agile	
+19.do u create sequence diagram and class diagram anything
+20.how of once coding is completed so do u follow a code quality like sonar cube
+
+=========================================
+4-6 years experienced TCS
+====================================
+1.u need to write a program to find a list of unique words from a sentense & sorted alphabetically in alphabetically order using java 8
+Answer:-
+
+public class uniqueWordSorter{
+ public static void main(String[]args){
+String sentense="Hello world hello Java world programming java hello ";
+List<String> words=Arrays.asList(sentense/split("\\s+"));
+List<String> uniqueWords=words.stream.map(String::toLowercase).distinct().sorted().collect(Collectors.toList());
+sop("Unique words sorted alphabetically :" +uniqueWords );	
+
+}
+}
+
+2.what are the different ways to create threads.what is the recommended way to create threads.
+3.do u know what is deadlock & how to avoid it
+4.what are the common thread states or what are the different states in which the thread can be present
+5.once thread is terminated can i restart the thread
+6.whar are the difference beyween throw & throws
+7.what are the different types of exceptions in java 
+8.what u meany by try with resource.
+9.what is the diffrence between == operators & equals method
+10.what is the diffrence between abstract class & interface & when to go for which one.
+11.what is the dependency injection & how does spring will support it.
+12.do u know circuler dependencies & how does spring boot handle it.
+13.In the springboot there are diffrent repositories..tell me diffrence between CRUD repository & JPA repository
+14.what are some of the best practices for tuning the performance of your springboot application.i have an application & i want to tune the performance of that  application.how would you go about this
+ 15.consider you have one monolithic application & i want to devide that application into microservices.how would you go about deviding your monolithis to microservices.
+16.Do u know some of the differences between synchronous & asynchronous communication in case of microservices.
+17.
+
+==========================================================
+tcs lead developer 2023---11 years exp person interview
+========================================================
+1.I have 10 employee objects & i want to sort by employee name
+2.diff between comparator & comparable and in which scenerio we should go for
+3.suppose there is restriction that u cannot modify the class so in which scenerio which is suitable
+4.what is serialization and why it is required
+5.suppose during serialization i dont want to serialise any fileds------Ans:-transient keyword has been used
+6.diff between runnable & collable interface
+7.what is fork join
+8.what is producer consumer problem..how we can handle this situation
+9.what are the reasons for memory leak in application 
+10 what are the new changes in java 8
+11.how streams improve the performance
+12.whats the new chnage in hashmap in java 8(internal working)
+13.latest version of jabva..do u know any features
+14.u know what is the jar vulnerability issues..by which tool we checked vulerability
+15.have u worked on black duck 45
+16.what is the average code percentage u follow in sonar like code coverage
+17.suppose ur junior has developed code and ur doing code review okay so what parameters u will check
+18.in SB how do u check health of ur application
+19.how will u manage configuration files if there are multiple environment like uat,stage production
+20.what r the scopes of spring bean
+21.how we can read properties from properties file
+22.In component scan how we can exclude from scanning of some patterns
+23.any practical challenges u faced while developing microservices
+24.what is circuit breaker
+25.how u r doing service to service authenticaton
+26.how we can monitor the logs in microservices
+
+
+
+==================================================
+TCS-round 3 java interview for 8 years exp
+=================================================
+1.Internal working of hashmap in java 8
+2.explain me adapter design pattern
+3.can u explain saga design pattern
+4.how u can manage the transaction between two microservices----done
+5.can u explain jvm architecture-------done
+6.diff between immutable nd singleton-------done
+7.can u explain AOP concept
+8.in ur project have u implemented aop there
+9.InDTO we will use serial version id..what is the purpose of that----done
+10.consider we have employee class which has three fileds id name and list of country.so create a class and i want to mark that class as immutable so those whatever chnages are reuired for that class-------done
+11.suppose we have one microservice and in that microservices we have 100 mega dependencies,ur task is to identify  which dependencies are used for that project & which are unused so how u can check that ----done
+
+
+
+
+=============================
+Zenser 2-7 years of exp
+===========================
+
+1)what is diff between serialisation & deserialisation.so what annotations & liabraries we used for that
+2)Have u faced any issue or challenges while serialisation & deserialisation
+3)diff between passby value & pass by reference 
+4)diff bewteen arraylist & linklist& how they are diffrent with each other
+5)diff between comparable & comparator
+6)with comparator what changes u see with java 8 so do u see any diff is there bewtween the older version & working comparator with java 8 
+7)Java is being partially object oriented as u said so do u see any benefit of it so why we kept them why we did not  make it 100% object oriented
+8)what is heap dump any idea
+9)Have u used concurrent hashmap & synchronized map..what is diff between this two.& how about the performance wise..what diff u see.does null is allowed in this
+10)comparable has only one method compareTo so why it is not functional interface
+11)diff between checked & unchecked exceptions
+12)diff between throws & throw
+13)can u explain me double checked locking ..can u explain
+14)what is singleton design pattern
+15)advantages & disadvantages of microservices
+16)what is service discovery..can u explain
+17)what is the usage of API Gateway
+18)which Api gateway toll u have worked on
+19)In your microservices how do u handle versioning of apis
+20)in springboot what are the advantages u see over spring
+21)what is the diff between @SpringBootApplication & @EnableAutoConfiguration
+ 
+============
+tcs-4 years
+============
+
+1.what are the advantages of spring over springboot means how springboot is better than spring
+2.can u describe dependency injection in spring nd how it helps in managing the bean life cycle
+3.what are the most common annotations u used in springboot application & what are the purposes 
+4.consider the scenerio while serving a request there is an error so there is an exception so how do u handle that eception in ur springboot application
+5.what are the diffrent status code that u are aware
+6.consider the secenerio i want to design a rest api & i want to connect to a database & i want to fetach some data from that database so can u briefly explain me how would u do this
+7.how do u manage transaction & at what layer of ur springboot application u manage the transaction
+8.can u  tell me briefly what is transaction in ur appliocation
+9.tell me what is microservices & what are some of microservices in ur application
+10.how two microservices communicatw with each other..can we do this communication differently like using msg broker
+11.synchronous & asynchronous communication in MS
+12.what is the flow of service discovery in ur application
+13.how do u handle fault tolerance in ur microservice architecture
+14.consider scenerio u have to make a choice between sql DB & nosl DB so what kind of data will u store in sql database & how do u choose that if u want sql or no sql
+15.when u deal with DB there is something called as database schema & with changing reuirements this database schemas change  we need to add column we need to remove column so do u know about how do u manage this database scheme.are there any tools
+16.what is unique constarints in database
+17.what is stream in java 8
+18.what is meant by intermediate & terminal operations in java 8
+19.which cloud provider do u use to deploy ur microservices
+  
+  
+  
+  ===============================
+  6years of exp interview
+  =======================
+  
+  1.what happens when two different java objects has same hash code & how do u handle such a scenerio.
+  2.when there are lot of collisions happen so what happened internally  like do u know after java 8 version so we use redblack tree
+  3.DIFF BETWEEN COMPARABLE & COMPARATOR
+  4.HAVE U CUSTOMIZED SORTING BEFORE(MEANS COMPARABLE) & WHAT PIRPOSE U HAVE Done
+5.DIFF BETWEEN FINALIZE METHOD & FINALLY KEYWORD OR FINALLY BLOCK
+6.DO U USED FINALIZED METHOD(IN GARBAGE COLLECTOR) OR ITS DEPRECATED NOW ADAYS
+7.HOW DOES JVM HANDLES MEMORY LEAKS & WHAT TOOLS OR TECHNNIQUE WOULD YOU USED TO IDENTIFY & FIXED A MEMORY LEAK IN UR APPLICATION
+8.DIFF BETWEEN CLASS LOADER AND .CLASS FOR NAME METHOD
+9.CAN U DISCUSS SCENERIO WHERE STRING BUFFER OR STRING BUILDER PREFERRABLE
+10.DO U KNOW ABOUT JAVA MEMORY MODEL
+11.HAVE U HEARD ABOUT GENERATIONAL GARBAGE COLLECTOR
+12.THERE ARE THREE THINGS IN CLASS LOADER BOOTSTARP,ETENSION & SYSTEM.DO U KNOW ABOUT THOSE
+13.TELL ME WHAT MAKES AN OBJECT IMMUTABLE IN JAVA.PROVIDE A SCENERIO WHERE USING  IMMUTABLE OBJECTS WOULD BE ADVANTAGEOUS OVER MUTABLE Once
+14.HAVE U HEARD ABOUT JAVA SERIALZATION & SERIALIZATION ATTACKS
+15.DIFF BETWEEN ERROR RUNTIME EXCEPTION & EXCEPTION
+16.DO U KNOW ABOUT COMPOSITION OVER INHERITENCE PRINCIPLE
+17.IF U NEED TO SECURE REST API IN SB APPLICATION WHAT SECURITY METHODS WOULD U CONSIDER AND WHY
+18.HOW DOES SB AUTOCONFIGURATION MECHANISM WORKS & CAN WE OVERRIDE THIS
+19.IF U WERE TO SCALE AN APPLICATION FOR HIGH TRAFFIC WHAT SB FEATURES WOULD U LEVERAGE
+20.CAN U PLZ EXPLAIN SPRING BEAN LIFE CYCLE
+21.IF U WHERE TASK WITH ENSURING HIGH AVAIALBILITY FOR A SB E-COMMERCE APPLICATION DURING PEAK TIMES WHAT ARCHITECTURAL DECISIONS WOULD U MAKE------VIMP
+22.IMAGINE U ARE DEVELOPING SB APPLICATION THAT HANDLE SENSITICE CUSTOMER DATA SO HOW WOULD U SECURELY MANAGE & STORE THIS DATA.....VIMP
+23.WHAT TESTING STRATEGY DO U  RECOMMENDED FOR SB APPLICATION
+24.HAVE U INTEGRATED UR APPLICATION WITH NOSQL DATABASE,HOW CAN WE IMPLEMENT REDIS IN OUR PROJECT.DO WE HAVE DEFAULT CACHING METHOD IN SB
+25.WHAT LOGGING THINGS U SUGGEST OR LOGGING METHODS DEFAULT ONE 
+26.WHICH ONE U SUGGEST LOGBACK OR LOG4J
+27.CAN U DESCRIBE A SCENERIO WHERE WE CAN IMPLEMENT ASYNCHRONOUS MESSEGING  
+ 28.LETS SAY U NOTICED THAT SB APPLICATION U R WORKING ON IS LIGHTLY SLOWER IN PRODUCTION BUT GOOD IN DEVELOPMENT ENVIRONMENT SO HOW WOULD U GO ABOUT FIXING PROBLEM----VIMP
+ 29.WHICH LOGGING VISUALIZATION TOOL WOULD U PREFER.WHICH ONE U PREFER WHEN CLIENT IS ASKING U AS U R TEAM LEADER
+ 30.HOW DOES AWS CLOUD WATCH WORKS
+31.HOW WOULD U HANDLE A SITUATION WHERE A MERGE CONFLICT OCCURRS IN CRITICAL PIECE OF CODE JUST BEFORE UR PROD DEPLOYEMENT
+32 Q1S=[ 
+33.HOW WOULD U OPTIMIZE MAVEN BUILD FOR LARGE PROJECT WITH MULTIPLE Modules✅--------------VIMP
+34.HAVE U FACED ANY DEPENDENCY CONFLICT IN UR MAVEN PROJECT
+35.U R GIVEN A LIST OF EMP OBJECTS EACH WITH PROPERTY NAME & SALARY .NAME IS STRING & SALARY IS DOUBLE .U HAVE TO USE STREAM API TO FIND THE EMPLOYEE WITH THE  SECOND HIGHEST SALARY & RETURN ITS NAME
+36.U R GIVEN A LIST THAT CONTAINS SALARY OF THE EMPLOYEES OK JUST ASSUME U R GIVEN A LIST OF NUMBERS & U HAVE TO COUNT HOW MANY SALARIES GREATER THAN 1000 OR ASSUME GEARTER THAN 10000
+
+
+============================
+ashok it java exp interview
+============================
+
+1.what is lambda epression..how it is called by using funcational interface
+2.what is diff between function & predicate
+3.what is diff between string buffer & string builder
+4.what is meant by thread safe
+5.how many ways we can create thread in java
+6.diff bet ruunble & collable
+7.what is the meaning of future object..what it do
+8.what is thread local
+9.what is the main reason behind that why they introduced default methods & static methods in the interfaces.can u give any eample method which is available as default in the java
+10.did u use stream api in ur project..what is the main purpose of stream api
+11.can u write program on stream api assume that you have list of employee objects so i want to get the employess who r working in sales department & their salary above 50000
+can u print the employee who is having highest salary
+12.write a java program to reverse a string without using any predefined methods
+Ans:-
+
+String str="Hellow";
+
+StringBuilder sb=new StringBuilder();
+for(int i=str.length()-1;i>=0;i--){
+sb.append(str.charAt(i));
+}
+System.out.println(sb.toString());
+
+13.can u tell me which collections we have used in ur project.explain in which scenerio u have used map in ur project & which map u have used
+14.how hashmap works internally
+15.what is the default value of hashmap.what is the meaning of that load factor
+16.how hashmap & tree map are diffrent..importanet treemap & treeset
+17.diff between hashmap & concurrent hashmap
+18.what is failsafe collection & failfast collection
+19.what is properties class in java
+20.what r the new changes happened in collection framework in java 1.8 version
+21.guess the output of follow program..whats the concept is called as
+
+
+class Demo {
+
+    void m1(int i) {
+        i = i + 10;
+    }
+
+    public static void main(String[] args) {
+        int i = 10;
+        System.out.println(i); // Line 1
+        Demo d = new Demo();
+        d.m1(i);
+        System.out.println(i); // Line 2
+    }
+}
+
+
+22.what is the meaning of pass by reference..does java support pass by ref
+23.what r the common eceptions that  r face in ur coding
+24.how u r handling exceptions in ur project
+25.diff between throw & throws
+26.can u write the program which will give u deadlock
+27.what is race condition.
+28.explain solid oops priciple
+
+
+Map<String,Integer> emp=new HashmAp()<>;
+
+emp.put("swapnil",20000);
+emp.put("rahuk",70000);
+emp.put("suraj",80000);
+
+
+Map<String,Integer> sort=emp.stream().collection
+
+
+
+===================================
+top 20 core java FAQ-ashok it
+==================================
+1.what is JDK,JRE & JVM
+2.can I execute java program without main() method
+3.what are access modifiers in java
+4.is it possible to overload main() method 
+5.why multiple inheritence is not supoorted in java
+6.does abstract class have constructor and why
+7.what is constructor
+8.what is final..why it is required
+9.what is exception...explain its types
+10.what is diff between string,stringbuilder & stringbuffer
+11.what is functional interface
+12.what is stream api
+13.what is diff between constructor & methods
+14.what is serialisation
+15.how to handle exceptions in java
+16.difference between list & set
+17.what is synchronization
+18.what is diff between throw & throws
+19.what is marker interace
+20.diff between methodoverloading & method overriding
+
+
+==========================================================
+top 25 core java interview questions for seniors-ashok it
+==========================================================
+1.what is singleton deisgn pattern
+2.how hashmap works internally
+3.diff between failfast & failsafe collection
+4.what is constructor chaining in java
+5.what r the methods available in object class
+6.how many ways we can create object for class in java
+7.what is cloning & why we need it
+8.explain diff between string,strng buffer & string builder
+
+9.what is exception hierarchy in java
+10.what is serialisation & desrialisation
+11.what is transient keyword in java
+12.diff between comparable & comparator
+13.how many ways we can crete thread in java
+14.diff between runnable & collable in java
+15.what is the contract between hashcode() & equals() method
+16.diff between checked & unchecked exception
+17.what is try with resorces in java
+18.what are concurrent collections in java
+19.diff between abstract classes & interfaces
+20.diff between filter() & map() methods in stream api.
+21.what is the purpose of user defined exception
+22.what is factory design pattern
+23.diff between concrrenthashmap & hashmap
+24.what is shallow cloning & deep cloning
+25.what is executor framwork in java
+
+
+#################################
+11 YEARS OF EXP INTERVIEW
+#################################
+1.WHAT CHALLENGES  Y GUYS FACED WHILE CONVERTING MONOLITH TO MICROSERVICES ARCHITECTURE
+2.CAN U GIVE BRIEF ON SAGA DESIGN PATTERN
+3.IN MICROSERVICES WHAT THE DIFFERENCE BETWEEN FAULT TOLERANCE AND RESILENCE
+4.WHAT HAPPENS IN UR APPLICATION WHEN THE DATABASE IS DOWN OR UNAVAILABLE
+5.IMAGINE A CRITICAL SERVICE IN UR APPLICATION FAILS BECAUSE IT CAN NOT CONNECT TO THE DATABASE SO HOW WOULD U ENSURE THAT THE REST OF UR APPLICATION REMAINS FUNCTIONAL LIKE WHAT ARE THERE MIGHT HAVE MULTIPLE SOLUTIONS FOR THIS.JUST HIGHLIGHT THE SOLUTION ONLY 
+6.DIFF BETWEEN OPTIMISTIC & PESSIMISTIC LOCKING----
+7.CAN U EXPLAIN REALTIME SCENERIO WHERE OPTIMISTIC LOCKING FAIL-------
+8.WHAT R THE BEST STRATEGIES FOR GENERATING IDS IN DATABASE WITH JPA----
+9.SUPPOSE U R DESIGNING A HIGH TRAFFIC APPLICATION WHICH ID GENERATION STRATEGY WOULD U PREFER & WHY
+10.WHAT IS DIFF BETWEEN UU IDS AND SEQUENCIAL IDS--------
+11.TELL ME HOW UU IDS IMPACT ON DATABASE PERFORMANCE.CAN UU IDS CAN LEAD TO INDEX FRAGMENTATION------
+12.WHAT MITIGATION STRATEGIES COULD U APPLY TO SOLVE THIS INDEX FRAGMENTATION-------
+13.IF SOMEONE WANT TO USED  UU IDS & SO THEN HOW CAN SOMEONE I MEAN MITIGATE THIS INDEX FRAGMENTATION----
+14.IF AN API GATEWAY GOES DOWN SO HOW WOULD YOU IDENTIFY &RESOLVE THE ISSUE
+15.DID U FACE ANY ISSUE LIKE API FAILED ISSUE IN UR CAREER---------
+16.IN JAVA WHY DOES THE STATIC BLOCK EXECUTE BEFORE MAIN METHOD-----
+17.DO U KNOW SYSTEM.EXIT IN JAVA.WHAT HAPPENS INTERNALLY WHEN SYSTEM.EXIT IS CALLED-----
+18.WHAT IS HASH COLLISION & HOW IT CAN HANDLE INTERNALLY
+19.DO U KNOW ABOUT PROXY DESIGN PATTERN
+20.WHAT HAPPENS IF THE EXCEPTION IS THROWN BY MAIN THREAD----
+21.DO U KNOW ABOUT UNCAUGHT EXCEPTIONS
+22.TELL ME HOW CAN U GUYS MAINTAINING OR HANDLING EXCEPTION THINGS
+23.IN SPRINGBOOT WE CAN SEE RUN METHOD SO CAN U EXPLAIN THIS RUN METHOD----
+24.HAVE U IMPLEMENTED OAUTH2 IN UR APPLICATION.WHAT CHALLENGED U FACED DURING ITS IMPLEMENTATION
+25. WHAT SRE THE BEST CODING PRINCIPLES & PRACTICES U HAVE APPLIED IN YOUR PROJECT
+26.R U HUYS FOLLOWING SOLID PRINCIPLES..WHERE U HAVE APPLIED SOLID PRINCIPLES IN UR PROJECT
+27.HOW DO U MEASURE CODE QUALITY
+28.AS U SAY U R MIGRATING MONOLITHIC TO MICROERVICES SO TELL ME SITATION WHERE ADOPTING A MICROSERVICES ARCHITECTURE MIGHT NOT BE IDEAL
+29.R U COMFORATBLE IN INDEXES IN SQL
+30.DO U KNOW IF WE HAVE FREQUENTLY UPDATED TABLE WHICH TYPE OF INDEX WE SHOULD USE & WHY
+31.HAVE U HEARD ABOUT BALANCED INDEX---
+32.DO U KNOW ABOUT CIRCULER DEPENDENCY
+33.WHY R UNIT TEST CASES ARE IMPORTANT.WHATS A CODE COVERAGE IN UR APPICATION & WHAT IS THE STANDARD  PERCENTAGE IN CODE COVERAGE
+34.U HAVE GIVEN 2 UNSORTED ARRAYS AND U HAVE TO MERGE THIS ARRAYS IN SINGLE SORTED ARRAY..HOW TO DO THAT(WITH STREAM AND WITHOUT STREAM)
+ANSWER:-
+
+1ST APPROACH:-
+
+List<Integer>arr1=Arrays.asList(3,2,1);//arr1 and arr2 are fixed-size lists
+List<Integer>arr2=Arrays.asList(4,6,5);
+
+List<Integer>arr3=new ArrayList<>();
+arr2.addAll(arr1);//The line arr2.addAll(arr1); will throw an UnsupportedOperationException because arr2 is immutable.
+List<Integer>arr3=new ArrayList<>(); //arr3 is a mutable ArrayList, so we can freely add elements to it.
+
+
+ arr3.addAll(arr1);
+ arr3.addAll(arr2);
+Collections.sort(arr3);
+
+System.out.println(arr3);
+
+
+
+
+2nd approach with stream:-
+
+public class MergeAndSortArraysWithStreams {
+    public static void main(String[] args) {
+        // Two unsorted arrays
+        int[] array1 = {3, 1, 5};
+        int[] array2 = {8, 2, 6};
+
+        // Step 1: Merge and sort arrays using streams
+        int[] mergedAndSortedArray = IntStream.concat(Arrays.stream(array1), Arrays.stream(array2)) //Stream: 3, 1, 5, 8, 2, 6
+
+                                              .sorted()   //Sorted IntStream: 1, 2, 3, 5, 6, 8
+
+                                              .toArray(); //Finally, .toArray() converts the IntStream into an integer array.Sorted Merged Array: [1, 2, 3, 5, 6, 8]
+
+        // Print the sorted merged array
+        System.out.println("Sorted Merged Array: " + Arrays.toString(mergedAndSortedArray));
+    }
+}
+
+Note:System.out.println(mergedAndSortedArray); it will print [I@5e91993f
+This is the default object reference (memory address) — not useful for understanding the contents of the array.
+
+System.out.println(Arrays.toString(mergedAndSortedArray)); it will print [1, 2, 3, 5, 6, 8]
+
+Arrays.toString(...) is used to convert an array to a readable string format.
+Without it, you'd get a memory address.
+It helps in debugging and displaying the array contents clearly
+
+
+
+
+3rd Approach:-
+import java.util.Arrays;
+
+public class MergeAndSortArrays {
+    public static void main(String[] args) {
+        // Two unsorted arrays
+        int[] array1 = {3, 1, 5};    //Two unsorted arrays array1 and array2 are declared.
+        int[] array2 = {8, 2, 6};
+
+        // Step 1: Merge arrays
+        int[] mergedArray = new int[array1.length + array2.length];  //A new array mergedArray is created with a size equal to the sum of the lengths of array1 and array2.
+        System.arraycopy(array1, 0, mergedArray, 0, array1.length);  //The first System.arraycopy copies all elements from array1 into the beginning of mergedArray.After this step, mergedArray becomes {3, 1, 5, 0, 0, 0}.
+        System.arraycopy(array2, 0, mergedArray, array1.length, array2.length);The second System.arraycopy copies all elements from array2 starting from index array1.length in mergedArray.After this step, mergedArray becomes {3, 1, 5, 8, 2, 6}.
+
+
+        // Step 2: Sort the merged array
+        Arrays.sort(mergedArray);//The Arrays.sort method sorts the entire mergedArray in ascending order using an efficient sorting algorithm (Dual-Pivot Quicksort for primitives).After sorting, mergedArray becomes {1, 2, 3, 5, 6, 8}.
+
+        // Print the sorted merged array
+        System.out.println("Sorted Merged Array: " + Arrays.toString(mergedArray)); //The Arrays.toString method is used to convert the mergedArray into a string representation for easy printing.Output: Sorted Merged Array: [1, 2, 3, 5, 6, 8].
+    }
+}
+
+
+
+
+
+
+ 
+================================================
+6 years exp java developer-----selenium expreee
+=================================================
+
+
+1.what is marker interface..why we need it in realtime scenerio.why dont u think the same marker interface feature could be achieved by a normal interface.
+2.Tell me 5 exceptions in spring which u encounter in ur day to day project
+3.Tell me 5 spring annoatations which u have used excluding sterotype annotation
+4.Tell me annotaion in spring aop
+5.Do we need to write @Repository annotaion on top of the interface
+6.what is apring data or spring data jpa..why we need it..diff between repository,jparepository,crudrepository & pagging&sorting repository
+7.use Of @NoRepositoryBean annotation ..can we use it on our own interfaces-----populer interview queation
+8.what is meant by java config file in spring..tell me advantages of it & what are the limitation of java config file in spring
+9.what is proxy class and use and where it is needed
+
+10.what is diff between creating a bean with @component & creating bean with @Bean annotation-----imp question
+11.what is bean factory post processor in spring
+12.what do u mean by transactional propagation
+13.explain diff netween update and merge method in hibernate
+14.if i have two files application.properties & application.yml in my classpath then SB will start my application or not..if started which file load first
+15.how dispatcher servlet in SB ia autoconfigured?& what will happen if the spring mvc project is not on the classpath
+16.how to create custom java exceptions
+17.diff between checked exception & unchecked exception in java
+18.How u handle exception in spring
+19.what is dif between @ControllerAdvice & @RestControllerAdvice
+20.what will happen if ur rest servive is returning some exception like badgateway like u know ur client is trying to connect to an external rest servive but that it is not able to connect it is not able to do a handset or it is trying to connect to a xml service it is able to connect but some time out is happening some read time out happening or some right timeout is happening then what will happen then how will u handle that.will it go to controller advice or it will not go there
+21.what is meant by thread local in plain java & what is realtime uses of threadlocal & if u have ever seen the uses of this in any one framework like spring hibernate or any other java frameworks & if ur doing in realtime projects that u r working on right now just give me some instances like ok this is the where threadlock up is getting used
+
+
+==============================================================
+Deloitee interview 9 years full stack java & react developer
+=============================================================
+1. if requirement comes how u decided u used which hibernate,orm or jdbc..diff between them and advantages & disadvantages
+2.features of java 14..java 8 features
+3.diff between functional interface & normal interface
+4.In technical design scenerio we have to used abstract class is right where we define the abstract facility in the classes & then we define the abstarct methoid so that any challenge classes will implement that abstract method & they will provide a default implementation or into the abstract classes  now we have similar thing in interfaces now with the default methods right so in which scenerio we go for interface with the default methods and abstract class with the unknown right methods because both of them are kindly providing similar functionality like this
+5.interface a and interface b having same method print and c implements this interface..imp imp question
+6.stream api question..we have string of list like names and we have to prints names and counting of each names
+7.for ex when we used to iterate through an list right  & we modify for example list of string i am just going to iterationg all that and when i modify the same list during that loop it throws concurrent modification exception right .if similar activity i will do in stream so is it throw concurremt modification exception
+8.diff between stream & parallel stream
+9.what is the advantages of executor framwork instead of using thread class
+10.can u tell me how this thread pool works in this area right so i have created thread so normally for ex when u create thread  we need to provide run method implementation for this right so that run method completes the thread dies so how do u keep this basically how this executor framework or how this thread pool keeps the therad activee for ex u take say so i have thread pool running right & it takes  a job once job is finished it goes to thread pool  it doesnot die because do u think how it has been implemented in this for ex in given thread 
+11.purpose of immutable classes in java 
+12.what is string constant pool
+13.string s4=new string(abc),string s2="abc",s3=new string(abc) so can u tell me how many objects  i will have in string in heap and in string constant pool
+14.can u explain me java memory  model
+15.java memory out of exception..one is heap size & one is permgen space..diff between that
+16.how do u resolve the pumped & remember issue so each size u can increase the size right lets seee how out of memory is can u say from 1 gb to 2gb u can set it to max name size but for the bomb chain what is the option to solve that content issue 
+17.what is diff bewteen normal resource(restservice) & restfull service
+18.diff methods we can implement in http method in restfull
+19.diff between post & put
+20.how do u secure ur rest api
+21.how do u prevent from ddos attacjek(denial of service attack)
+
+1. Introduction to Spring Data JPA✅: Understand what Spring Data JPA is and its role in simplifying data access layer development.
+
+2. JPA (Java Persistence API) Basics✅: Understand the fundamentals of JPA, including entity, EntityManager, EntityManagerFactory, persistence unit, etc.
+
+3. Spring Data Repositories✅: Learn about Spring Data repositories, including JpaRepository, CrudRepository, and PagingAndSortingRepository.
+
+4. Entity Mapping✅: Understand how to map Java objects to database tables using JPA annotations such as @Entity, @Table, @Id, @GeneratedValue, @Column, etc.
+
+5. Query Methods✅: Learn about query methods in Spring Data JPA, including derived query methods, custom query methods using @Query annotation, and query creation from method names.
+
+6. QueryDSL✅: Familiarise yourself with QueryDSL for building type-safe queries in Spring Data JPA.
+
+7. Auditing✅: Understand how to enable auditing (createdBy, createdDate, lastModifiedBy, lastModifiedDate) in Spring Data JPA entities.
+
+8 . Transactions✅: Understand transaction management in Spring Data JPA, including @Transactional annotation and propagation behaviors.
+
+9. JPQL (Java Persistence Query Language)✅: Learn about JPQL for writing database queries in a database-independent way.
+
+10. Criteria API✅: Understand the Criteria API for building dynamic queries in Spring Data JPA.
+
+11. Pagination and Sorting✅: Learn how to implement pagination and sorting in Spring Data JPA repositories.
+
+12. Caching✅: Understand how caching works in Spring Data JPA using second-level caching and query caching.
+
+13. Spring Data JPA with other Spring Modules✅: Explore integration of Spring Data JPA with other Spring modules like Spring MVC, Spring Boot, Spring Security, etc.
+
+14. Performance Optimization✅: Understand best practices for optimizing performance in Spring Data JPA applications, including lazy loading, batch fetching, and query optimization.
+
+15. Error Handling✅: Learn about error handling strategies in Spring Data JPA, including exception handling and validation.
+1w
+
+
+
+prithvi
+
+1)we have 2 MS connected with one database ..if one MS gets fail then whjat will happend
+2)@transactional annotation..uses purpose & where to use
+3)fnctional interface...what is supplier & predicate its uses
+4)can u write @repo @service to another classes
+5)DSA questions 
+6)selct * from table u know but selct 10 from table..what will be the result
+7)can u specity many paths in controller..what is the need for that
+8)request mapping uses
+9) is the overloading and overridig happenede at same time
+
+
+
+
+
+We are identify that there is performance issue in RPA side which is in progress,that issue comes only after data quantity is increasing in database.Team is already working to create patch.this patch will be available by tuesday so heap space issue will be resolved.
+
+
+
+***************TCS*******************
+FIND DUPLICATE RECORDS BASED ON PERTICULER COLUMN
+
+
+============================================
+cognizant--------jav springboot  microservices---L1 interview
+
+1)Explain about your experience in project ,how we take reqirement & deliver to it etc
+2)Explain about yor team,how many people,who is the manger,teal lead,client etc
+3)what is concurrent hashmap?Internal working..what is concurrency level in concurrenthashmap?How mant thread can run at a time?how it is differ fro hashmap
+4)How object is grabage collected in java 8
+5)How we can garbage collection my object?null & finalize methods
+6)what is solod principles
+7)what is marker interface ,when to use it?
+8)what is lock
+9)diff between runnable & collable
+10)How we can move from monolithic to micoservices?Design patterns to be used?DDD & bounded context?
+11)diff between microsevices & monolithis
+12)when new feature is to be added by client in system ,how we can estimated & come up with effots -development ,testing & deliveing to client
+13)what is saga design patten.diff between orchestation & choeeogaphy
+14)which is suitable top to bottom o bottom to up appoach
+15)when do we use sequence diagram
+16)Explain sping secuity?how spring secuity works?
+17)can u write singleton class & why do we use it.?Best way to write singleton class
+18)what is date api & time api?why it is addded in java 8?
+19)what is try with resource
+20)what is intermediate in java 8?
+21)what to do when u recognize pefomance degradation in system?
+
+
+--------------------------------------
+EPAM interview
+
+1.About project
+which fnctionality u have implemented,which techstack,have u worked on change request or end to end,what type of mappings,which cloud services
+2.have u worked on resolving bugs & migration related problems
+3.which version of springboot u have used in ur project
+4.which minimun java version supports in SB-3
+5.notable changes from java 11 to java 17
+6.how will u help teammates to gain knowledge related to ur project & technically?
+7.why jakarta came into pictures when javax was already there?
+8.use of spring jpa?/
+9.diff between hibernate & spring jpa
+10.lazy vs eager initialisation
+11.diff between controller & restcontroller
+12.how to create our own singleton class & how will it work in multitheared environment ?Asked for implementation
+13.how will u validate request & handle custom exceptions for the requirement
+14.diff between DI & IOC
+15.types of dependency injection.setter vs constructor injection
+16.what is dispatcher servlet or front end controller
+17.what are stereotype annotaions & can we replace any one of them with another?
+18.what is springboot starter parent
+19.what is @springbootApplication
+20.diff between JPA,paging & sorting repo & CRUD repo?
+21.solid principle.main important is liskov principle with one example.how u implemented open closed principle
+22.what are scopes in SB.types of scopes
+23.how to make a custome immutable class?
+24.hallow vs deep copy
+25.any behavior design pattern u know?
+26.what is distribted transaction.& what is importance of saga design pattern & in which scenerios we can use it?
+27.have u worked on cloud technologies
+28.Advantages of monolithic application
+29.have u made use of kibana?how do u trace logs in MS?
+30.what is circuit braker design pattern
+31.what is half open,open & closed circuits in circuit breaker DP?
+32.hibernate mapping question
+if one cart is having many books if customer will try to purchse one of the book of any amount how will u do that like if u want to find book by name how will u do that 
+33.transactions propagatgion level & isolation level
+
+
+================================================================================================================
+
+tech mahindra for tech lead position--5+ years
+
+1.u have 6 digits otp generated and u have to check whether any of its digit reoeated or not..write a simple fuction with less code
+2.find the nth highest salary
+3.WE HAVE 2 TABLES AND WE HAVE TO SELECT ALL EMPLOYESS WHO IS WORKING FOR ENGINEERING DEPARTMENT..WRITE QUERY
+
+Employees
+EmployeeID	Name	DepartmentID
+1	Alice	101
+2	Bob	102
+3	Charlie	101
+4	David	103
+5	Eve	104
+
+
+
+Departments
+DepartmentID	DepartmentName
+101	Engineering
+102	HR
+103	Marketing
+104	Finance
+
+ANSWER:-SELECT E.EmployeeID, E.Name, D.DepartmentName
+FROM Employees E
+INNER JOIN Departments D
+ON E.DepartmentID = D.DepartmentID
+WHERE D.DepartmentName = 'Engineering';
+
+4.FIND DUPLICATES VALUE AND ITS FREQUENCY FOR A COLUMN
+
+================================================================================================================================================
+=================================================
+CAPGEMINI 6 YEARS EXPERIENCED INTERVIEW QUESTIONS
+==================================================
+->LATEST VERSION OF JAVA U HAVE WORKED ON..WHAT ARE THE FEATRES WHICH HAVE INTRODUCES IN JAVA 11
+->WHEN WE COME TO THE FUNCTIONAL INTERFACES RIGHT SO WE HAVE DEAFULTS METHOD OVER THERE & EARLIER ALSO WE HAVE ABSTRACT CLASSES WITH METHOD INSIDE IT SO MORE OR LESS WE SEE THIS DEFAULT METHODS IN JAVA 8 PROVIDES SIMILAR KIND OF FEATURES WHAT ABSTRACT METHODS HAVE SO DO U AGREE WITH THIS.AND HOW DO U THINK THAT IT IS DIFF FROM THE EARLIER ONE WHERE WE USED ABSTRACT CLASSES
+->HOW DOES THE STREAM WORK IN JAVA 8..SO CAN U EXPLAIN THE DIFF NETWEEN INTERMEDIATE & TERMINAL OPERATIOSN WITH RESPECT TO STREAM
+->WHAT ARE THE CHANGES WHICH HAS BEEN MADE WRT DATE TIME & CALENDER IN JAVA 8 COMPARE TO PREVIOUS VERSIONS
+->CAN U TELL WHEN TO USE SEQUENCIAL STREAM & PARALLEL STREAM
+->CAN U TELL ME HOW U HANDLE CHECKED & UNCHECKED EXCEPTIONS IN LAMBDA EXPRESSION
+->CAN U EXPLAIN WHAT IS THE DIFFERENCE BETWEEN STREAM & PARALLEL STREAM 
+->CAN U EXPLAIN DIFF BETWEEN STREAM AND PARALLEL STREAM
+->DIFF BETWEEN FINAL FINALLY & FINALIZE
+->SUPPOSE ANY COLLECTIONS RELATED REQUIREMENTS COMES TO U OK SO THEY HAVE NOT ASKED U WHAT COLLECTIONS USED SO BASICALLY WHAT R THE BEST PRACTICES FOR USING THE COLLECTIONS IN JAVA SO HOW DO U DECIDE WHICH ONE TO USE & WHEN
+->DO U KNOW WHAT IS FORK JOIN POOL
+->WHAT ARE THE  PRIMARY ANNOTATION U HAVE WORKED WITH SPRINGBOOT APPLICATION
+
+->HOW THE REQUEST FLOWS IN SB APPLICATION SO LETS SAY IN UI USER IS PERFORMING ANY ACTION AND INVOLING WEB SERVICES OR ENDPOINTS SO LETS SAY USER MIGHT BE TRYING TO UPDATE OR DELETE SOMETHING SO HOW THIS WHOLE THING OR WHOLE FLOW WORKS.CAN U EXPLAIN THIS INTO IN LIKE HOW THIS WORKS AND WHAT CONFIGURATION AND WHAT THE THINGS WE DO FOR ALL THAT
+vimp
+
+->IN SB PROJECT CAN U EXPLAIN HOW DO U CONFIGURE TWO OR MORE THAN TWO DIFFERENT DATASOURCES
+->SUPPOSE IF U WANT TO INITIALIZE THE DATABASE WITH SOME INITIAL VALUES AS SOON AS SB APPLICATION STARTS SO HOW CAN U ACHIEVE THIS SO HOW CAN U MAKE SURE THAT ALL THIS DATA GETS INSERTED TO DATABASE AS SOON AS SB APPLICATION START
+->HAVE U WORKED ON PROFILES IN SB
+->HOW DO U HANDLE INTERSERVICE COMMUNICATION BETWEEN MICROSERVICES
+->WHAT IS THE ROLE OF SERVICE REGISTRY IN MICROSERVICES
+->WHAT IS THE CONCEPT OF API GATEWAY IN MICROSERVICES
+->WHAT IS THE CIRCUIT BREAKER PATTERN AND WHY IT IS IMPORTANT IN MICROSERVICES
+->SO HOW THIS HYSTRIX IMPLEMENTED..CAN U EXPLAIN STEP BY STEP
+->HOW DO U ENSURE SECURITY IN MICROSERVICES ARCHITECTURE
+->CAN U EXPLAIN HOW U HAVE IMPLEMENTED JWT IN YOUR APPLICATION.HAVE U USED IT
+
+
+=============================================
+******capgemini   java/SB/MS/Database*****
+=============================================
+
+1.define a no of list like integer and find 2nd highest no.using stream
+
+Approach 1
+
+public class FindSecondHighest{
+
+public static void main(String[]args){
+
+List<Integer> numbers=Arrays.asList(1,2,5,4,6,6,7,9);
+Optional<Integer>optional=numbers.stream().distinct().sorted((a,b)->b-a).skip(1).findFirst();
+
+Integer secondHighest=optional.get();
+
+sop(secondHighest);
+
+}
+
+
+}
+==================
+
+Finding the 2nd Highest Number in a List Using Java Streams
+Here, we’ll explore different approaches to find the second highest number in a list using Java Stream API.
+
+Approach 2: Using sorted() and skip()
+This approach sorts the list in descending order, skips the first element (highest), and then fetches the next element (second highest).
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+
+public class SecondHighestExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(3, 7, 1, 9, 4, 9, 2);
+
+        // Step 1: Find second highest using sorted() and skip()
+        Optional<Integer> secondHighest = numbers.stream()
+                .sorted(Comparator.reverseOrder()) // Sort in descending order
+                .distinct() // Remove duplicates
+                .skip(1) // Skip the first (highest) element
+                .findFirst(); // Get the next (second highest) element
+
+        // Step 2: Print result
+        secondHighest.ifPresentOrElse(
+                num -> System.out.println("Second highest: " + num),
+                () -> System.out.println("No second highest number found!")
+        );
+    }
+}
+======================
+Approach 3: Using reduce()
+This approach uses reduce() to find the highest and second-highest numbers in a single pass.
+
+
+import java.util.Arrays;
+import java.util.List;
+
+public class SecondHighestWithReduce {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(3, 7, 1, 9, 4, 9, 2);
+
+        // Step 1: Use reduce() to find highest and second-highest
+        int[] result = numbers.stream()
+                .distinct() // Remove duplicates
+                .reduce(new int[]{Integer.MIN_VALUE, Integer.MIN_VALUE}, // Initialize array [highest, secondHighest]
+                        (acc, num) -> {
+                            if (num > acc[0]) {
+                                acc[1] = acc[0]; // Current highest becomes second-highest
+                                acc[0] = num;   // Update highest
+                            } else if (num > acc[1]) {
+                                acc[1] = num;   // Update second-highest
+                            }
+                            return acc;
+                        },
+                        (a, b) -> a); // Combiner (not used in sequential streams)
+
+        // Step 2: Print result
+        System.out.println("Second highest: " + result[1]);
+    }
+}
+===========================================================================================================================
+Approach 4: Using max() Twice
+In this approach, we find the maximum value first, remove it from the list, and then find the maximum of the remaining numbers.
+
+import java.util.Arrays;
+import java.util.List;
+
+public class SecondHighestWithMax {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(3, 7, 1, 9, 4, 9, 2);
+
+        // Step 1: Find the highest number
+        int max = numbers.stream()
+                .max(Integer::compareTo) // Find the highest number
+                .orElseThrow(() -> new RuntimeException("List is empty!"));
+
+        // Step 2: Find the second highest
+        int secondHighest = numbers.stream()
+                .filter(num -> num != max) // Exclude the highest number
+                .max(Integer::compareTo) // Find the maximum of the remaining numbers
+                .orElseThrow(() -> new RuntimeException("No second highest number found!"));
+
+        // Step 3: Print result
+        System.out.println("Second highest: " + secondHighest);
+    }
+}
+
+
+
+
+2.diff between hashmap & concurrent hashmap
+3.can  u hear volatile or synchronized keyword in java
+4.do u know java memory model
+5.do u know string class in java..i need to create class which is immutable similar to string.how to do it
+6.how do u handle exceptions in ur programming
+7.what is use of catch block
+8.what is the advantages of SB over earlier version of spring
+9.how do u handle exceptions in ur SB project
+10.what are the different http stats codeswhich u have used in ur project
+11.what is the diff between autentication & authorisation
+12.do u know profiles in SB
+13.can u explain me architecture of ur project how it is designed as it based in microservices or is it monolithic
+14.u had a monolithic architecture and now u are converting it into microservices based architecture right so what is it which by means through which u decided that i will go for microservices architecture & not for monolithic architecture..what are the advantages of microservices architectre over monolithic
+15.how this microservices communicates with each other
+16.u have diff MS using diff databases .do u see any chalanges associated with to our database management
+17.let us consider there is query which is taking too much time to read the data from database so in that scenerio how do u handle this situation
+
+
+
+FREQUENTLY ASKED INTERBIEW QUESTIONS FOR 10 YEARS EXP JAVA
+-------------------------------------------------------------
+Explain the Java Memory Model in detail, what is happens-before,Volatile Variables,Memory Visibility? Also give example.
+Discuss the differences between the Serializable and Externalizable interfaces in Java. When would you use one over the other for object serialization, and what are the potential performance implications?
+Could you provide the differences between Heap and Stack Memory in the context of Java, and also provide insights into how these memory areas are used?
+Explain the differences between abstract classes and interfaces in Java. When should you use one over the other?
+Explain the concept of method overloading and method overriding in Java. What are the rules for each?
+Explain the concept of Java generics. What are some benefits of using generics, and what are some common use cases?
+Explain the difference between final, finally, and finalize in Java.
+Explain the difference between the Comparable and Comparator interfaces in Java.
+What are the key differences between ArrayList and LinkedList in Java?
+What is the purpose of the hashCode() and equals() methods in Java?
+What are some common uses of Java Reflection API?
+Define the role of a ClassLoader in Java and its significance within the runtime environment.
+What is the difference between Checked and Unchecked Exceptions in Java?
+What is the Singleton design pattern in Java, and how can it be implemented? Include a code example.
+What is the Java ClassLoader, and what are its primary functions? Include a code example.
+What is the purpose of the "synchronized" keyword in Java, and when should it be used? Include a code example.
+What is the difference between a shallow copy and a deep copy in Java, and when should you use each one? Include a code example.
+Tell me about clone() function, give some example.
+How has Java evolved over the years, and what are some key features introduced in recent Java versions (Java 8 onwards)?
+
+==============================================================================================
+
+
+IMPORTANT QUESTIONS
+====================
+
+->To implement load balancing across two EC2 instances (servers) with a distribution ratio of 60% and 40% using AWS, follow these steps:
+->how to connect or integrate our application with s3 using aws sdk or how to fetch data from s3 bucket
+->aws codedeploy/code pipeline
+->aws rds to relational database & how to backup it
+->AWS auto scaling
+->amazon ECR for storing docker images
+->AWS EKS
+->AWS cloudwatch
+->AWS guardduty for security monitoring
+
+
+======================================================================================================
+
+#########capgemini interview question asked to swapnil###########
+find first unique character in string
+
+s="abcacddceff";
+s="abcakcddceff";
+
+1."Explain hashmap internal working..and tell if hashcollision occurss what to do..if two keys have equal hashcode but equal methods false what happened in this scenerio..like this tell different scenerios and how to handle them.tell me Hashmap Limit"
+2.which type of service registry used in microservices..Explain in detail
+3.Do u know solid principle. what is I (interface segregation) means ..explain in detail
+4.design patterns..Factory
+5.If two microservices communicates with each other and suddenly if  one microservice fails then how to know this services fail.How we can know this service fails.what is approach
+6.do u know distributed management..Explain in detail and how to handle it.
+7.tell me about this and how to overcome this in apache kafka if if publisher publishes a msg in queue and subscriber service fails then what happened in apache kafka.
+.what about the  msgs in the queue, is its cleared or what what happened exactly.
+8.@Transactional annotation
+
+
+==========================================================================================================
+
+veepins company
+
+1)
+String s = "abc";
+s = "xyz";
+System.out.println(s);
+
+Answer:-Because Strings are immutable in Java, assigning "xyz" to s creates a new object, and s now points to it — hence "xyz" is printed.
+
+2)System.out.println("test" + 10 + 20);   //test1020
+System.out.println(10 + 20 + "test");  //30test
+System.out.println(5 + 5 + "Hello" + 5 + 5);//10Hello55
+
+3)what is immutability
+==============================================
+tech mahnindra questions aksed to swapnil
+1)oops concept in detail
+2)diff between comparable & comparator
+3)lifecycle of bean
+4)java 8 features
+
+
+================================
+Questions after selection
+==========================
+
+Tell me about a time you faced a challenging situation at work and how you handled it.”
+“How do you handle conflicts within a team?”
+“Describe a situation where you had to adapt to a significant change at work.”
+“What motivates you to do your best work?”
+
+
+How do you prioritize and delegate tasks within a team?”
+“Describe your leadership style. How do you motivate team members who are struggling?”
+“Have you ever had to manage a difficult employee or team member? How did you approach it?”
+“How do you measure success for your team and individual contributors?”
+
+What are your salary expectations for this role?”
+“What is your current notice period or availability?”
+“What are your long-term career goals?”
+“How do you view the work-life balance?”
+
+
+How do you see your role evolving within the company in the next 3-5 years?”
+“How would you drive innovation or growth in this department?”
+“What excites you about the mission and vision of our company?”
+“What are the top 3 things you would focus on in the first 6 months of your role?”
+
+
+
+
+
+======================
+IMPORTANT QUESTIONS
+==================
+ How do you optimize the performance of a Java application?
+What are some key features introduced in Java 8, and how do you use them?
+How do you test REST APIs?
+ How do you improve the performance of REST APIs?
+How do you version REST APIs, and why is it important?
+What is the difference between PUT and POST in REST APIs?
+How do you secure a Spring Boot REST API?
+ Explain how Spring Boot manages dependencies with Spring Boot Starter modules.
+How does Spring Boot simplify application development compared to traditional Spring
+How does garbage collection work in Java, and how can you tune it?
+
+
+
+
+
+=================
+PRODUCTION ISSUE
+=================
+=>In my 6 years of experience, one of the major production issues I faced was performance degradation during high traffic periods. 
+=>The application I was working on was hosted on AWS, and we started noticing slow response times. 
+=>After reviewing the AWS CloudWatch metrics, I found that the EC2 instances were struggling to handle the traffic load due to limited resources.
+=>I implemented an immediate fix by scaling the instances to increase CPU and memory. 
+=>Additionally, I introduced AWS Auto Scaling to handle future traffic spikes and optimized the database queries to ensure faster data retrieval. 
+=>We also implemented caching mechanisms to reduce database load.
+=>As a result, the application’s response times improved by 40%, and there was no downtime during peak usage. 
+=>This experience taught me the value of proactive performance monitoring and scaling strategies, especially in cloud environments. 
+=>Going forward, I make sure that the system is designed to scale efficiently and that monitoring tools are always in place to catch potential issues early.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

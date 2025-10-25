@@ -1,0 +1,34 @@
+
+Tell me About Yourself
+======================
+=>Thank you for the opportunity. 
+I have around 5.10 years of experience as a Java backend developer, with a strong background in developing scalable, secure, and high-performing web applications using Java, Spring Boot, and microservices architecture.
+
+=>I started my career working on monolithic Java applications and gradually transitioned into microservices-based development. 
+Over the years, I’ve gained hands-on experience with Spring Boot, REST APIs, Spring Data JPA, and Hibernate. 
+I regularly use tools like Maven for build management and have worked with relational databases such as MySQL ,including writing and optimizing complex SQL queries.
+
+=>For API development and testing, I use Postman for functional validation and Swagger/OpenAPI for interactive API documentation.
+
+=>For code quality, I follow best practices using SonarQube to track code coverage and maintainability metrics. 
+I also write unit tests using JUnit and Mockito to ensure code reliability and reduce bugs in production.
+
+=>On the cloud side, I’ve worked with various AWS services including EC2, S3, Lambda, RDS,VPC  and ALB for deploying and maintaining applications. 
+I’m also familiar with containerization using Docker and orchestration with Kubernetes. 
+While I closely collaborate with DevOps teams for CI/CD processes, I understand how CI/CD pipelines are structured using tools like Jenkins and GitHub Actions.
+
+=>One of the key projects I’ve worked on is the MSIL Claim Bonus Automation System for Maruti Suzuki, which automates the end-to-end claim bonus process for dealers. 
+The system is developed using Java, Spring Boot, microservices, and AWS.
+ My primary responsibilities included designing and developing backend services, integrating with third-party APIs, and coordinating with the SmartBot team for automated document processing. 
+I was also involved in managing claim status updates through workflow-based logic
+
+=>We follow the Agile methodology in our development process, which includes daily standups, sprint planning, and retrospectives to ensure continuous delivery and timely feedback.
+
+=>In addition to development, I regularly participate in code reviews, help resolve production issues, and contribute to system performance optimization. 
+I also enjoy mentoring junior team members and collaborating with cross-functional teams including QA, UI, and DevOps.
+
+=>Beyond technical expertise, I believe in strong communication, teamwork, and a proactive approach to problem-solving. 
+I’m currently looking for a role where I can leverage my backend and cloud experience, contribute to impactful projects, and grow into a solution architect role in the near future.
+
+=>I recently worked at Nividous Software Solutions, where I served for 2 years and 10 months, contributing to the MSIL project. 
+Prior to that, I worked at Softwin Technologies Pvt. Ltd. for approximately 3 years, where I gained solid hands-on experience with Java and enterprise applications

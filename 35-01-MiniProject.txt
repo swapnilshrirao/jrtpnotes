@@ -1,0 +1,234 @@
+#################
+01-Mini Project
+##################
+
+-> Develop one microservice to manage insurance plans of our project
+
+-> Microservice should have below functionalities
+
+
+1) Create Plan
+
+2) View Plans
+
+3) Edit & Update Plan
+
+4) Activate & De-Activate(Soft delete)
+
+5) Delete Plan (Hard Delete)
+
+
+Key-Points: 
+
+Tech Stack : Spring Boot, REST API, Data JPA & H2 DB
+
+-> Use Embedded Database (h2) For Storage
+-> Provide Swagger Documentation
+-> Push Code into Git Hub Repo
+-> Deploy Project into AWS Cloud Using JENKINS CI CD
+
+
+##############
+Database Table
+##############
+
+Table-1 : PLAN_CATEGORY
+
+CATEGORY_ID   			NUMBER		PRIMARY KEY
+CATEGORY_NAME		VARCHAR
+ACTIVE_SW				CHAR    (Y MEANS ACTIVE..N MEANS NOT ACTIVE)
+CREATE_DATE			DATE
+UPDATE_DATE			DATE
+CREATED_BY			VARCHAR
+UPDATED_BY			VARCHAR
+
+
+Table-2 :  PLAN_MASTER
+
+PLAN_ID						NUMBER			PRIMARY KEY
+PLAN_NAME					VARCHAR
+PLAN_START_DATE			DATE			
+PLAN_END_DATE				DATE
+PLAN_CATEGORY_ID			NUMBER
+ACTIVE_SW					CHAR
+CREATE_DATE				DATE
+UPDATE_DATE				DATE
+CREATED_BY				VARCHAR
+UPDATED_BY				VARCHAR
+
+
+
+
+Entity Classes
+------------------------
+PlanCategory.java
+Plan.java
+
+
+Dao Layer / Repository Layer
+---------------------------------------
+PlanCategoryRepo.java 
+PlanRepo.java
+
+
+Service Layer
+--------------------
+PlanService.java (I)
+PlanServiceImpl.java (C)
+
+WebLayer
+--------------
+PlanRestController.java
+
+
+Config
+----------
+SwaggerConfig.java
+
+
+#################
+Project Setup
+################
+
+
+Step-1) Create Spring Boot Application with below depenencies
+
+		a)  starter-web(is used to develop web application using SB)
+		b)  starter-data-jpa(is used to communicate with DB)
+		c)  h2 
+		d) devtools(is used to reload the code that we changes to made in the application )
+		c) swagger 
+		d) swagger-ui
+		e) project lombok
+
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+
+Step-2) Configure DataSource Properties in application.properties file
+
+# Data Source Properties
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=ashokit
+spring.datasource.password=ashokit
+spring.datasource.driver-class-name=org.h2.Driver
+
+# ORM Properties
+spring.jpa.hibernate.ddl-auto= update
+
+if u use mysql then tables not created automatically then u should add ORM properties.Tables created by dafault in h2 database
+
+
+Note: For DB testing purpose run the application and access h2-console using below URL
+
+		URL : http://localhost:port/h2-console
+
+
+Step-3) Create Entity classes with Database tables mapping
+
+Step-4 ) Create Repository Interfaces
+
+
+Note: Run the application and verify database (Tables should be created)
+
+
+Step-5) Create Service interface with Implementation  (business logic)
+
+Step-6) Create Rest Controller with Required methods (Request Handlers)
+
+Step-7) Create Swagger Config class to generate documentation
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+	
+	@Bean
+	public Docket apiDoc() {
+		
+		return new Docket(DocumentationType.SWAGGER_2)
+				   .select()
+				   .apis(RequestHandlerSelectors.basePackage("in.ashokit.rest"))
+				   .paths(PathSelectors.any())
+				   .build();
+	}
+}
+
+Step-8) Run the application and test it using Swagger-UI
+
+		
+		http://localhost:8080/swagger-ui.html
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+what is ,issing in our application
+logging
+exception handling
+junits
+remove hard code messages
+code review
+security
+
+
+---------------------------------------------------------------------
+
+spring-boot-parent-version : 2.5.5
+<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.5</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+Swagger version 2.6.1
+	<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>2.6.1</version>
+   </dependency>
+		
+		<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.6.1</version>
+       </dependency>
+
+version compatible with each other
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+updatable=false
+once the record got created,that colum value should not be updated 
+
+insertable=false
+when record is updated then this column value should be populated otherwise this column value should not be inserted
+
+	@CreationTimestamp
+when the record is created date should be populated
+
+@UpdateTimestamp
+when record is updated then column value should be populated
+
+
+optional -> it is used to avoid null pointer exception.
+
+it represents the optional object may be available or not available
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,825 @@
+=======================
+SOLID PRINCIPLE
+================
+-> These are five key object-oriented design principles that make your code more maintainable, flexible, and scalable.
+->The SOLID principles are guidelines for designing clean, maintainable, and scalable object-oriented systems
+
+->The main aim of above SOLID OOPS Principles to make our code more readable, maintainable and loosely coupled.
+
+=========================================
+S — Single Responsibility Principle (SRP)
+==========================================
+->A class sould have only one reason to change(i.e Only one responsibility)
+->Definition: A class should have only one reason to change, i.e., it should only have one responsibility.
+
+->Key Idea: Keep classes focused on a single task to make them easier to maintain and test.
+
+Violating SRP
+=============
+class VehicleService{
+void registerVehicle(){
+//code to register vehicle
+}
+ void insureVehicle(){
+//code to insure vehicle
+}
+}
+
+Following SRP
+===============
+class VehicleRegistrationService{
+void registerVehicle(){
+//registration logic
+}
+
+class VehicleInsuranceService{
+void insureVehicle(){
+//insurence logic
+
+}
+}
+
+->Now, changes in insurance logic won’t affect registration logic.
+
+// Violating SRP: A single class handling multiple responsibilities.
+class Employee {
+    void calculateSalary() {
+        // Logic to calculate salary
+    }
+
+    void saveToDatabase() {
+        // Logic to save employee data to the database
+    }
+}
+
+// Applying SRP: Separate classes for each responsibility.
+class SalaryCalculator {
+    void calculateSalary() {
+        // Logic to calculate salary
+    }
+}
+
+class EmployeeRepository {
+    void saveToDatabase() {
+        // Logic to save employee data to the database
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------
+// This is not recommended
+class ReportGenerator {
+
+		public void generateExcel ( ) {
+			// logic to generate excel
+		}
+
+		public void generatePdf ( ) {
+			// logic to generate pdf
+		}
+}
+
+// Recommended Approach
+
+class ExcelReportGenerator {
+
+		public void generateExcel ( ) {
+			// logic to generate excel
+		}
+}
+
+class PdfReportGenerator {
+
+		public void generatePdf ( ) {
+			// logic to generate pdf
+		}
+}
+
+
+->Real-Time Scenario: Payroll System
+Before SRP: A class Payroll handles salary calculation, tax deductions, and database operations.
+After SRP: Separate classes handle each responsibility (e.g., TaxCalculator, SalaryCalculator, PayrollRepository).
+
+===============================
+O — Open/Closed Principle (OCP)
+===============================
+->Software entities should be open for extension but closed for modification.
+->Key Idea: Allow behavior to be extended without changing existing code.
+
+class VehicleService{
+void serviceVehicle(){
+System.out.prinltn("Servicing generic vehicle");
+}
+}
+
+class ElectricVehicleService extends VehicleService{
+@override
+void serviceVehicle(){
+System.out.prinltn("Servicing electric vehicle");
+}
+}
+
+public class main{
+public static void main(String[] args){
+VehicleService vs=new ElectricVehicleService();//runtime polymerphism
+vs.servicevehicle(); //op:servicing electric vehicle
+
+}
+}
+
+-> We extended behavior without changing the original VehicleService class.
+
+
+=======================================
+L — Liskov Substitution Principle (LSP)
+=======================================
+->Formal: If class S is a subtype of class T, then objects of type T may be replaced with objects of type S without altering the correctness of the program. (Barbara Liskov, 1987).
+->Simplified: Subclasses should be replaceable for their base classes without breaking the application.
+
+Key Idea
+--------
+->Derived classes must honor the contract of the base class.
+->Subtypes should not weaken behavior or throw unexpected exceptions.
+->Goal: Promotes substitutability → Write code against abstractions, not concrete implementations.
+
+✅ Good Example (Follows LSP)
+----------------------------
+class Vehicle {
+    void startEngine() {
+        System.out.println("Starting engine...");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void startEngine() {
+        System.out.println("Car engine started");
+    }
+}
+
+class ElectricCar extends Vehicle {
+    @Override
+    void startEngine() {
+        System.out.println("ElectricCar engine started");
+    }
+}
+
+public class Main {
+    static void startVehicle(Vehicle v) {
+        v.startEngine();
+    }
+
+    public static void main(String[] args) {
+        startVehicle(new Car());        // ✅ Works
+        startVehicle(new ElectricCar()); // ✅ Works
+    }
+}
+
+->Both Car and ElectricCar can substitute Vehicle without breaking anything.
+
+Bad Example (Violates LSP)
+--------------------------
+class Bird {
+    public void fly() {
+        System.out.println("I can fly!");
+    }
+}
+
+class Ostrich extends Bird {
+    @Override
+    public void fly() {
+        throw new UnsupportedOperationException("Ostriches can't fly!");
+    }
+}
+
+->Here Ostrich cannot safely replace Bird. If client code expects all Birds to fly, it breaks.
+
+✅ Fix with Proper Design
+--------------------------
+// Base interface
+interface Bird { void eat(); }
+
+// Sub-interface for flying birds
+interface FlyingBird extends Bird { void fly(); }
+
+// Sparrow can fly
+class Sparrow implements FlyingBird {
+    public void eat() { System.out.println("Sparrow eating"); }
+    public void fly() { System.out.println("Sparrow flying"); }
+}
+
+// Ostrich cannot fly, only eat
+class Ostrich implements Bird {
+    public void eat() { System.out.println("Ostrich eating"); }
+}
+
+
+->Now, both Sparrow and Ostrich respect LSP. Clients call only what is expected.
+
+Real-Time Scenarios
+---------------------
+1. Loan Interest Calculation
+
+❌ Violation (Not LSP-friendly):
+
+class LoanInterestCalculator {
+    double calculateLoanInterest(Loan loan) {
+        if (loan instanceof CarLoan) return loan.getValue() * 7.5;
+        if (loan instanceof PersonalLoan) return loan.getValue() * 11.5;
+        return 0.0;
+    }
+}
+
+
+->Adding a new loan type breaks existing code.
+
+✅ LSP Solution:
+------------------
+
+abstract class Loan {
+    abstract double calculateInterest();
+}
+
+class CarLoan extends Loan {
+    double calculateInterest() { return getValue() * 7.5; }
+}
+
+class PersonalLoan extends Loan {
+    double calculateInterest() { return getValue() * 11.5; }
+}
+
+
+->Now you can pass any loan type without modifying existing logic.
+
+2. E-commerce Discounts
+-----------------------
+
+❌ Before LSP/OCP:
+
+class DiscountCalculator {
+    double calculateDiscount(String customerType) {
+        if (customerType.equals("Regular")) return 10.0;
+        if (customerType.equals("Premium")) return 20.0;
+        return 0.0;
+    }
+}
+
+
+✅ After LSP/OCP:
+----------------
+
+interface Discount { double getDiscount(); }
+
+class RegularCustomerDiscount implements Discount {
+    public double getDiscount() { return 10.0; }
+}
+
+class PremiumCustomerDiscount implements Discount {
+    public double getDiscount() { return 20.0; }
+}
+
+class DiscountCalculator {
+    double calculateDiscount(Discount discount) {
+        return discount.getDiscount();
+    }
+}
+
+
+->Substituting new discount classes won’t break code.
+
+3. Shapes Problem
+------------------
+
+❌ Wrong Design (Violation):
+
+class Rectangle {
+    int width, height;
+    void setWidth(int w) { width = w; }
+    void setHeight(int h) { height = h; }
+    int area() { return width * height; }
+}
+
+class Square extends Rectangle {
+    @Override
+    void setWidth(int w) { width = height = w; }
+    @Override
+    void setHeight(int h) { width = height = h; }
+}
+
+
+-> If client expects width and height to be independent, Square breaks this assumption.
+
+✅ Fix: Use separate implementations for Square and Rectangle.
+-----------------------------------------------------------
+LSP ensures substitutability → Subclass should be able to replace parent without breaking behavior.
+
+Violations occur when subclass:
+Throws unexpected exceptions (e.g., Ostrich fly).
+Weakens expected behavior (e.g., Square vs Rectangle).
+Benefits: Robust code, easier testing, better extensibility.
+Real-time examples: Loan calculation, Discount system, Shapes, Vehicle hierarchy.
+
+
+==========================================
+I — Interface Segregation Principle (ISP)
+==========================================
+->Dont force a class to implement methods it does not need.Break down big interfaces.
+
+Bad Design
+=========
+interface VehicleOperations{
+void drive();
+void refuel();
+void charge();
+
+}
+
+->Now ElectricCar has to implement refuel() even if it doesnot need it.
+
+Good Design
+===========
+// Small, focused interfaces
+interface Drivable {
+    void drive();
+}
+
+interface Refuelable {
+    void refuel();
+}
+
+interface Chargeable {
+    void charge();
+}
+
+// PetrolCar implements only what it needs
+class PetrolCar implements Drivable, Refuelable {
+    public void drive() {
+        System.out.println("Driving petrol car");
+    }
+    public void refuel() {
+        System.out.println("Refueling petrol car");
+    }
+}
+
+// ElectricCar implements only what it needs
+class ElectricCar implements Drivable, Chargeable {
+    public void drive() {
+        System.out.println("Driving electric car");
+    }
+    public void charge() { // fixed method name
+        System.out.println("Charging electric car");
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        Drivable petrolCar = new PetrolCar();
+        Drivable electricCar = new ElectricCar();
+
+        petrolCar.drive();
+        ((Refuelable) petrolCar).refuel(); // downcast to Refuelable to call refuel
+
+        electricCar.drive();
+        ((Chargeable) electricCar).charge(); // downcast to Chargeable to call charge
+    }
+}
+ or You can write it 
+
+// Small, focused interfaces
+interface Drivable {
+    void drive();
+}
+
+interface Refuelable {
+    void refuel();
+}
+
+interface Chargeable {
+    void charge();
+}
+
+// PetrolCar implements only what it needs
+class PetrolCar implements Drivable, Refuelable {
+    public void drive() {
+        System.out.println("Driving petrol car");
+    }
+    public void refuel() {
+        System.out.println("Refueling petrol car");
+    }
+}
+
+// ElectricCar implements only what it needs
+class ElectricCar implements Drivable, Chargeable {
+    public void drive() {
+        System.out.println("Driving electric car");
+    }
+    public void charge() {
+        System.out.println("Charging electric car");
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+
+        // PetrolCar
+        PetrolCar petrolCar = new PetrolCar();
+        petrolCar.drive();
+        petrolCar.refuel();
+
+        // ElectricCar
+        ElectricCar electricCar = new ElectricCar();
+        electricCar.drive();
+        electricCar.charge();
+    }
+}
+
+->Classes only implement what they actually use.
+
+->Key Idea: Split large interfaces into smaller, more specific ones
+
+
+// Violating ISP: Single interface with unrelated methods.
+interface Worker {
+    void work();
+    void eat();
+}
+class Robot implements Worker {
+    public void work() {
+        System.out.println("Robot working");
+    }
+
+    public void eat() {
+        // Robots don't eat; this method is unnecessary.
+    }
+}
+
+// Applying ISP: Create separate interfaces.
+interface Workable {
+    void work();
+}
+
+interface Eatable {
+    void eat();
+}
+
+class Robot implements Workable {
+    public void work() {
+        System.out.println("Robot working");
+    }
+}
+
+class Human implements Workable, Eatable {
+    public void work() {
+        System.out.println("Human working");
+    }
+
+    public void eat() {
+        System.out.println("Human eating");
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------
+=> Don' force the developers to implement uncessary methods of interface
+=> We need to break larger interfaces into smaller interfaces
+
+Ex: 
+
+=> javax.servlet.Servlet interface having 5 methods. If we implement Servlet interface then its mandatory to implement all the 5 methods of Servlet interface.
+=> If we go for Spring Bean Life Cycle there are two interfaces available. They are not forcing developers to implement all methods.
+1) InitializingBean   ----------> afterPropertiesSet ( ) 2) DisposableBean	  ----------> destroy ( ) 
+
+
+// Not Recommended
+
+interface ReportService {
+void excelReport ( ) ;
+void pdfReport ( ) ;
+}
+
+// Recommended Approach
+
+interface ExcelReportService {
+	void excelReport ( ) ;
+}
+
+interface PdfReportService {
+	void pdfReport ( ) ;
+}
+
+->Real-Time Scenario: Employee Management System
+Before ISP: A Worker interface enforces all employees to implement work() and eat().
+After ISP: Separate Workable and Eatable interfaces for flexibility.
+
+==========================================
+D — Dependency Inversion Principle (DIP)
+==========================================
+->High-level modules should not depend on low-level Modules.Both should depend on abstractions(interface).
+->Key Idea: Use interfaces to decouple high-level and low-level modules.
+
+Bad Design (tightly coupled):
+==============================
+class GpsDevice{
+void getLocation(){
+System.out.println("Getting Location from GPS"); 
+}
+}
+
+class VehicleTracker{
+GpsDevice gps = new GpsDevice();  //Direct dependency on concrete class
+void track(){
+gps.getLocation();//tightly coupled
+} 
+}
+
+
+Good Design
+============
+interface GpsDevice {
+    void getLocation(); // abstract method
+}
+
+// Implementation of GpsDevice
+class GoogleGPS implements GpsDevice {
+    public void getLocation() {
+        System.out.println("Location via Google GPS");
+    }
+}
+
+// High-level class using dependency injection
+class VehicleTracker {
+    private GpsDevice gps;
+
+    VehicleTracker(GpsDevice gps) {
+        this.gps = gps;
+    }
+     void track() {
+        gps.getLocation(); // Uses abstraction
+    }
+}
+
+// Main class to run the program
+public class Main {
+    public static void main(String[] args) {
+        GpsDevice gps = new GoogleGPS(); // low-level module
+        VehicleTracker tracker = new VehicleTracker(gps); // dependency injected
+        tracker.track(); // Output: Location via Google GPS
+    }
+}
+
+->VehicleTracker now depends on the interface, not the concrete class.
+
+// Violating DIP: High-level module depends on a low-level module.
+class EmailService {
+    void sendEmail() {
+        System.out.println("Sending email...");
+    }
+}
+class Notification {
+    EmailService emailService = new EmailService();
+
+    void sendNotification() {
+        emailService.sendEmail();
+    }
+}
+
+
+->Notification class is tightly coupled to EmailService.
+
+If tomorrow we want to send SMS instead of Email, we need to change the code inside the Notification class.
+
+This makes it hard to maintain and extend.
+------------------------------------------
+// Applying DIP: Use an abstraction.
+interface MessageService {
+    void sendMessage();
+}
+
+class EmailService implements MessageService {
+    public void sendMessage() {
+        System.out.println("Sending email...");
+    }
+}
+
+class Notification {
+    private MessageService messageService;
+
+    Notification(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
+    void sendNotification() {
+        messageService.sendMessage();
+    }
+}
+->Benefits:
+Notification depends only on the interface MessageService, not on EmailService or SMSService.
+
+We can easily switch from email to SMS without changing the Notification class.
+
+We can even add more services later (Push Notification, WhatsApp, etc.)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+=> Our classes should not talk to implementation classes directley. 
+
+=>Always code to interfaces and inject dependencies using setter / constructor to achieve loosely coupling.
+
+=> In below Car class it is directley talking to PetrolEngine class which is not the recommended approach. It is tightly coupling.
+
+public class Car {
+
+	public void drive(){
+		PetrolEngine eng = new PetrolEngine ( ) ;//tightly coupled
+		eng.start ( ) ;
+		// drive
+	}
+}
+
+=> To overcome that problem we can use Dependency Inversion.
+
+=> In the below example Car class depends on Engine 
+
+ We are refferring IEngine interface. 
+Any IEngine implementation class object can be injected through setter method as a Dependency Inversion. Car is loosely coupled with Engine.
+
+interface IEngine {
+    void start();
+}
+
+class PetrolEngine implements IEngine {
+    public void start() {
+        System.out.println("Petrol engine started.");
+    }
+}
+
+class DieselEngine implements IEngine {
+    public void start() {
+        System.out.println("Diesel engine started.");
+    }
+}
+
+public class Car {
+    private IEngine engine;
+
+    public void setEngine(IEngine engine) {
+        this.engine = engine;
+    }
+
+    public void drive() {
+        engine.start();
+        // drive
+    }
+}
+
+->Now:
+Car does not care if it's using PetrolEngine or DieselEngine.
+
+Any engine that implements IEngine can be used.
+
+This makes the Car class flexible and easy to
+----------------------------------------------------------
+
+->Real-Time Scenario: Notification System
+Before DIP: Hardcoding email logic in the Notification class.
+After DIP: Use an interface for MessageService, making it easy to switch between email, SMS, or push notifications.
+===============================================================================================================================================================
+
+
+
+
+Summary Table:
+==============
+Principle	                Description	                 Real-World Benefit
+S - SRP	             One responsibility per class	         Easier to maintain
+O - OCP	             Open to extension, closed to modification	 Avoids code break
+L - LSP	             Subclass should replace parent safely	 Supports polymorphism
+I - ISP	             Small, specific interfaces	                 Avoids unnecessary code
+D - DIP	             Rely on abstractions	                 Enables flexibility and testing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,400 @@
+==================================================
+1. What Are Grafana, Prometheus, and ELK?
+==================================================
+=============
+Prometheus
+============
+-> Prometheus is an open-source systems monitoring and alerting toolkit
+-> Prometheus collects and stores its metrics as time series data (data with timestamps).
+->Think of Prometheus as a robot that collects data every few seconds from your application like:
+
+How much memory is used?
+How many HTTP requests are handled?
+What’s the CPU usage?
+
+->It reads this data from a special URL exposed by Spring Boot:
+/actuator/prometheus
+
+
+============
+Grafana
+============
+-> Grafana is a database analysis and monitoring tool
+-> Grafana is a multi-platform open source analytics and interactive visualization web application.
+-> It provides charts, graphs, and alerts for the web when connected to supported data sources.
+-> Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore and share dashboards.
+
+Note: Graphana will connect with Prometheus for data source.
+
+->Grafana is like a beautiful dashboard screen.
+It takes the raw data from Prometheus.
+Shows it as charts, graphs, and tables.
+
+->Example: You can see live traffic, error rates, memory usage in real time.
+
+
+===============
+ELK Stack
+===============
+-> The ELK Stack is a collection of three open-source products — Elasticsearch, Logstash, and Kibana
+-> ELK stack provides centralized logging in order to identify problems with servers or applications
+-> It allows you to search all the logs in a single place
+
+
+E stands for : Elastic Search --> It is used to store logs
+L stands for : Log Stash --> It is used for processing logs
+K stands for : Kibana --> It is an visualization tool
+
+
+FileBeat : Log files
+MetricBeat : Metrics
+PacketBeat : Network data
+HeartBeat : Uptime Monitoring
+
+
+->  Filebeat collect data from the log files and sends it to logstash
+-> Logstash enhances the data and sends it to Elastic search
+-> Elastic search stores and indexes the data
+-> Kibana displays the datas stored in Elastic Search
+
+->This is a log monitoring system made of 3 tools:
+
+Tool	                   Meaning	Purpose
+Elasticsearch	     Search engine	Stores logs
+Logstash	     Log pipeline	Reads logs from files and sends to Elasticsearch
+Kibana	             UI dashboard	Lets you search and visualize logs
+
+->Imagine you want to find all ERROR logs from today — Kibana makes that super easy.
+
+
+
+======================
+2. Spring Boot Setup
+======================
+
+->You want your microservice to:
+Share metrics with Prometheus.
+Write logs for ELK.
+
+=====================================
+A. Enable Prometheus in Spring Boot
+====================================
+
+1. Add a dependency in pom.xml
+==============================
+
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+</dependency>
+
+
+->This tells Spring Boot to expose metrics.
+
+2. Add config in application.properties:
+=========================================
+
+management.endpoints.web.exposure.include=*
+management.endpoint.prometheus.enabled=true
+management.metrics.export.prometheus.enabled=true
+
+-> This makes /actuator/prometheus endpoint available.
+
+->Then start your app and visit:
+http://localhost:8080/actuator/prometheus
+
+->You’ll see lots of numbers — those are metrics like JVM memory, threads, CPU usage, etc.
+
+
+B. Enable Logging for ELK
+===========================
+->We need to write logs to a file, so Logstash can read them.
+
+->In logback-spring.xml file:
+
+
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/myapp.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
+
+->This will create a file like myapp.log and write logs into it.
+
+
+==============================================================
+3. Install & Setup Prometheus, Grafana, and ELK on Windows
+=============================================================
+
+->Now we need to install the tools on your Windows EC2 machine.
+
+====================
+ Install Prometheus
+=====================
+
+->Download from: https://prometheus.io/download/
+
+->Create a config file: prometheus.yml
+global:
+  scrape_interval: 10s
+
+scrape_configs:
+  - job_name: 'springboot-app'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['localhost:8080']
+
+->This tells Prometheus:
+Check the /actuator/prometheus endpoint every 10 seconds
+On the server running at port 8080
+
+->Run it:
+prometheus.exe --config.file=prometheus.yml
+
+
+->Visit: http://localhost:9090
+You’ll see Prometheus UI.
+
+
+=================
+ Install Grafana
+================
+Steps:
+
+->Download from: https://grafana.com/grafana/download
+->Run: grafana-server.exe
+->Open browser: http://localhost:3000
+->Login: admin / admin
+->Add data source:
+Type: Prometheus
+URL: http://localhost:9090
+->Create dashboards.
+You’ll see metrics like:
+Memory usage
+Request count
+Error rate
+CPU usage
+
+======================================================
+Install ELK Stack (Elasticsearch + Logstash + Kibana)
+======================================================
+===========================
+A. Install Elasticsearch
+==============================
+Download from: https://www.elastic.co/downloads/elasticsearch
+Extract and run: elasticsearch.bat
+
+->This starts the log database.
+
+
+=================
+B. Install Kibana
+=================
+Download from: https://www.elastic.co/downloads/kibana
+Run: kibana.bat
+Open browser: http://localhost:5601
+-> This opens the Kibana Dashboard where you can search logs.
+
+
+===================
+C. Install Logstash
+====================
+Logstash reads your Spring Boot logs and sends them to Elasticsearch.
+
+Create file: logstash.conf
+
+input {
+  file {
+    path => "C:/path/to/logs/myapp.log"
+    start_position => "beginning"
+    sincedb_path => "NUL"
+  }
+}
+filter {
+  grok {
+    match => { "message" => "%{TIMESTAMP_ISO8601:timestamp} %{LOGLEVEL:level} %{GREEDYDATA:message}" }
+  }
+}
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+    index => "springboot-logs"
+  }
+}
+
+->Then run:
+
+logstash -f logstash.conf
+
+
+============================
+4. View Logs & Metrics
+============================
+
+->In Grafana (http://localhost:3000)
+Go to your dashboard.
+You’ll see memory usage, request count, etc.
+You can set alerts, charts, etc.
+
+->In Kibana (http://localhost:5601)
+Go to Discover
+Search your logs using queries like:
+
+level: ERROR
+message: "Order failed"
+
+->See logs from all services in one place
+
+
+============================
+5. Real-time Flow Example
+===========================
+
+->Let's say your service has an endpoint:
+http://<EC2-IP>:8080/order
+
+->When a request is made:
+ What Happens:
+
+1.Spring Boot logs request to myapp.log
+2.Logstash reads this log
+3.Logstash sends logs to Elasticsearch
+4.Kibana shows them on dashboard
+
+->At the same time:
+
+5.Spring Boot exposes metrics at /actuator/prometheus
+6.Prometheus reads metrics every 10 seconds
+7.Grafana shows them with live graphs
+
+
+==================
+Summary Table
+===================
+
+
+Tool	               Purpose	                  Port                                             How to change it
+Prometheus	       Collect metrics	         :9090               	                Change in prometheus.yml or use CLI option
+Grafana	               Visualize metrics	 :3000                                  Change in conf/default.ini or with --config
+Elasticsearch	       Store logs	         :9200 (HTTP), 9300 (internal)          Change in config/elasticsearch.yml
+Logstash	       Parse & send logs	 :5044 (default Beats input)            Set in logstash.conf input block
+Kibana	               Visualize logs	         :5601                                  Change in config/kibana.yml
+
+
+
+Final Tips
+============
+For Real Projects:
+
+->Instead of installing manually, use Docker or AWS ECS/Fargate
+->You can also use AWS CloudWatch if you prefer fully managed services
+
+==================================
+How to Change Each Port
+=================================
+
+Prometheus
+==========
+->Default: 9090
+Change it using CLI:
+prometheus.exe --web.listen-address=":9095"
+
+Or, modify in prometheus.yml (not preferred for port):
+
+Better to use CLI or environment variable for port.
+
+
+Graphana
+========
+
+->Default: 3000
+Change in: conf/default.ini
+[server]
+http_port = 8080
+
+->Or start Grafana with a custom config:
+grafana-server.exe --config="custom.ini"
+
+
+Elasticsearch
+============
+->Default HTTP: 9200
+Default transport: 9300
+
+Change in: config/elasticsearch.yml
+
+http.port: 9205
+transport.port: 9305
+
+->Then restart Elasticsearch.
+
+
+Logstash
+========
+->Logstash doesn’t have a fixed port — it depends on your logstash.conf.
+
+Example
+
+input {
+  tcp {
+    port => 5050  # Change here
+  }
+}
+
+->Another example for Beats:
+input {
+  beats {
+    port => 5044  # default, can change to 5055
+  }
+}
+
+
+Kibana
+========
+
+->Default: 5601
+
+Change in: config/kibana.yml
+server.port: 5701
+
+->Then restart Kibana
+
+Extra Tip: Check for Port Conflicts
+===================================
+->If a port is already in use:
+Either change the port
+
+Or stop the service using it with:
+
+netstat -ano | findstr :PORT
+taskkill /PID <PID> /F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,346 @@
+=================
+Spring AOP
+===============
+AOP Introduction
+==================
+->AOP stands for Aspect oriented Programming
+->Spring Framework provided AOP module which is used to seperate cross cutting logics in application
+
+What is cross cutting logic :-
+=================================
+->Set of classes is called as one project
+->Classes contains logic to perform operations.
+->In class we will write 2 types of logics
+1)Business Logic
+2)Cross cutting logic
+
+->Business Logic is responsible to meet client requirement
+->cross cutting logic will help in executing business logic in better manner
+->If we develop methods by combining business logic & cross cutting logic it will create tightly coupling problem
+->If we modify business logic,cross cutting logic may affect
+->If we modify cross cutting logic,business logic may affect
+->To avoid this problem we have to seperate business logic & cross cutting logic in application
+
+
+AOP Terminology:-
+================
+-Aspect
+-Joinpoint
+-Pointcut
+-Weaving
+-Target
+-Proxy
+
+->Aspect:The class which contains secondary logic(cross cutting logic)
+->In Spring, aspects are implemented using classes annotated with @Aspect
+
+Logging Aspects
+Auditing Aspects
+Security Aspects
+Tx Aspects
+ExceptionalHandling Aspect
+
+
+->Advice:It represents when aspect logic should execute
+->Advice is the action taken at a particular join point
+
+Types of advices
+=================
+-Before Advice
+-After Returning Advice
+-After Throwing Advice
+-After Advice (Finally)
+-Around Advice
+-Throws Advice
+
+
+we have below advice types in AOP
+=================================
+1)Before Advice(It will execute before business logic or jointpoint)
+2)After returning Advice(will execute after business logic or jointpoint)
+3)Around Advice(will execute before & after business logic)
+4)Throws Advice(will execute when exception occurrs in business logic)
+5)After Advice (Finally): Executes after a join point, regardless of its outcome.
+
+->Target:The class which contains business logic is called as target
+->JoinPoint:It represents where secondary logic should integrate with primary logic.Spring AOP supports method level join pointcut
+->A join point is a specific point in the execution of a program, such as method execution, object instantiation, or exception handling. 
+->In Spring AOP, the only join points supported are method executions.
+->PointCut:It represents for which business methods secondary logic should apply
+->A pointcut is an expression that matches join points. It specifies where an advice should be applied. Spring uses the AspectJ pointcut expression language
+Note:Bydefault aspects logic is applicable for all methods available in target
+->weaving:The process of combinng target & aspect is called as weaving.
+->The process of linking aspects with the main application logic at specified join points. In Spring AOP, weaving is done at runtime
+->Proxy:Weaving will generate one new class by combinig target & aspect that class is called as proxy class.Spring AOP will execute proxy class in the runtime.
+
+
+Static Pointcut
+Dynamic pointcut
+
+==============================
+Advantages of Spring AOP
+=================================
+Modularity or Centralized Code Management
+Centralizes cross-cutting concerns in one place.
+
+Code Reusability
+Reuse aspects across multiple modules or projects.
+
+Improved Readability
+Separates business logic from boilerplate code or Business logic is free from boilerplate code.
+
+Ease of Maintenance
+Changes to cross-cutting concerns require updates only in the aspect, not the business logic.
+
+===========================
+Disadvantages of Spring AOP
+============================
+Runtime Weaving
+Spring AOP supports only runtime weaving, which can be slower compared to compile-time weaving.
+
+Limited Join Points
+Only method-level join points are supported, not field-level or constructor-level.
+
+
+===========================
+Purpose and Uses
+============================
+Purpose: To reduce code duplication, enhance modularity, and manage cross-cutting concerns systematically.
+Uses: Logging, auditing, security, transaction management, performance monitoring, and caching.
+
+================================
+Real-Time Use Cases of Spring AOP
+==================================
+Logging
+Automatically log method calls, inputs, outputs, and exceptions.
+
+Transaction Management
+Ensure certain methods execute within a transaction context.
+
+Security
+Check permissions before method execution.
+
+Performance Monitoring
+Measure the execution time of methods.
+
+Caching
+Cache the results of method calls.
+
+===========
+Conclusion
+===========
+Spring AOP simplifies the management of cross-cutting concerns, improving the modularity and maintainability of applications. 
+By applying AOP concepts, developers can focus on core logic without being distracted by boilerplate code
+
+
+====================================
+how to implement spring AOP
+====================================
+
+Implementing Spring AOP in an application involves several steps, from configuring the environment to writing and using aspects. 
+Below is a step-by-step guide with detailed explanations and a complete code example.
+
+->Step 1: Add Dependencies
+Ensure that your project has the required dependencies for Spring AOP and AspectJ.
+
+For Maven:
+
+<dependencies>
+    <!-- Spring AOP -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aop</artifactId>
+        <version>5.3.26</version>
+    </dependency>
+    <!-- AspectJ Weaver -->
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.9.9.1</version>
+    </dependency>
+</dependencies>
+
+->Step 2: Create the Application
+Let’s implement a simple application where we will log method execution details using Spring AOP.
+
+Example Scenario:
+Log the execution of methods in a UserService class.
+
+->Step 3: Define the Aspect
+An aspect is a class that contains the logic for cross-cutting concerns. Use the @Aspect annotation to define an aspect.
+
+LoggingAspect.java
+
+package com.example.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class LoggingAspect {
+
+    // Before Advice
+    @Before("execution(* com.example.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Executing method: " + joinPoint.getSignature().getName());
+    }
+
+    // After Advice
+    @After("execution(* com.example.service.*.*(..))")
+    public void logAfter(JoinPoint joinPoint) {
+        System.out.println("Method executed: " + joinPoint.getSignature().getName());
+    }
+
+    // After Returning Advice
+    @AfterReturning(pointcut = "execution(* com.example.service.*.*(..))", returning = "result")
+    public void logAfterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println("Method returned: " + joinPoint.getSignature().getName() + ", Result: " + result);
+    }
+
+    // After Throwing Advice
+    @AfterThrowing(pointcut = "execution(* com.example.service.*.*(..))", throwing = "exception")
+    public void logAfterThrowing(JoinPoint joinPoint, Throwable exception) {
+        System.out.println("Method threw exception: " + joinPoint.getSignature().getName() + ", Exception: " + exception);
+    }
+}
+
+->Step 4: Configure Spring AOP
+Enable AspectJ auto-proxying by adding @EnableAspectJAutoProxy in your configuration class.
+
+AppConfig.java
+
+package com.example.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@Configuration
+@EnableAspectJAutoProxy
+@ComponentScan(basePackages = "com.example")
+public class AppConfig {
+}
+
+->Step 5: Create a Service Class
+This is where the actual business logic resides.
+
+UserService.java
+
+package com.example.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+
+    public String createUser(String name) {
+        System.out.println("Creating user: " + name);
+        return "User " + name + " created successfully!";
+    }
+
+    public void deleteUser(String name) {
+        System.out.println("Deleting user: " + name);
+    }
+
+    public void throwException() {
+        throw new RuntimeException("Simulated exception!");
+    }
+}
+
+->Step 6: Write a Main Class to Run the Application
+MainApplication.java
+
+package com.example;
+
+import com.example.config.AppConfig;
+import com.example.service.UserService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class MainApplication {
+
+    public static void main(String[] args) {
+        // Initialize Spring Context
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // Get the UserService bean
+        UserService userService = context.getBean(UserService.class);
+
+        // Call methods to trigger AOP
+        System.out.println(userService.createUser("John"));
+        userService.deleteUser("John");
+
+        try {
+            userService.throwException();
+        } catch (Exception e) {
+            System.out.println("Exception caught in main.");
+        }
+
+        // Close context
+        context.close();
+    }
+}
+
+
+->Step 7: Output Explanation
+When you run the application, the following will happen:
+
+Before Advice logs the method name before execution.
+After Advice logs the method name after execution.
+After Returning Advice logs the return value of the method.
+After Throwing Advice logs exceptions if any.
+
+
+->outpt:-
+
+Executing method: createUser
+Creating user: John
+Method executed: createUser
+Method returned: createUser, Result: User John created successfully!
+Executing method: deleteUser
+Deleting user: John
+Method executed: deleteUser
+Executing method: throwException
+Method threw exception: throwException, Exception: java.lang.RuntimeException: Simulated exception!
+Exception caught in main.
+
+
+
+=======================
+Explanation of Code
+========================
+Aspect (LoggingAspect):
+
+Contains the cross-cutting logic.
+Uses pointcut expressions like execution(* com.example.service.*.*(..)) to apply advice to all methods in the service package.
+
+Advice:
+
+@Before: Logs method execution before the method runs.
+@After: Logs after the method completes (whether successful or not).
+@AfterReturning: Logs the return value of the method.
+@AfterThrowing: Logs exceptions thrown by the method.
+Configuration:
+
+@EnableAspectJAutoProxy: Enables Spring AOP proxy creation.
+Service Class (UserService):Contains business logic.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
