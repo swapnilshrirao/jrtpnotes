@@ -495,6 +495,84 @@ git merge vs git rebase(frequetly asked for java developer & very very important
 
 In this scenario we don't need commit history so we will use 'git rebase' command.
 
+// merge demo
+
+-> create a  new folder(merge-demo) & navigate into that folder using git bash & execute below commands
+
+git status
+git init
+touch m1.txt
+git add .
+git commit - m "added m1.txt"
+git log 
+
+
+
+git branch feature
+git checkout feature
+
+Note:From master branch we have created feature branch
+
+touch f1.txt
+git add .
+git commit -m "added f1.txt"
+git log
+
+Feature contains f1.txt & m1.txt
+
+If you switch to master you can see only m1.txt
+git checkout master
+
+//I will make few more changes to master
+touch m2.txt
+git add .
+git commit -m "added m2.txt"
+git log
+
+The changes happened in master branch are relevent to feature.I want to get master branch changes to feature branch
+
+we have two options git merge and git rebase  
+
+git checkout feature(i have m1.txt & f1.txt but m2.txt not available )
+git merge master(m2.txt we got into feature)
+git log
+
+Note:git merge command,commited all master branch changes to feature branch
+Note:See commit history we can see that at what time merge happened it is displaying that
+
+//rebase demo
+
+-> create a  new folder(rebase-demo) & navigate into that folder & open cmd & execute below commands
+
+git init
+touch m1.txt
+git add .
+git commit - m "added m1.txt"
+git log 
+ 
+git branch feature
+git checkout feature
+touch f1.txt
+git add .
+git commit -m "added f1.txt"
+git log
+
+//making few more changes to master
+git checkout master
+touch m2.txt
+git add .
+git commit -m "added m2.txt"
+git checkout feature
+
+git rebase master (master branch changes will come to feature branch)
+
+git log
+
+Note:in commit history at thet time we have done rebase will not displayed 
+
+Note:Git merge will maintain commit history and it will log when merge happened
+Note:-Git rebase will make commit history linear
+
 ++++++++++++++++++++++
 What is git pull command 
 ++++++++++++++++++++++
